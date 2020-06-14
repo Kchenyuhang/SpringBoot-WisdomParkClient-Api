@@ -1,13 +1,13 @@
 package com.niit.soft.client.api.service;
 
 import com.niit.soft.client.api.common.ResponseResult;
-import com.niit.soft.client.api.domain.dto.TransactionDto;
+import com.niit.soft.client.api.errends.domain.dto.TransactionDto;
+import com.niit.soft.client.api.errends.service.TransactionService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 
-import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class TransactionServiceTest {
 @Resource

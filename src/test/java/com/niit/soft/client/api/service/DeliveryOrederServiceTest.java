@@ -1,16 +1,14 @@
 package com.niit.soft.client.api.service;
 
 import com.niit.soft.client.api.common.ResponseResult;
-import com.niit.soft.client.api.domain.dto.DeliveryOrderDto;
-import com.niit.soft.client.api.domain.dto.FinshOrderDto;
-import com.niit.soft.client.api.domain.model.DeliveryOrder;
+import com.niit.soft.client.api.errends.domain.dto.DeliveryOrderDto;
+import com.niit.soft.client.api.errends.domain.dto.FinshOrderDto;
+import com.niit.soft.client.api.errends.service.DeliveryOrederService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Map;
 
 @SpringBootTest

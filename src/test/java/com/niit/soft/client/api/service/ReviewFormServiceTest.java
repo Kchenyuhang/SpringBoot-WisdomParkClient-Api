@@ -1,12 +1,12 @@
 package com.niit.soft.client.api.service;
 
-import com.niit.soft.client.api.domain.dto.ReviewFormDto;
+import com.niit.soft.client.api.errends.domain.dto.ReviewFormDto;
+import com.niit.soft.client.api.errends.service.ReviewFormService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 
-import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class ReviewFormServiceTest {
 @Resource

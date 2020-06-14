@@ -50,11 +50,11 @@ spring:
         min-idle: 0
     timeout: 1000
   # rabbitmq 配置
-  rabbitmq:
-    host: 120.26.179.70
-    port: 5672
-    username: wl
-    password: 123...
+#  rabbitmq:
+#    host: 120.26.179.70
+#    port: 5672
+#    username: wl
+#    password: 123...
 
 # mybatis-Plus配置
 mybatis-plus:
