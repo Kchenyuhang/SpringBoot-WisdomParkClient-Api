@@ -20,7 +20,7 @@ public class TransactionDto {
     /**
      * 跑腿人的id
      */
-    private Long errandsId;
+    private String errandsId;
     /**
      * 订单id
      */

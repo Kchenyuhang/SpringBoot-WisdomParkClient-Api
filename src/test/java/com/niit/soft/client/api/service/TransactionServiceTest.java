@@ -17,7 +17,7 @@ private TransactionService transactionService;
     @Test
     void insertTransaction() {
 
-        TransactionDto transactionDto =TransactionDto.builder().orderId(53965137417474049L).errandsId(1L).build();
+        TransactionDto transactionDto =TransactionDto.builder().orderId(53965137417474049L).errandsId("1").build();
         ResponseResult responseResult = transactionService.insertTransaction(transactionDto);
         System.out.println(responseResult);
     }

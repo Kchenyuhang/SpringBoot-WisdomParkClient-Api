@@ -22,7 +22,7 @@ public class DeliveryOrderDto{
     /**
      * 订单发起人
      */
-    private Long founderId;
+    private String  founderId;
 
     /**
      * 送件人姓名

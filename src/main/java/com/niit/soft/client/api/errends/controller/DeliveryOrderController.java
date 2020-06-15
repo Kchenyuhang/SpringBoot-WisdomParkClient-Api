@@ -58,4 +58,10 @@ public class DeliveryOrderController {
     public  ResponseResult deleteOrder(@RequestBody TransactionDto transactionDto ){
         return deliveryOrederService.cancleOrder(transactionDto.getOrderId());
     }
+
+    @ApiOperation(value = "查询所有未被抢单的订单", notes = "请求参数为Dto   ")
+    @PostMapping("/find/order")
+    public  ResponseResult getorder(@RequestBody FinshOrderDto finshOrderDto ){
+        return deliveryOrederService.selectAllOrder(finshOrderDto);
+    }
 }

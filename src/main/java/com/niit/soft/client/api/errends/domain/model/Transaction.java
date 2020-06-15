@@ -46,7 +46,7 @@ public class Transaction {
      *
      */
     @Column(name = "errands_id", nullable = false)
-    private Long errandsId;
+    private String errandsId;
     /**
      * 完成时间  根据完成后更改
      */

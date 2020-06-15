@@ -16,7 +16,7 @@ private ReviewFormService reviewFormService;
         ReviewFormDto reviewFormDto =ReviewFormDto.builder()
                 .idCardBack( "https://niit-soft.oss-cn-hangzhou.aliyuncs.com/UserAvatar/7ead2dc5-6e64-4b01-befb-f53d0c3270b0.jpg")
                 .idCardFront( "https://niit-soft.oss-cn-hangzhou.aliyuncs.com/UserAvatar/7ead2dc5-6e64-4b01-befb-f53d0c3270b0.jpg")
-                .remark(null).requesterId(5L).requesterName("王林").requesterPhonenumber("18094247962")
+                .remark(null).requesterId("5").requesterName("王林").requesterPhonenumber("18094247962")
                 .build();
         reviewFormService.insertReview(reviewFormDto);
 

@@ -20,7 +20,7 @@ public class FinshOrderDto{
     /**
      * 订单发起人
      */
-    private Long founderId;
+    private String founderId;
     /**
      * 订单状态 3 是完成 1是取消 2是进行中 0是正常
      */

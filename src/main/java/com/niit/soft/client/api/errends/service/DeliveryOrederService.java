@@ -41,4 +41,11 @@ public interface DeliveryOrederService {
      * 逻辑删除订单
      */
     ResponseResult deleteOrder(Long id);
+
+    /**
+     * 查询所有未被抢单的订单 按照时间排序
+     *
+     * @return
+     */
+    ResponseResult selectAllOrder(FinshOrderDto finshOrderDto);
 }

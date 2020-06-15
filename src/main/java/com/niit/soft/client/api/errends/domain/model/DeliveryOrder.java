@@ -30,7 +30,6 @@ import java.sql.Timestamp;
 @Builder
 @Entity
 @Table(name = "delivery_order")
-
 public class DeliveryOrder {
     @Id
     @Column(name = "id")
@@ -39,7 +38,7 @@ public class DeliveryOrder {
      * 订单发起人
      */
     @Column(name = "founder_id", nullable = false)
-    private Long founderId;
+    private String founderId;
 
     /**
      * 送件人姓名

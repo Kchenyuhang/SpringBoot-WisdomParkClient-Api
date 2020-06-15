@@ -2,21 +2,35 @@ package com.niit.soft.client.api.errends.service.servicempl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.niit.soft.client.api.common.ResponseResult;
+import com.niit.soft.client.api.domain.model.SysBorrow;
+import com.niit.soft.client.api.domain.model.UserAccount;
+import com.niit.soft.client.api.errends.domain.dto.FinshOrderDto;
 import com.niit.soft.client.api.errends.domain.dto.TransactionDto;
+import com.niit.soft.client.api.errends.domain.model.Commodity;
 import com.niit.soft.client.api.errends.domain.model.DeliveryOrder;
 import com.niit.soft.client.api.errends.domain.model.Transaction;
+import com.niit.soft.client.api.errends.domain.vo.DeliveryOderInformationVo;
+import com.niit.soft.client.api.errends.mapper.CommodityMapper;
 import com.niit.soft.client.api.errends.mapper.DeliveryOrderMapper;
 import com.niit.soft.client.api.errends.mapper.TransactionMapper;
-
+import com.niit.soft.client.api.errends.mapper.UserAccountMapper;
 import com.niit.soft.client.api.errends.repository.TransactionRepository;
 import com.niit.soft.client.api.errends.service.TransactionService;
 import com.niit.soft.client.api.util.SnowFlake;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author wl
@@ -34,6 +48,10 @@ public class TransactionServiceImpl implements TransactionService {
     private TransactionMapper transactionMapper;
     @Resource
     private DeliveryOrderMapper deliveryOrderMapper;
+    @Resource
+    private CommodityMapper commodityMapper;
+    @Resource
+    private UserAccountMapper userAccountMapper;
 
     @Override
     public ResponseResult insertTransaction(TransactionDto transactionDto) {
@@ -86,6 +104,49 @@ public class TransactionServiceImpl implements TransactionService {
         deliveryOrderMapper.update(deliveryOrder, deliveryOrderQueryWrapper);
         return ResponseResult.success();
 
+    }
+
+    @Override
+    public ResponseResult selctTransactionOrder(FinshOrderDto finshOrderDto) {
+        List<DeliveryOderInformationVo> list = new ArrayList<>();
+        //分页减一
+        Pageable pageable = PageRequest.of(finshOrderDto.getNum(), finshOrderDto.getSize());
+        //查询所有订单
+        QueryWrapper<Transaction> transactionQueryWrapper = new QueryWrapper<>();
+        transactionQueryWrapper.select("errands_id", "order_id", "transaction_create", "transaction_end").eq("status", finshOrderDto.getStatus()).eq("errands_id", finshOrderDto.getFounderId()).orderByDesc("transaction_create");
+        List<Transaction> transactions = transactionMapper.selectList(transactionQueryWrapper);
+        for (Transaction transaction : transactions) {
+            //查询出订单消息
+
+            DeliveryOrder deliveryOrder = deliveryOrderMapper.selectById(transaction.getOrderId());
+            //查出商品信息
+            Commodity commodity = commodityMapper.selectById(deliveryOrder.getCommodityId());
+            //查出送货人信息
+            QueryWrapper<UserAccount> errendsAccountWrapper = new QueryWrapper<>();
+            errendsAccountWrapper.select("nickname", "job_number", "phone_number").eq("job_number", finshOrderDto.getFounderId());
+            UserAccount errendsAccount = userAccountMapper.selectOne(errendsAccountWrapper);
+            //查出收货人
+            QueryWrapper<UserAccount> userAccountQueryWrapper = new QueryWrapper<>();
+            userAccountQueryWrapper.select("nickname", "job_number", "phone_number").eq("job_number", deliveryOrder.getFounderId());
+            UserAccount userAccount = userAccountMapper.selectOne(userAccountQueryWrapper);
+            DeliveryOderInformationVo deliveryOderInformationVo = DeliveryOderInformationVo.builder()
+                    .amount(deliveryOrder.getAmount()).commodity(commodity)
+                    .deliveryTime(deliveryOrder.getDeliveryTime())
+                    .destination(deliveryOrder.getDestination())
+                    .errendsPhoneNumber(errendsAccount.getPhoneNumber())
+                    .finshTime(transaction.getTransactionEnd()).founderId(deliveryOrder.getFounderId()).founderName(userAccount.getNickname()).founderPhonenumber(userAccount.getPhoneNumber())
+                    .id(deliveryOrder.getId()).name(errendsAccount.getNickname()).oderCreateTime(deliveryOrder.getOderCreateTime())
+                    .originAddress(deliveryOrder.getOriginAddress()).receiverName(deliveryOrder.getReceiverName()).receiverPhoneNumber(deliveryOrder.getReceiverPhoneNumber())
+                    .remark(deliveryOrder.getRemark())
+                    .build();
+            list.add(deliveryOderInformationVo); }
+        Page<DeliveryOderInformationVo> deliveryOderInformationVos = new PageImpl<DeliveryOderInformationVo>(list,pageable,list.size());
+        int totalPages = deliveryOderInformationVos.  getTotalPages();
+        List<DeliveryOderInformationVo> content = deliveryOderInformationVos.getContent();
+        Map<String,Object>map =new HashMap<>();
+        map.put("order",content);
+        map.put("totalPages",totalPages);
+        return ResponseResult.success(map);
     }
 
 

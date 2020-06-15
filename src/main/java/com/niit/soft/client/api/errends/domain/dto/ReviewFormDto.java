@@ -22,7 +22,7 @@ public class ReviewFormDto {
      * 申请人id
      */
 
-    private Long requesterId;
+    private String requesterId;
     /**
      * 申请人正面身份证
      */

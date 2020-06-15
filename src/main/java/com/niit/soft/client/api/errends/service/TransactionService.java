@@ -1,7 +1,11 @@
 package com.niit.soft.client.api.errends.service;
 
 import com.niit.soft.client.api.common.ResponseResult;
+import com.niit.soft.client.api.errends.domain.dto.FinshOrderDto;
 import com.niit.soft.client.api.errends.domain.dto.TransactionDto;
+import com.niit.soft.client.api.errends.domain.vo.DeliveryOderInformationVo;
+
+import java.util.List;
 
 /**
  * @author wl
@@ -33,4 +37,11 @@ public interface TransactionService {
      * @return
      */
   ResponseResult getGoods(TransactionDto  transactionDto);
+
+    /**
+     * 查询我抢的订单
+     * @param finshOrderDto
+     * @return
+     */
+    ResponseResult selctTransactionOrder(FinshOrderDto finshOrderDto);
 }

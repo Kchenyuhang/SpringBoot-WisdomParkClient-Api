@@ -7,15 +7,18 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.niit.soft.client.api.common.ResponseResult;
 import com.niit.soft.client.api.common.ResultCode;
-import com.niit.soft.client.api.errends.domain.dto.FinshOrderDto;
+import com.niit.soft.client.api.domain.model.UserAccount;
 import com.niit.soft.client.api.errends.domain.dto.DeliveryOrderDto;
+import com.niit.soft.client.api.errends.domain.dto.FinshOrderDto;
 import com.niit.soft.client.api.errends.domain.model.CancleDeliveryOrder;
 import com.niit.soft.client.api.errends.domain.model.Commodity;
 import com.niit.soft.client.api.errends.domain.model.DeliveryOrder;
 import com.niit.soft.client.api.errends.domain.model.Transaction;
+import com.niit.soft.client.api.errends.domain.vo.DeliveryOderInformationVo;
 import com.niit.soft.client.api.errends.mapper.CommodityMapper;
 import com.niit.soft.client.api.errends.mapper.DeliveryOrderMapper;
 import com.niit.soft.client.api.errends.mapper.TransactionMapper;
+import com.niit.soft.client.api.errends.mapper.UserAccountMapper;
 import com.niit.soft.client.api.errends.repository.CancleDeliveryOderRepository;
 import com.niit.soft.client.api.errends.repository.CommondityRepository;
 import com.niit.soft.client.api.errends.repository.DeliveryOderRepository;
@@ -23,12 +26,16 @@ import com.niit.soft.client.api.errends.service.DeliveryOrederService;
 import com.niit.soft.client.api.util.DateTest;
 import com.niit.soft.client.api.util.SnowFlake;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -56,7 +63,8 @@ public class DeliveryOrederServiceImpl extends ServiceImpl<DeliveryOrderMapper, 
     private DeliveryOderRepository deliveryOderRepository;
     @Resource
     private CancleDeliveryOderRepository cancleDeliveryOderRepository;
-
+    @Resource
+    private UserAccountMapper userAccountMapper;
     @Override
     public ResponseResult insertOrder(DeliveryOrderDto deliveryOrderDto) {
         SnowFlake snowFlaker = new SnowFlake(1, 3);
@@ -154,10 +162,50 @@ public class DeliveryOrederServiceImpl extends ServiceImpl<DeliveryOrderMapper, 
     @Override
     public ResponseResult deleteOrder(Long id) {
         QueryWrapper<DeliveryOrder> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("id", id).ne("status",2);
+        queryWrapper.eq("id", id).ne("status", 2);
         DeliveryOrder deliveryOrder = DeliveryOrder.builder().isDeleted(true).build();
         deliveryOrderMapper.update(deliveryOrder, queryWrapper);
         return ResponseResult.success();
+    }
+
+    @Override
+    public ResponseResult selectAllOrder(FinshOrderDto finshOrderDto) {
+List<DeliveryOderInformationVo>list =new ArrayList<>();
+        //分页减一
+        Pageable pageable = PageRequest.of(finshOrderDto.getNum(), finshOrderDto.getSize());
+        QueryWrapper<DeliveryOrder> queryWrapper = new QueryWrapper<>();
+        queryWrapper.select("id", "amount", "commodity_id", "d_dimension", "d_longitude", "delivery_time", "destination",
+                "founder_id", "o_dimension", "o_longitude", "oder_create_time", "origin_address", "receiver_name", "receiver_phone_number"
+                , "remark").eq("status", 0);
+        List<DeliveryOrder> deliveryOrders = deliveryOrderMapper.selectList(queryWrapper);
+        for (DeliveryOrder deliveryOrder : deliveryOrders) {
+            //查出发单人信息
+            QueryWrapper<UserAccount> userAccountQueryWrapper = new QueryWrapper<>();
+            userAccountQueryWrapper.select("nickname", "job_number", "phone_number").eq("job_number", deliveryOrder.getFounderId());
+            UserAccount userAccount = userAccountMapper.selectOne(userAccountQueryWrapper);
+            Commodity commodity = commodityMapper.selectById(deliveryOrder.getCommodityId());
+            DeliveryOderInformationVo deliveryOderInformationVo = DeliveryOderInformationVo.builder()
+                    .amount(deliveryOrder.getAmount())
+                    .commodity(commodity).deliveryTime(deliveryOrder.getDeliveryTime())
+                    .destination(deliveryOrder.getDestination())
+                    .founderId(userAccount.getJobNumber())
+                    .founderName(userAccount.getUserName())
+                    .founderPhonenumber(userAccount.getPhoneNumber())
+                    .id(deliveryOrder.getId())
+                    .oderCreateTime(deliveryOrder.getOderCreateTime())
+                    .originAddress(deliveryOrder.getOriginAddress())
+                    .receiverName(deliveryOrder.getReceiverName())
+                    .receiverPhoneNumber(deliveryOrder.getReceiverPhoneNumber())
+                    .build();
+            list.add(deliveryOderInformationVo);
+        }
+        org.springframework.data.domain.Page<DeliveryOderInformationVo> deliveryOderInformationVos = new PageImpl<DeliveryOderInformationVo>(list,pageable,list.size());
+        int totalPages = deliveryOderInformationVos. getTotalPages();
+        List<DeliveryOderInformationVo> content = deliveryOderInformationVos.getContent();
+        Map<String,Object>map =new HashMap<>();
+        map.put("order",content);
+        map.put("totalPages",totalPages-1);
+        return ResponseResult.success(map);
     }
 
 

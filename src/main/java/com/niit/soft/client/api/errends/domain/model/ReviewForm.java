@@ -35,7 +35,7 @@ public class ReviewForm {
      * 申请人id
      */
     @Column(name = "requester_id")
-    private Long requesterId;
+    private String requesterId;
     /**
      * 申请人正面身份证
      */

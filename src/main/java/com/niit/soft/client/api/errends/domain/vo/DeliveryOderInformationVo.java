@@ -31,7 +31,15 @@ public class DeliveryOderInformationVo {
     /**
      * 订单发起人
      */
-    private Long founderId;
+    private String founderId;
+    /**
+     * 订单发起人姓名
+     */
+    private String founderName;
+    /**
+     * 订单发起人手机号
+     */
+    private  String founderPhonenumber;
     /**
      * 初始位置
      */
@@ -65,11 +73,11 @@ public class DeliveryOderInformationVo {
     /**
      * 完成人的手机号
      */
-    private  String errendsPhoneNumber;
+    private String errendsPhoneNumber;
     /**
      * 完成时间
      */
-    private  Timestamp finshTime;
+    private Timestamp finshTime;
     /**
      * 订单金额（起步价格6）
      */
