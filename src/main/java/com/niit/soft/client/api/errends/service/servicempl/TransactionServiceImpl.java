@@ -2,8 +2,8 @@ package com.niit.soft.client.api.errends.service.servicempl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.niit.soft.client.api.common.ResponseResult;
-import com.niit.soft.client.api.domain.model.SysBorrow;
 import com.niit.soft.client.api.domain.model.UserAccount;
+import com.niit.soft.client.api.errends.util.PageUtil;
 import com.niit.soft.client.api.errends.domain.dto.FinshOrderDto;
 import com.niit.soft.client.api.errends.domain.dto.TransactionDto;
 import com.niit.soft.client.api.errends.domain.model.Commodity;
@@ -17,8 +17,6 @@ import com.niit.soft.client.api.errends.mapper.UserAccountMapper;
 import com.niit.soft.client.api.errends.repository.TransactionRepository;
 import com.niit.soft.client.api.errends.service.TransactionService;
 import com.niit.soft.client.api.util.SnowFlake;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -140,13 +138,15 @@ public class TransactionServiceImpl implements TransactionService {
                     .remark(deliveryOrder.getRemark())
                     .build();
             list.add(deliveryOderInformationVo); }
-        Page<DeliveryOderInformationVo> deliveryOderInformationVos = new PageImpl<DeliveryOderInformationVo>(list,pageable,list.size());
-        int totalPages = deliveryOderInformationVos.  getTotalPages();
+        org.springframework.data.domain.Page<DeliveryOderInformationVo> deliveryOderInformationVos = PageUtil.listConvertToPage(list, pageable);
+        int totalPages = deliveryOderInformationVos.getTotalPages();
         List<DeliveryOderInformationVo> content = deliveryOderInformationVos.getContent();
         Map<String,Object>map =new HashMap<>();
         map.put("order",content);
         map.put("totalPages",totalPages);
+
         return ResponseResult.success(map);
+
     }
 
 

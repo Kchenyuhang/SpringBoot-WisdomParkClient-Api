@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.niit.soft.client.api.common.ResponseResult;
 import com.niit.soft.client.api.common.ResultCode;
 import com.niit.soft.client.api.domain.model.UserAccount;
+import com.niit.soft.client.api.errends.util.PageUtil;
 import com.niit.soft.client.api.errends.domain.dto.DeliveryOrderDto;
 import com.niit.soft.client.api.errends.domain.dto.FinshOrderDto;
 import com.niit.soft.client.api.errends.domain.model.CancleDeliveryOrder;
@@ -26,9 +27,7 @@ import com.niit.soft.client.api.errends.service.DeliveryOrederService;
 import com.niit.soft.client.api.util.DateTest;
 import com.niit.soft.client.api.util.SnowFlake;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -170,7 +169,7 @@ public class DeliveryOrederServiceImpl extends ServiceImpl<DeliveryOrderMapper, 
 
     @Override
     public ResponseResult selectAllOrder(FinshOrderDto finshOrderDto) {
-List<DeliveryOderInformationVo>list =new ArrayList<>();
+        List<DeliveryOderInformationVo> list = new ArrayList<>();
         //分页减一
         Pageable pageable = PageRequest.of(finshOrderDto.getNum(), finshOrderDto.getSize());
         QueryWrapper<DeliveryOrder> queryWrapper = new QueryWrapper<>();
@@ -199,12 +198,14 @@ List<DeliveryOderInformationVo>list =new ArrayList<>();
                     .build();
             list.add(deliveryOderInformationVo);
         }
-        org.springframework.data.domain.Page<DeliveryOderInformationVo> deliveryOderInformationVos = new PageImpl<DeliveryOderInformationVo>(list,pageable,list.size());
-        int totalPages = deliveryOderInformationVos. getTotalPages();
+
+        org.springframework.data.domain.Page<DeliveryOderInformationVo> deliveryOderInformationVos = PageUtil.listConvertToPage(list, pageable);
+        int totalPages = deliveryOderInformationVos.getTotalPages();
         List<DeliveryOderInformationVo> content = deliveryOderInformationVos.getContent();
         Map<String,Object>map =new HashMap<>();
         map.put("order",content);
-        map.put("totalPages",totalPages-1);
+        map.put("totalPages",totalPages);
+
         return ResponseResult.success(map);
     }
 
