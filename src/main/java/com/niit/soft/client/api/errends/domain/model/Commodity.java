@@ -31,9 +31,8 @@ public class Commodity {
      * 主键自增
      */
     @Id
-
-    @Column(name = "id")
-    private Long id;
+    @Column(name = "id" ,length = 30)
+    private String id;
     /**
      * 商品类型
      */

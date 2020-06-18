@@ -71,11 +71,10 @@ public class DeliveryOrederServiceImpl extends ServiceImpl<DeliveryOrderMapper, 
         Long commodityId = snowFlaker.nextId();
         //雪花生成订单id
         Long deliveryOrderId = snowFlaker.nextId();
-        log.info(String.valueOf(commodityId));
-        log.info(String.valueOf(deliveryOrderId));
+
 
         //插入商品数据
-        Commodity commodity = Commodity.builder().id(commodityId).priceRang(deliveryOrderDto.getPriceRang())
+        Commodity commodity = Commodity.builder().id(String.valueOf(commodityId)).priceRang(deliveryOrderDto.getPriceRang())
                 .type(deliveryOrderDto.getType()).gmtCreate(Timestamp.valueOf(LocalDateTime.now())).gmtModified(Timestamp.valueOf(LocalDateTime.now())).isDeleted(false).build();
         Commodity save = commondityRepository.save(commodity);
 
@@ -83,9 +82,9 @@ public class DeliveryOrederServiceImpl extends ServiceImpl<DeliveryOrderMapper, 
             //插入订单数据
             log.info(String.valueOf(deliveryOrderDto));
             DeliveryOrder deliveryOrder = DeliveryOrder.builder()
-                    .id(deliveryOrderId)
-                    .deliveryTime(DateTest.getLocalDateTime(deliveryOrderDto.getDeliveryTime())).amount(deliveryOrderDto.getAmount())
-                    .commodityId(commodityId)
+                    .id(String.valueOf(deliveryOrderId))
+                    .deliveryTime(Timestamp.valueOf(LocalDateTime.now())).amount(deliveryOrderDto.getAmount())
+                    .commodityId(String.valueOf(commodityId))
                     .dDimension(deliveryOrderDto.getDdimension())
                     .destination(deliveryOrderDto.getDestination())
                     .dLongitude(deliveryOrderDto.getDlongitude())
@@ -112,7 +111,7 @@ public class DeliveryOrederServiceImpl extends ServiceImpl<DeliveryOrderMapper, 
     }
 
     @Override
-    public ResponseResult cancleOrder(Long id) {
+    public ResponseResult cancleOrder(String id) {
         //根居id查询出来的交易表是否有数据
         Transaction transaction = transactionMapper.selectById(id);
         if (transaction == null) {
@@ -125,7 +124,7 @@ public class DeliveryOrederServiceImpl extends ServiceImpl<DeliveryOrderMapper, 
             if (update != 0) {
                 SnowFlake snowFlake = new SnowFlake(1, 3);
                 long cancleId = snowFlake.nextId();
-                CancleDeliveryOrder cancleDeliveryOrder = CancleDeliveryOrder.builder().cancleTime(Timestamp.valueOf(LocalDateTime.now())).id(cancleId).oderId(id).isDeleted(true).gmtCreate(Timestamp.valueOf(LocalDateTime.now())).gmtModified(Timestamp.valueOf(LocalDateTime.now())).build();
+                CancleDeliveryOrder cancleDeliveryOrder = CancleDeliveryOrder.builder().cancleTime(Timestamp.valueOf(LocalDateTime.now())).id(String.valueOf(cancleId)).oderId(id).isDeleted(true).gmtCreate(Timestamp.valueOf(LocalDateTime.now())).gmtModified(Timestamp.valueOf(LocalDateTime.now())).build();
                 cancleDeliveryOderRepository.save(cancleDeliveryOrder);
                 return ResponseResult.success();
             }
@@ -141,7 +140,6 @@ public class DeliveryOrederServiceImpl extends ServiceImpl<DeliveryOrderMapper, 
             QueryWrapper<DeliveryOrder> queryWrapper = new QueryWrapper<>();
             queryWrapper.eq("founder_id", finshOrderDto.getFounderId()).eq("status", finshOrderDto.getStatus()).orderByDesc("oder_create_time").eq("is_deleted", false);
             pages = deliveryOrderMapper.selectPage(page, queryWrapper);
-            log.info(String.valueOf(pages.getRecords()));
         } else {
             QueryWrapper<DeliveryOrder> queryWrapper = new QueryWrapper<>();
             queryWrapper.eq("founder_id", finshOrderDto.getFounderId())
@@ -159,12 +157,18 @@ public class DeliveryOrederServiceImpl extends ServiceImpl<DeliveryOrderMapper, 
     }
 
     @Override
-    public ResponseResult deleteOrder(Long id) {
+    public ResponseResult deleteOrder(String id) {
+        log.info(id);
         QueryWrapper<DeliveryOrder> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("id", id).ne("status", 2);
+        queryWrapper.eq("id", id).and(i-> i.ne("status", 0).or().ne("status", 2).ne("status", 3));
         DeliveryOrder deliveryOrder = DeliveryOrder.builder().isDeleted(true).build();
-        deliveryOrderMapper.update(deliveryOrder, queryWrapper);
-        return ResponseResult.success();
+        int update = deliveryOrderMapper.update(deliveryOrder, queryWrapper);
+        if(update==1){
+            return ResponseResult.success();
+        }else {
+            return  ResponseResult.failure(ResultCode.RESULT_CODE_DATA_NONE);
+        }
+
     }
 
     @Override

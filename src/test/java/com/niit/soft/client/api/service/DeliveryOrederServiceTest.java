@@ -40,7 +40,7 @@ class DeliveryOrederServiceTest {
 
     @Test
     void cancleOrder() {
-        ResponseResult responseResult = deliveryOrederService.cancleOrder(54253938647896065L);
+        ResponseResult responseResult = deliveryOrederService.cancleOrder("54253938647896065");
         System.out.println(responseResult);
     }
 
@@ -54,6 +54,6 @@ class DeliveryOrederServiceTest {
 
     @Test
     void deleteOrder() {
-        System.out.println(deliveryOrederService.deleteOrder(54253938647896065L));
+        System.out.println(deliveryOrederService.deleteOrder("56472539454902273"));
     }
 }

@@ -17,6 +17,7 @@ import com.niit.soft.client.api.errends.mapper.UserAccountMapper;
 import com.niit.soft.client.api.errends.repository.TransactionRepository;
 import com.niit.soft.client.api.errends.service.TransactionService;
 import com.niit.soft.client.api.util.SnowFlake;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -37,6 +38,7 @@ import java.util.Map;
  * @Date 2020/6/9
  * @Version 1.0
  */
+@Slf4j
 @Service
 @Transactional(rollbackFor = RuntimeException.class)
 public class TransactionServiceImpl implements TransactionService {
@@ -58,7 +60,7 @@ public class TransactionServiceImpl implements TransactionService {
         //创建订单表
         Transaction transaction = Transaction.builder().transactionCreate(Timestamp.valueOf(LocalDateTime.now()))
                 .transactionEnd(Timestamp.valueOf(LocalDateTime.now())).errandsId(transactionDto.getErrandsId()).status(0).orderId(transactionDto.getOrderId())
-                .id(transactionId).gmtCreate(Timestamp.valueOf(LocalDateTime.now())).gmtModified(Timestamp.valueOf(LocalDateTime.now())).isDeleted(false).build();
+                .id(String.valueOf(transactionId)).gmtCreate(Timestamp.valueOf(LocalDateTime.now())).gmtModified(Timestamp.valueOf(LocalDateTime.now())).isDeleted(false).build();
         Transaction save = transactionRepository.save(transaction);
         //更改订单状态为被抢单
         QueryWrapper<DeliveryOrder>queryWrapper =new QueryWrapper<>();
@@ -70,7 +72,7 @@ public class TransactionServiceImpl implements TransactionService {
 
 
     @Override
-    public ResponseResult finshOrder(Long orderId) {
+    public ResponseResult finshOrder(String orderId) {
         /**
          * 更新订单交易表的状态
          */
@@ -106,6 +108,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public ResponseResult selctTransactionOrder(FinshOrderDto finshOrderDto) {
+
         List<DeliveryOderInformationVo> list = new ArrayList<>();
         //分页减一
         Pageable pageable = PageRequest.of(finshOrderDto.getNum(), finshOrderDto.getSize());
@@ -113,12 +116,15 @@ public class TransactionServiceImpl implements TransactionService {
         QueryWrapper<Transaction> transactionQueryWrapper = new QueryWrapper<>();
         transactionQueryWrapper.select("errands_id", "order_id", "transaction_create", "transaction_end").eq("status", finshOrderDto.getStatus()).eq("errands_id", finshOrderDto.getFounderId()).orderByDesc("transaction_create");
         List<Transaction> transactions = transactionMapper.selectList(transactionQueryWrapper);
+
+
         for (Transaction transaction : transactions) {
             //查询出订单消息
-
             DeliveryOrder deliveryOrder = deliveryOrderMapper.selectById(transaction.getOrderId());
+            log.info(transaction.getOrderId());
             //查出商品信息
             Commodity commodity = commodityMapper.selectById(deliveryOrder.getCommodityId());
+
             //查出送货人信息
             QueryWrapper<UserAccount> errendsAccountWrapper = new QueryWrapper<>();
             errendsAccountWrapper.select("nickname", "job_number", "phone_number").eq("job_number", finshOrderDto.getFounderId());

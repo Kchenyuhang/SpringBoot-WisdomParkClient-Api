@@ -27,9 +27,9 @@ import java.sql.Timestamp;
 @Table(name = "purchase_order")
 public class PurchaseOrder {
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id" ,length = 30)
+
+    private String id;
     /**
      *目的地
      */
@@ -49,7 +49,7 @@ public class PurchaseOrder {
      *商品id
      */
     @Column(name = "commodity_id", nullable = false)
-    private Long commodityId;
+    private String commodityId;
     /**
      * 金额
      */

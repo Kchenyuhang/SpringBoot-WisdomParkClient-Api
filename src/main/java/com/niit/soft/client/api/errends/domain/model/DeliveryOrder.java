@@ -32,8 +32,8 @@ import java.sql.Timestamp;
 @Table(name = "delivery_order")
 public class DeliveryOrder {
     @Id
-    @Column(name = "id")
-    private Long id;
+    @Column(name = "id" ,length = 30)
+    private String id;
     /**
      * 订单发起人
      */
@@ -85,7 +85,7 @@ public class DeliveryOrder {
      * 商品详细信息
      */
     @Column(name = "commodity_id", nullable = false)
-    private Long commodityId;
+    private String commodityId;
     /**
      * 订单创建时间
      */

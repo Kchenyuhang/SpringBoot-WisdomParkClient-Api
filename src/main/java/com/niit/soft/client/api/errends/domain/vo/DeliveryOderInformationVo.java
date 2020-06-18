@@ -27,7 +27,7 @@ public class DeliveryOderInformationVo {
     /**
      * 订单id
      */
-    private Long id;
+    private String id;
     /**
      * 订单发起人
      */

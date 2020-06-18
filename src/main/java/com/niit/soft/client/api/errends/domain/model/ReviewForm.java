@@ -29,8 +29,8 @@ public class ReviewForm {
      * 主键
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id" ,length = 30)
+    private String id;
     /**
      * 申请人id
      */

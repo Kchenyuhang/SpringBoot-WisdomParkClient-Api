@@ -25,19 +25,19 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "canle_delivery_order")
+@Table(name = "cancle_delivery_order")
 public class CancleDeliveryOrder {
     /**
      * id
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id" ,length = 30)
+    private String id;
     /**
      * 订单编号
      */
     @Column(name = "oder_id", nullable = false)
-    private Long oderId;
+    private String oderId;
     /**
      * 取消时间
      */

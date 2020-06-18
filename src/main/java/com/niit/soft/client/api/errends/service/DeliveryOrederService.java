@@ -29,7 +29,7 @@ public interface DeliveryOrederService {
      *
      * @return
      */
-    ResponseResult cancleOrder(Long id);
+    ResponseResult cancleOrder(String id);
 
 
     /**
@@ -40,7 +40,7 @@ public interface DeliveryOrederService {
     /**
      * 逻辑删除订单
      */
-    ResponseResult deleteOrder(Long id);
+    ResponseResult deleteOrder(String id);
 
     /**
      * 查询所有未被抢单的订单 按照时间排序

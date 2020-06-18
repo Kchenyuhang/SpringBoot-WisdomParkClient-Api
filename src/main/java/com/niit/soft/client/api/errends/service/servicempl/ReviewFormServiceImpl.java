@@ -33,7 +33,7 @@ public class ReviewFormServiceImpl implements ReviewFormService {
         long l = snowFlake.nextId();
         //新增申请记录
         ReviewForm reviewForm =ReviewForm.builder()
-                .id(l).gmtCreate(Timestamp.valueOf(LocalDateTime.now())).gmtModified(Timestamp.valueOf(LocalDateTime.now())).idCardBack(reviewFormDto.getIdCardBack())
+                .id(String.valueOf(l)).gmtCreate(Timestamp.valueOf(LocalDateTime.now())).gmtModified(Timestamp.valueOf(LocalDateTime.now())).idCardBack(reviewFormDto.getIdCardBack())
                 .idCardFront(reviewFormDto.getIdCardFront()).requesterId(reviewFormDto.getRequesterId())
                 .remark(reviewFormDto.getRemark()).requesterName(reviewFormDto.getRequesterName()).requesterPhonenumber(reviewFormDto.getRequesterPhonenumber()).status(0L).isDeleted(false)
                 .build();

@@ -28,14 +28,13 @@ import java.sql.Timestamp;
 @EntityListeners(AuditingEntityListener.class)
 public class Transaction {
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id" ,length = 30)
+    private String id;
     /**
      *订单id
      */
     @Column(name = "order_id", nullable = false)
-    private Long orderId;
+    private String orderId;
     /**
      *交易创建时间+
      */

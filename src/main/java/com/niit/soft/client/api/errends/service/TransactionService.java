@@ -29,7 +29,7 @@ public interface TransactionService {
      * @param orderId
      * @return
      */
-    ResponseResult finshOrder(Long orderId);
+    ResponseResult finshOrder(String orderId);
 
     /**
      * 取货
