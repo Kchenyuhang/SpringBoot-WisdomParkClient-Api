@@ -14,10 +14,11 @@ import java.util.List;
 public interface OrderRepository extends JpaRepository<SysOrder, Long> {
     /**
      * 消费明细
+     *
      * @param jobNumber
      * @return
      */
-    List<SysOrder> findAllByJobNumber (String jobNumber);
+    List<SysOrder> findAllByJobNumber(String jobNumber);
 
 
 }

@@ -21,7 +21,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "schedule",indexes = {@Index(name = "clazz_idIndex",columnList = "clazz_id")})
+@Table(name = "schedule", indexes = {@Index(name = "clazz_idIndex", columnList = "clazz_id")})
 public class Schedule {
     /**
      * 主键，策略为自增
@@ -33,7 +33,7 @@ public class Schedule {
     /**
      * 班级id
      */
-    @Column(name ="clazz_id",nullable = false)
+    @Column(name = "clazz_id", nullable = false)
     private Long clazzId;
 
     /**
@@ -45,13 +45,13 @@ public class Schedule {
     /**
      * 第几周（第一周、第二周...）
      */
-    @Column(nullable = false,length = 11)
+    @Column(nullable = false, length = 11)
     private Integer week;
 
     /**
      * 课表名称
      */
-    @Column(nullable = false,length = 60)
+    @Column(nullable = false, length = 60)
     private String name;
 
     /**
@@ -70,6 +70,6 @@ public class Schedule {
     /**
      * 删除标志（0 逻辑删除， 1 未删除）
      */
-    @Column(nullable = false,length = 4)
+    @Column(nullable = false, length = 4)
     private Boolean isDeleted;
 }

@@ -17,6 +17,6 @@ import java.util.UUID;
 public class MyIdGenerator implements IdentifierGenerator {
     @Override
     public Serializable generate(SharedSessionContractImplementor session, Object object) throws HibernateException {
-        return "order-"+ UUID.randomUUID();   //生成格式：order-87cc2eae-c0dd-4c05-beef-69396391bab7
+        return "order-" + UUID.randomUUID();   //生成格式：order-87cc2eae-c0dd-4c05-beef-69396391bab7
     }
 }

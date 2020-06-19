@@ -14,6 +14,7 @@ import com.niit.soft.client.api.domain.dto.FleaRewardDto;
 public interface FleaCommentService {
     /**
      * 新增评论
+     *
      * @param commentDto
      * @return
      */
@@ -21,6 +22,7 @@ public interface FleaCommentService {
 
     /**
      * 根据悬赏id查询评论信息
+     *
      * @param fleaRewardDto
      * @return
      */

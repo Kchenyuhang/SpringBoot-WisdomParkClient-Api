@@ -19,14 +19,14 @@ import javax.annotation.Resource;
  **/
 @RestController
 @RequestMapping("/tower")
-@Api(value = "TowerController",tags = {"楼栋模块接口"})
+@Api(value = "TowerController", tags = {"楼栋模块接口"})
 public class TowerController {
     @Resource
     private TowerService towerService;
 
-    @ApiOperation(value = "查询所有宿舍数据接口",notes = "")
+    @ApiOperation(value = "查询所有宿舍数据接口", notes = "")
     @PostMapping(value = "/all")
-    ResponseResult findAllDormByType(){
+    ResponseResult findAllDormByType() {
         return towerService.getAllDormByType();
     }
 }

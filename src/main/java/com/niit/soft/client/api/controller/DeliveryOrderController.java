@@ -56,7 +56,7 @@ public class DeliveryOrderController {
 
     @ApiOperation(value = "删除非请求订单", notes = "请求参数为Dto 参数为 订单id  ")
     @PostMapping("/delete/order")
-    public  ResponseResult deleteOrder(@RequestBody TransactionDto transactionDto ){
+    public ResponseResult deleteOrder(@RequestBody TransactionDto transactionDto) {
         return deliveryOrederService.cancleOrder(transactionDto.getOrderId());
     }
 }

@@ -27,11 +27,12 @@ public class OrderController {
 
     /**
      * 查询清单明细
+     *
      * @param singleFieldDto
      * @return
      */
-      @PostMapping("/card/consume")
-    ResponseResult findAllByJobNumber(@RequestBody SingleFieldDto singleFieldDto){
-          return orderService.findALLByJobNumer(singleFieldDto.getField().toString());
-      }
+    @PostMapping("/card/consume")
+    ResponseResult findAllByJobNumber(@RequestBody SingleFieldDto singleFieldDto) {
+        return orderService.findALLByJobNumer(singleFieldDto.getField().toString());
+    }
 }

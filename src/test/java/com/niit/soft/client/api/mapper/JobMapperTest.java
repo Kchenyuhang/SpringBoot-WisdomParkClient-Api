@@ -12,6 +12,7 @@ class JobMapperTest {
 
     @Resource
     private JobMapper jobMapper;
+
     @Test
     void findJob() {
 

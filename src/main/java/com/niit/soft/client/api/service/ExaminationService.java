@@ -12,6 +12,7 @@ import java.util.Map;
 public interface ExaminationService {
     /**
      * 根据学期进行分类
+     *
      * @return
      */
     List<Map<String, Object>> getExaminationBySemester(String jobNumber);

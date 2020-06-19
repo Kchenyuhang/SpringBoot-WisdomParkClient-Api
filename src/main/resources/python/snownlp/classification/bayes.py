@@ -69,8 +69,8 @@ class Bayes(object):
             now = 0
             try:
                 for otherk in self.d:
-                    now += exp(tmp[otherk]-tmp[k])
-                now = 1/now
+                    now += exp(tmp[otherk] - tmp[k])
+                now = 1 / now
             except OverflowError:
                 now = 0
             if now > prob:

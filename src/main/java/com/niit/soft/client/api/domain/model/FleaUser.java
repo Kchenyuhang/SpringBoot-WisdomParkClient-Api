@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+
 /**
  * @author 倪涛涛
  * @version 1.0.0
@@ -30,20 +31,20 @@ public class FleaUser {
     /**
      * 用户昵称
      */
-    @Column(nullable = false,length = 32)
+    @Column(nullable = false, length = 32)
     private String nickname;
 
     /**
      * 用户名
      */
-    @Column(nullable = false,length = 32)
+    @Column(nullable = false, length = 32)
     private String username;
 
 
     /**
      * 手机号
      */
-    @Column(nullable = false,length = 20,unique = true)
+    @Column(nullable = false, length = 20, unique = true)
     private String phoneNumber;
 
     /**
@@ -55,21 +56,21 @@ public class FleaUser {
     /**
      * 性别
      */
-    @Column(nullable = false,length = 4)
+    @Column(nullable = false, length = 4)
     private String sex;
 
     /**
      * 学号
      */
 
-    @Column(nullable = false,length = 12)
+    @Column(nullable = false, length = 12)
     private String jobNumber;
 
 
     /**
      * 删除标志
      */
-    @Column(nullable = false,length = 4)
+    @Column(nullable = false, length = 4)
     private Boolean isDeleted;
 
 

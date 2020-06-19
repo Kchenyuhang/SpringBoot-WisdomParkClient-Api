@@ -16,6 +16,7 @@ import java.io.IOException;
 public interface QQService {
     /**
      * 用户请求第三方登录，重定向到QQ互联
+     *
      * @param session
      * @return
      */
@@ -23,6 +24,7 @@ public interface QQService {
 
     /**
      * QQ回调，QQ互联返回openid,该id可以唯一锁定用户
+     *
      * @param request
      * @return
      */

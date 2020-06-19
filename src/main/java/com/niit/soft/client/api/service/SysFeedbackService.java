@@ -13,6 +13,7 @@ import com.niit.soft.client.api.domain.model.SysFeedback;
 public interface SysFeedbackService {
     /**
      * 新增反馈信息
+     *
      * @param sysFeedback
      * @return
      */

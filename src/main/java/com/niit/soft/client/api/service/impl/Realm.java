@@ -57,7 +57,7 @@ public class Realm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         String token = (String) authenticationToken.getCredentials();
-        log.info("当前token{}--------------",token);
+        log.info("当前token{}--------------", token);
         //解密获得username,用于和数据库进行对比
         String userAccount = JwtUtil.getUserAccount(token);
         if (userAccount == null) {

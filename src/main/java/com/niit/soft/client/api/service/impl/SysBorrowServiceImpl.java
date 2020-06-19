@@ -31,7 +31,7 @@ public class SysBorrowServiceImpl implements SysBorrowService {
         BorrowDto borrowDto = new BorrowDto();
         List<SysBorrow> sysBorrowsReturn = sysBorrowRepository.findReturnSysBorrows(borrowUserNumber);
         List<SysBorrow> sysBorrowsNoReturn = sysBorrowRepository.findNoReturnSysBorrows(borrowUserNumber);
-        int borrowCount = sysBorrowsNoReturn.size()+sysBorrowsNoReturn.size();
+        int borrowCount = sysBorrowsNoReturn.size() + sysBorrowsNoReturn.size();
         borrowDto.setSysBorrowReturnList(sysBorrowsReturn);
         borrowDto.setSysBorrowNoReturnList(sysBorrowsNoReturn);
         borrowDto.setBorrowCount(borrowCount);

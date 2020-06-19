@@ -39,27 +39,27 @@ public class Room {
     /**
      * 楼栋id
      */
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false, unique = true)
     private Long towerId;
     /**
      * 单元名
      */
-    @Column(name = "unit_id",nullable = false)
+    @Column(name = "unit_id", nullable = false)
     private Long unitId;
     /**
      * 电费余额
      */
-    private  Double electricityBalance;
+    private Double electricityBalance;
     /**
      * 寝室长学号
      */
-    @Column(nullable = false,length = 20,unique = true)
+    @Column(nullable = false, length = 20, unique = true)
     private String roomLeaderJobNumber;
 
     /**
      * 宿舍成员学号（逗号隔开，用户学号）
      */
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false, unique = true)
     private String roomMemberJobNumber;
 
     /**

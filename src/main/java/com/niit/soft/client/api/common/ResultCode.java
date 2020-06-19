@@ -35,7 +35,7 @@ public enum ResultCode {
     /* 业务错误：30001-39999 */
     SMS_ERROR(30001, "短信业务出现问题"),
     UPLOAD_ERROR(30002, "上传文件业务出现问题"),
-    CARD_REPORT(30004,"一卡通已挂失"),
+    CARD_REPORT(30004, "一卡通已挂失"),
 
     /* 数据错误：40001-49999 */
     RESULT_CODE_DATA_NONE(50001, "数据未找到"),
@@ -59,21 +59,16 @@ public enum ResultCode {
     SCHOOL_MATE_THUMBS_UP(60007, "点赞成功"),
     SCHOOL_MATE_THUMBS_DOWN(60008, "取消点赞"),
     SCHOOL_MATE_THUMBS_UP_REDIS(60009, "redis没有点赞信息"),
-    SCHOOLMATE_ADD_PHOTO_FAILING(60010,"添加图片失败"),
+    SCHOOLMATE_ADD_PHOTO_FAILING(60010, "添加图片失败"),
 
     /* 权限错误：70001-79999 */
     PERMISSION_NO_ACCESS(70001, "无访问权限"),
 
 
-
-
-
     /*跑腿模块：80001-89999*/
-    ORDER_NOT_CANCLE(80001,"订单正在配送无法取消");
+    ORDER_NOT_CANCLE(80001, "订单正在配送无法取消");
 
     /*校友圈模块：90001-99999*/
-
-
 
 
     private Integer code;

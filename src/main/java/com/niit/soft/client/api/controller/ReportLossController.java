@@ -23,50 +23,53 @@ import javax.annotation.Resource;
  **/
 @Slf4j
 @RestController
-@Api(value = "ReportLossController",tags = {"挂失接口"})
+@Api(value = "ReportLossController", tags = {"挂失接口"})
 public class ReportLossController {
     @Resource
     private ReportLossService reportLossService;
+
     /**
      * 分页查询所有消息
+     *
      * @param pageDto
      * @return
      */
     @PostMapping("/loss/all")
-    ResponseResult findAllByPage(@RequestBody PageDto pageDto){
+    ResponseResult findAllByPage(@RequestBody PageDto pageDto) {
         return reportLossService.findAllByPage(pageDto);
     }
 
     /**
-     *
      * @param secondFieldDto
      * @return
      */
     @PostMapping("/loss/statuschange")
-    ResponseResult updateLossStatus(@RequestBody SecondFieldDto secondFieldDto){
+    ResponseResult updateLossStatus(@RequestBody SecondFieldDto secondFieldDto) {
         boolean lossStatus = Boolean.parseBoolean(secondFieldDto.getField2().toString());
-        return  reportLossService.updateLossStatus(Long.parseLong(String.valueOf(secondFieldDto.getField1())), lossStatus);
+        return reportLossService.updateLossStatus(Long.parseLong(String.valueOf(secondFieldDto.getField1())), lossStatus);
     }
 
     /**
      * 申请挂失
+     *
      * @param reportLoss
      * @return
      */
-    @ApiOperation(value = "申请挂失信息",notes = "")
+    @ApiOperation(value = "申请挂失信息", notes = "")
     @PostMapping(value = "/increase")
-    public ResponseResult increaseReportLoss(@RequestBody ReportLoss reportLoss){
+    public ResponseResult increaseReportLoss(@RequestBody ReportLoss reportLoss) {
         return reportLossService.insertReportLoss(reportLoss);
     }
 
     /**
      * 取消挂失
+     *
      * @param reportLoss
      * @return
      */
-    @ApiOperation(value = "取消挂失信息",notes = "")
+    @ApiOperation(value = "取消挂失信息", notes = "")
     @PostMapping(value = "/deletion")
-    public ResponseResult deletionReportLoss(@RequestBody ReportLoss reportLoss){
+    public ResponseResult deletionReportLoss(@RequestBody ReportLoss reportLoss) {
         return reportLossService.cancelReportLoss(reportLoss);
     }
 

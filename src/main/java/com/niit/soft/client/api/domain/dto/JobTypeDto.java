@@ -22,6 +22,6 @@ import javax.persistence.Column;
 public class JobTypeDto {
 
     private String name;
-    private  Long parentId;
+    private Long parentId;
 
 }

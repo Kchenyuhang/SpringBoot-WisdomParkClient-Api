@@ -48,12 +48,12 @@ public class DeliveryOrder {
      * 送件人姓名
      */
     @Column(name = "founder_name", nullable = false)
-    private  String founderName;
+    private String founderName;
     /**
      * 送件人手机号
      */
     @Column(name = "founder_phonenumber", nullable = false)
-    private  String founderPhonenumber;
+    private String founderPhonenumber;
 
     /**
      * 初始位置

@@ -35,7 +35,7 @@ public class FleaCommentVo {
     /**
      * 评论悬赏帖标题
      */
-    private String  title;
+    private String title;
 
     private Date createTime;
 

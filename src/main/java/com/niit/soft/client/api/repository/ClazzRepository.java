@@ -26,6 +26,6 @@ public interface ClazzRepository extends JpaRepository<Clazz, Long> {
      * @param pkClazzId
      * @return
      */
-    @Query(value = "select name from clazz as c where c.pk_clazz_id=?1",nativeQuery = true)
+    @Query(value = "select name from clazz as c where c.pk_clazz_id=?1", nativeQuery = true)
     String findClazzById(Long pkClazzId);
 }

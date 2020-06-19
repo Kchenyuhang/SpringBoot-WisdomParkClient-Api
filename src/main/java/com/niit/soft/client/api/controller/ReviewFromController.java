@@ -29,9 +29,9 @@ public class ReviewFromController {
     @Resource
     private ReviewFormService reviewFormService;
 
-    @ApiOperation(value = "申请成为跑腿 ",notes = "请求参数为review dto")
+    @ApiOperation(value = "申请成为跑腿 ", notes = "请求参数为review dto")
     @PostMapping("/application")
-    public ResponseResult insertDeliveryOrder(@RequestBody ReviewFormDto reviewFormDto){
+    public ResponseResult insertDeliveryOrder(@RequestBody ReviewFormDto reviewFormDto) {
         return reviewFormService.insertReview(reviewFormDto);
     }
 }

@@ -20,14 +20,14 @@ import javax.annotation.Resource;
  **/
 @RestController
 @RequestMapping("/semester")
-@Api(value = "SysSemesterController",tags = {"学期模块接口"})
+@Api(value = "SysSemesterController", tags = {"学期模块接口"})
 public class SysSemesterController {
     @Resource
     private SysSemesterService sysSemesterService;
 
-    @ApiOperation(value = "查询所有学期接口",notes = "")
+    @ApiOperation(value = "查询所有学期接口", notes = "")
     @PostMapping(value = "/all")
-    ResponseResult findAllSysSemester(){
+    ResponseResult findAllSysSemester() {
         return sysSemesterService.findAllSysSemester();
     }
 }

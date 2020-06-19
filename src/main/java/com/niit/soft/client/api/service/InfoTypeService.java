@@ -14,17 +14,15 @@ public interface InfoTypeService {
 
     /**
      * 查询所有的资讯分类
+     *
      * @return
      */
     ResponseResult getAllType();
 
 
-
-
-
-
     /**
      * 根据分类id查询相对应的数据
+     *
      * @param pageDto
      * @return
      */

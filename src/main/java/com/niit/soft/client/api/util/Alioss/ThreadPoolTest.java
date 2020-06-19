@@ -18,7 +18,7 @@ import java.util.concurrent.*;
 @Slf4j
 public class ThreadPoolTest {
     @Resource
- private MyCallable myCallable;
+    private MyCallable myCallable;
 
     public List<String> getUrl() {
         List<String> returnValue = null;
@@ -40,8 +40,8 @@ public class ThreadPoolTest {
                 } catch (InterruptedException | ExecutionException e) {
                     e.printStackTrace();
                 }
-                    threadPoolExecutor.shutdown();
-                    break;
+                threadPoolExecutor.shutdown();
+                break;
             }
         }
         return returnValue;

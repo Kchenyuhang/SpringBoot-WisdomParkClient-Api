@@ -26,11 +26,11 @@ public class LoginAccount {
 //    long类型不给长度也生效
 
     //学号
-    @Column(nullable = false,unique = true,length = 32)
+    @Column(nullable = false, unique = true, length = 32)
     private String jobNumber;
 
     //标准32位
     //QQ第三方的OpenID
-    @Column(nullable = false,unique = true,length = 32)
+    @Column(nullable = false, unique = true, length = 32)
     private String qqOpenId;
 }

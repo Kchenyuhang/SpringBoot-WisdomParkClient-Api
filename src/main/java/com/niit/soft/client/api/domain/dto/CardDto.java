@@ -17,10 +17,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class CardDto {
     private Long pkCardId;
-    private  Long id;
-    private  String jobNumber;
+    private Long id;
+    private String jobNumber;
     private String cardNumber;
-    private Double  money;
+    private Double money;
     private Boolean Status;
 
 

@@ -17,12 +17,15 @@ public interface AddressBookService {
 
     /**
      * 根据用户id获取通讯录信息
+     *
      * @param userId
      * @return
      */
     List<AddressBook> getAddressBookByUserId(String userId);
+
     /**
      * 根据用户手机号获取通讯录信息
+     *
      * @param phoneNumber
      * @return
      */
@@ -30,18 +33,21 @@ public interface AddressBookService {
 
     /**
      * 新增联系人
+     *
      * @param addressBook
      */
     void insertAddressBook(AddressBook addressBook);
 
     /**
      * 根据id删除通讯录信息
+     *
      * @param id
      */
     void deleteAddressBookById(long id);
 
     /**
      * 根据id更新通讯录信息
+     *
      * @param addressBook
      */
     void updateAddressBookById(AddressBook addressBook);
@@ -49,6 +55,7 @@ public interface AddressBookService {
 
     /**
      * 分页查询通讯里所有好友
+     *
      * @param pageDto
      * @return
      */

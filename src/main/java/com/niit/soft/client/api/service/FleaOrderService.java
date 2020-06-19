@@ -13,6 +13,7 @@ import com.niit.soft.client.api.domain.dto.FleaOrderDto;
 public interface FleaOrderService {
     /**
      * 新增订单
+     *
      * @param fleaOrderDto
      * @return
      */
@@ -20,6 +21,7 @@ public interface FleaOrderService {
 
     /**
      * 逻辑删除订单
+     *
      * @param fleaOrderDto
      * @return
      */

@@ -23,6 +23,7 @@ public class GlobalExceptionHandler {
 
     /**
      * 自定义异常的处理，统一在这里捕获返回JSON格式的友好提示
+     *
      * @param exception
      * @return ResponseResult
      */
@@ -36,6 +37,7 @@ public class GlobalExceptionHandler {
 
     /**
      * InvalidClaimException异常处理
+     *
      * @param exception
      * @return
      */
@@ -49,6 +51,7 @@ public class GlobalExceptionHandler {
 
     /**
      * NPE异常的处理
+     *
      * @param exception
      * @return
      */

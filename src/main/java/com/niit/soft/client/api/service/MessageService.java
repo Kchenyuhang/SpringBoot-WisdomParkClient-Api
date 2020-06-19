@@ -9,11 +9,11 @@ import com.niit.soft.client.api.domain.dto.PageDto;
 public interface MessageService {
     /**
      * 分页查询消息数据
+     *
      * @param pageDto
      * @return
      */
     ResponseResult findAllByPage(PageDto pageDto);
-
 
 
 }

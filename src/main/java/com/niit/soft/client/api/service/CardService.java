@@ -15,6 +15,7 @@ import java.util.List;
 public interface CardService {
     /**
      * 分页查询一卡通数据
+     *
      * @param pageDto
      * @return
      */
@@ -22,13 +23,15 @@ public interface CardService {
 
     /**
      * 批量增加一卡通信息
-     * @return
+     *
      * @param sysCards
+     * @return
      */
     ResponseResult insertAll(List<SysCard> sysCards);
 
     /**
      * 查询一卡通余额
+     *
      * @param jobNumber
      * @return
      */
@@ -36,35 +39,41 @@ public interface CardService {
 
     /**
      * 校园卡充值
+     *
      * @param cardNumber
      * @param money
      * @return
      */
-    ResponseResult insertCardBalance(String cardNumber,Double money);
+    ResponseResult insertCardBalance(String cardNumber, Double money);
 
     /**
      * 电费充值
+     *
      * @param id
      * @param money
      * @return
      */
 
-    ResponseResult insertelectricityBalance(Long id,Double money);
+    ResponseResult insertelectricityBalance(Long id, Double money);
+
     /**
      * 网费充值
+     *
      * @param jobNumber
      * @param money
      * @return
      */
 
-    ResponseResult insertBalance(String jobNumber,Double money);
+    ResponseResult insertBalance(String jobNumber, Double money);
+
     /**
      * 校园卡激活
+     *
      * @param pkCardId
      * @param Status
      * @return
      */
-    ResponseResult updateStatus(Long pkCardId,Boolean Status);
+    ResponseResult updateStatus(Long pkCardId, Boolean Status);
 
 
 }

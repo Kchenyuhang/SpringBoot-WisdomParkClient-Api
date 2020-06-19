@@ -6,6 +6,7 @@ package com.niit.soft.client.api.handler;
  * @Date 2020/5/24 10:27
  * @Version 1.0
  **/
+
 import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import java.io.*;
 public class RequestWrapper extends HttpServletRequestWrapper {
     //用于将流保存下来
     private final String body;
+
     //封装HttpServletRequest的数据
     public RequestWrapper(HttpServletRequest request) {
         super(request);
@@ -86,6 +88,7 @@ public class RequestWrapper extends HttpServletRequestWrapper {
     public BufferedReader getReader() throws IOException {
         return new BufferedReader(new InputStreamReader(this.getInputStream()));
     }
+
     //提供数据
     public String getBody() {
         return this.body;

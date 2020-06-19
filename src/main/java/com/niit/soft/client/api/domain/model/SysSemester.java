@@ -30,37 +30,37 @@ public class SysSemester {
     /**
      * 名称
      */
-    @Column(name = "name" ,nullable = false,length = 32)
+    @Column(name = "name", nullable = false, length = 32)
     private String name;
 
     /**
      * 周次数
      */
-    @Column(name = "week_count" ,nullable = false)
+    @Column(name = "week_count", nullable = false)
     private Integer weekCount;
 
     /**
      * 开学时间
      */
-    @Column(name = "open_school_time" ,nullable = false)
+    @Column(name = "open_school_time", nullable = false)
     private Timestamp openSchoolTime;
 
     /**
      * 创建时间
      */
-    @Column(name = "gmt_create" ,nullable = false)
+    @Column(name = "gmt_create", nullable = false)
     private Timestamp gmtCreate;
 
     /**
      * 更新时间
      */
     @UpdateTimestamp
-    @Column(name = "gmt_modified" ,nullable = false)
+    @Column(name = "gmt_modified", nullable = false)
     private Timestamp gmtModified;
 
     /**
      * 删除标志
      */
-    @Column(name = "is_deleted" ,nullable = false,length = 4)
+    @Column(name = "is_deleted", nullable = false, length = 4)
     private Boolean isDeleted;
 }

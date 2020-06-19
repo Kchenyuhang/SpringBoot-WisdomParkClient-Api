@@ -46,7 +46,7 @@ public class JobTypeServiceImpl extends ServiceImpl<JobTypeMapper, JobType> impl
     @Override
     public List<JobType> findType() {
         QueryWrapper<JobType> wrapper = new QueryWrapper<>();
-        wrapper.select("pk_job_type_id","name");
+        wrapper.select("pk_job_type_id", "name");
         return jobTypeMapper.selectList(wrapper);
     }
 }

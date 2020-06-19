@@ -22,20 +22,21 @@ import javax.annotation.Resource;
 @RestController
 @Slf4j
 @RequestMapping("/message")
-@Api(value = "MessageController",tags = {"消息接口"})
+@Api(value = "MessageController", tags = {"消息接口"})
 public class MessageController {
     @Resource
     private MessageService messageService;
 
     /**
      * 查询所有消息
+     *
      * @param pageDto
      * @return
      */
-    @ApiOperation(value = "查询所有",notes = "请求参数为当前页和页面条数")
+    @ApiOperation(value = "查询所有", notes = "请求参数为当前页和页面条数")
     @PostMapping("/all")
     @ControllerWebLog(name = "findAllByPage", isSaved = true)
-    ResponseResult findAllByPage(@RequestBody PageDto pageDto){
+    ResponseResult findAllByPage(@RequestBody PageDto pageDto) {
         return messageService.findAllByPage(pageDto);
     }
 

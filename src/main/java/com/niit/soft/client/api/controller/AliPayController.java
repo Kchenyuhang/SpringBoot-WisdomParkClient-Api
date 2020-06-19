@@ -20,10 +20,11 @@ import javax.annotation.Resource;
 @Api(tags = "支付宝支付接口")
 public class AliPayController {
     @Resource
-  private AliPayService aliPayService;
+    private AliPayService aliPayService;
 
     /**
      * 支付接口
+     *
      * @param alipayDto
      * @return
      * @throws AlipayApiException
@@ -37,6 +38,7 @@ public class AliPayController {
 
     /**
      * 异步通知
+     *
      * @return
      */
     @ApiOperation("支付异步通知接口")
@@ -48,6 +50,7 @@ public class AliPayController {
 
     /**
      * 回调接口
+     *
      * @return
      */
     @ApiOperation("支付完成以后的回调接口")

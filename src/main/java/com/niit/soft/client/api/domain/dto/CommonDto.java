@@ -16,5 +16,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class CommonDto {
-    private  int id;
+    private int id;
 }

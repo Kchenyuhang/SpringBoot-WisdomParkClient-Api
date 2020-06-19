@@ -32,18 +32,17 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     /**
-     *订单id
+     * 订单id
      */
     @Column(name = "order_id", nullable = false)
-    private  Long orderId;
+    private Long orderId;
     /**
-     *交易创建时间+
+     * 交易创建时间+
      */
     @Column(name = "transaction_create", nullable = false)
     private Timestamp transactionCreate;
     /**
-     *跑腿人
-     *
+     * 跑腿人
      */
     @Column(name = "errands_id", nullable = false)
     private Long errandsId;
@@ -62,7 +61,7 @@ public class Transaction {
      */
     //@JsonIgnore
     @Column(nullable = false)
-   @CreatedDate
+    @CreatedDate
     private Timestamp gmtCreate;
 
     /**

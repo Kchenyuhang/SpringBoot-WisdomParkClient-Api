@@ -70,7 +70,6 @@ public interface DynamicService {
     Dynamic addOne(DynamicDto dynamicDto);
 
     /**
-     *
      * @param dynamicPhotoDtos
      * @return
      */

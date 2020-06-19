@@ -31,22 +31,22 @@ public class PurchaseOrder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     /**
-     *目的地
+     * 目的地
      */
     @Column(name = "destination", nullable = false)
     private String destination;
     /**
-     *经度
+     * 经度
      */
     @Column(name = "d_longitude", nullable = false)
     private String dLongitude;
     /**
-     *纬度
+     * 纬度
      */
     @Column(name = "d_dimension", nullable = false)
     private String dDimension;
     /**
-     *商品id
+     * 商品id
      */
     @Column(name = "commodity_id", nullable = false)
     private Long commodityId;

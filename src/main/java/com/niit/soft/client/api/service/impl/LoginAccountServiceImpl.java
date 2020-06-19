@@ -20,6 +20,7 @@ import javax.annotation.Resource;
 public class LoginAccountServiceImpl implements LoginAccountService {
     @Resource
     private LoginAccountRepository loginAccountRepository;
+
     @Override
     public ResponseResult increasedLoginAccount(LoginAccountIncreased loginAccountIncreased) {
         LoginAccount loginAccount = LoginAccount.builder()

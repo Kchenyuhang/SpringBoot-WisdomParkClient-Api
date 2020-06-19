@@ -9,13 +9,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
     /**
      * 根据班级id、学期id、周次查询出课表id
+     *
      * @param clazzId
      * @param semesterId
      * @param week
      * @return
      */
-    Schedule findScheduleByClazzIdAndSemesterIdAndWeek(Long clazzId,Long semesterId,Integer week);
-
+    Schedule findScheduleByClazzIdAndSemesterIdAndWeek(Long clazzId, Long semesterId, Integer week);
 
 
 }

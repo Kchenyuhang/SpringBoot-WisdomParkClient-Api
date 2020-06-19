@@ -15,16 +15,17 @@ import java.util.List;
  * @Date 2020/6/8  16:20
  * @Version 1.0
  **/
-public interface CommentRepository extends JpaRepository<Comment,String> {
+public interface CommentRepository extends JpaRepository<Comment, String> {
 
     /**
-     *
      * @param id
      * @return
      */
     Comment findCommentByPkCommentId(String id);
+
     /**
      * 根据动态id查询评论
+     *
      * @param dynamicId
      * @return
      */
@@ -32,11 +33,14 @@ public interface CommentRepository extends JpaRepository<Comment,String> {
 
     /**
      * 根据动态id查找存在的评论
+     *
      * @return
      */
-    List<Comment> findCommentByIsDeletedAndDynamicId(Boolean isDel,String dynamicId);
+    List<Comment> findCommentByIsDeletedAndDynamicId(Boolean isDel, String dynamicId);
+
     /**
      * 查找动态id
+     *
      * @param id
      * @return
      */
@@ -45,14 +49,14 @@ public interface CommentRepository extends JpaRepository<Comment,String> {
 
     /**
      * 更具用户id，评论id删除
+     *
      * @param commentId
      * @param userId
      */
     @Transactional
     @Modifying
     @Query("delete from Comment where pkCommentId = ?1 and userId = ?2 ")
-    void deleteByDynamicIdAndDynamicId(String commentId,String userId);
-
+    void deleteByDynamicIdAndDynamicId(String commentId, String userId);
 
 
 }

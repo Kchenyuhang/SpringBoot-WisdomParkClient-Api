@@ -22,17 +22,17 @@ import javax.annotation.Resource;
 @Slf4j
 @RestController
 @RequestMapping("/book")
-@Api(value = "SysBorrowController",tags = {"借阅图书模块接口"})
+@Api(value = "SysBorrowController", tags = {"借阅图书模块接口"})
 public class SysBorrowController {
     @Resource
     private SysBorrowService sysBorrowService;
 
 
-    @ApiOperation(value = "查询所有借阅图片接口",notes = "")
+    @ApiOperation(value = "查询所有借阅图片接口", notes = "")
     @PostMapping(value = "/borrow")
     @ControllerWebLog(name = "findBorrowMessage", isSaved = true)
-    public ResponseResult findBorrowMessage(@RequestBody JobNumberDto jobNumberDto){
-        log.info("-----/borrow-----请求参数：" + jobNumberDto+"**1**");
+    public ResponseResult findBorrowMessage(@RequestBody JobNumberDto jobNumberDto) {
+        log.info("-----/borrow-----请求参数：" + jobNumberDto + "**1**");
         return sysBorrowService.findBorrowMessage(jobNumberDto.getJobNumber());
     }
 

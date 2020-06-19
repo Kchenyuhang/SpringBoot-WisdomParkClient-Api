@@ -71,11 +71,11 @@ public class CollectionsServiceImpl implements CollectionsService {
 
     @Override
     public ResponseResult insertCollections(DynamicCollectionInDto dynamicCollectionInDto) {
-        Collections collections1 = collectionsRepository.findCollectionsByUserIdAndDynamicIdAndIsDeleted(dynamicCollectionInDto.getUserId(), dynamicCollectionInDto.getDynamicId(),false);
+        Collections collections1 = collectionsRepository.findCollectionsByUserIdAndDynamicIdAndIsDeleted(dynamicCollectionInDto.getUserId(), dynamicCollectionInDto.getDynamicId(), false);
         System.out.println(collections1);
         //判断时候存在，不存在才才能添加
-        if (collections1 == null){
-            Collections collections=Collections.builder()
+        if (collections1 == null) {
+            Collections collections = Collections.builder()
                     .pkCollectionId(String.valueOf(new SnowFlake(1, 3).nextId()))
                     .dynamicId(dynamicCollectionInDto.getDynamicId())
                     .userId(dynamicCollectionInDto.getUserId())
@@ -84,7 +84,8 @@ public class CollectionsServiceImpl implements CollectionsService {
             collectionsRepository.save(collections);
             return ResponseResult.success("添加成功");
         }
-        return ResponseResult.success(ResultCode.DATA_ALREADY_EXISTED);    }
+        return ResponseResult.success(ResultCode.DATA_ALREADY_EXISTED);
+    }
 
 
     @Override

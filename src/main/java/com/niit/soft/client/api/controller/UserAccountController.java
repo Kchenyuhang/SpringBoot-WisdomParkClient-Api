@@ -27,7 +27,7 @@ import javax.annotation.Resource;
 @Slf4j
 @RestController
 @RequestMapping("/user")
-@Api(value = "UserController",tags = {"用户模块接口"})
+@Api(value = "UserController", tags = {"用户模块接口"})
 public class UserAccountController {
     @Resource
     private UserAccountService userAccountService;
@@ -45,18 +45,19 @@ public class UserAccountController {
     @PostMapping("/update/info")
     @ControllerWebLog(name = "updateInfo", isSaved = true)
     ResponseResult updateInfo(@RequestBody UpdateUserAccountDto updateUserAccountDto) {
-        log.info("-----/update/info-----请求参数：" + updateUserAccountDto+"**1**");
+        log.info("-----/update/info-----请求参数：" + updateUserAccountDto + "**1**");
         return userAccountService.updateUserInfo(updateUserAccountDto);
     }
 
     /**
      * 修改手机号码
+     *
      * @param userAccount
      * @return
      */
-    @ApiOperation(value = "修改手机号码",notes = "请求参数为手机号码")
+    @ApiOperation(value = "修改手机号码", notes = "请求参数为手机号码")
     @PostMapping("/update/phone")
-    ResponseResult updatePhoneNumber(@RequestBody UserAccount userAccount){
+    ResponseResult updatePhoneNumber(@RequestBody UserAccount userAccount) {
         return userAccountService.updateUserPhoneNumber(userAccount);
     }
 
@@ -67,7 +68,7 @@ public class UserAccountController {
     @PostMapping(value = "/feedback")
     @ControllerWebLog(name = "insertSysFeedback", isSaved = true)
     ResponseResult insertSysFeedback(@RequestBody SysFeedback sysFeedback) {
-        log.info("-----/feedback-----请求参数：" + sysFeedback+"**1**");
+        log.info("-----/feedback-----请求参数：" + sysFeedback + "**1**");
         return sysFeedbackService.insertSysFeedback(sysFeedback);
     }
 
@@ -75,13 +76,13 @@ public class UserAccountController {
     @PostMapping(value = "/single/id")
     @ControllerWebLog(name = "getUserAccountInfoById", isSaved = true)
     public UserAccount getUserAccountInfoById(@RequestBody SingleFieldDto singleFieldDto) {
-        log.info("-----/single/id-----请求参数：" + singleFieldDto.getField().toString() +"**1**");
+        log.info("-----/single/id-----请求参数：" + singleFieldDto.getField().toString() + "**1**");
         return userAccountService.findUserAccountById(singleFieldDto.getField().toString());
     }
 
     @ApiOperation(value = "模糊查询用户接口", notes = "请求参数为keywords关键字")
     @PostMapping("/fuzzyQuery")
-    ResponseResult findUserAccountLike(@RequestBody QueryDto queryDto){
+    ResponseResult findUserAccountLike(@RequestBody QueryDto queryDto) {
         return userAccountService.findUserAccountLike(queryDto.getKeywords());
     }
 

@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -115,7 +116,7 @@ public class QQServiceImpl implements QQService {
             HttpServletResponse response = sra.getResponse();
 //            此处为首页地址 先报个错，明天从这里开始改
             log.info("token{}", token);
-            response.sendRedirect(http+"?token=" + token);
+            response.sendRedirect(http + "?token=" + token);
             //既然已经重定向了，就不用返回什么数据了
             return null;
         }

@@ -13,21 +13,25 @@ import com.niit.soft.client.api.domain.model.ReportLoss;
 public interface ReportLossService {
     /**
      * 分页查询挂失信息
+     *
      * @param pageDto
      * @return
      */
     ResponseResult findAllByPage(PageDto pageDto);
+
     /**
      * 校园卡挂失
+     *
      * @param pkReportLossId
      * @param lossStatus
      * @return
      */
-    ResponseResult updateLossStatus(Long pkReportLossId,Boolean lossStatus);
+    ResponseResult updateLossStatus(Long pkReportLossId, Boolean lossStatus);
 
 
     /**
      * 新增挂失
+     *
      * @param reportLoss
      * @return
      */
@@ -35,6 +39,7 @@ public interface ReportLossService {
 
     /**
      * 取消挂失
+     *
      * @param reportLoss
      * @return
      */

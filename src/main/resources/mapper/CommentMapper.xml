@@ -38,6 +38,7 @@
         FROM comment c
                  LEFT JOIN reply_comment r ON c.pk_comment_id = r.comment_id
         WHERE c.pk_comment_id = #{id}
+        ORDER BY r.gmt_create DESC
     </select>
 
 

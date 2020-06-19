@@ -70,7 +70,7 @@ public class AliPayServiceImpl implements AliPayService {
             orderRepository.save(sysOrder);
             String response = alipayClient.pageExecute(request).getBody();
             return response;
-        }else if (alipayDto.getRegexId() == 2){
+        } else if (alipayDto.getRegexId() == 2) {
             AlipayTradePagePayRequest request = new AlipayTradePagePayRequest();// 网页支付
             request.setNotifyUrl(AliPayConfig.notify_url1);
             request.setReturnUrl(AliPayConfig.return_url1);
@@ -81,7 +81,7 @@ public class AliPayServiceImpl implements AliPayService {
             orderRepository.save(sysOrder);
             String response = alipayClient.pageExecute(request).getBody();
             return response;
-        }else {
+        } else {
             AlipayTradeWapPayRequest request = new AlipayTradeWapPayRequest();  //移动h5
             request.setNotifyUrl(AliPayConfig.notify_url2);
             request.setReturnUrl(AliPayConfig.return_url2);

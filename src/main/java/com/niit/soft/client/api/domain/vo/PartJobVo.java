@@ -27,18 +27,18 @@ public class PartJobVo {
 
     private Long pkPartJobId;
     private String name;
-    private  String description;
-    private  String bossId;
+    private String description;
+    private String bossId;
     private String bossName;
     private String bossPhone;
     private String avatar;
-    private  String workplace;
-    private  String workingDate;
-    private  String workingTime;
+    private String workplace;
+    private String workingDate;
+    private String workingTime;
     private BigDecimal pay;
-    private  String payType;
+    private String payType;
     private String jobType;
-    private  Integer number;
+    private Integer number;
     private Integer have;
     private Boolean need;
 

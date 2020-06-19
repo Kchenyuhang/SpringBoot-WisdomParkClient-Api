@@ -13,9 +13,10 @@ import java.util.List;
  * @Date 2020/6/11  21:37
  * @Version 1.0
  **/
-public interface DynamicPhotoRepository extends JpaRepository<DynamicPhoto,String> {
+public interface DynamicPhotoRepository extends JpaRepository<DynamicPhoto, String> {
     /**
      * 根据动态资讯id获取其配图
+     *
      * @param id
      * @return
      */

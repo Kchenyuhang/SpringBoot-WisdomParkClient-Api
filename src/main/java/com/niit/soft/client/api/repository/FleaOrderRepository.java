@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @Description TODO
  * @createTime 2020年06月09日 13:53:00
  */
-public interface FleaOrderRepository extends JpaRepository<FleaOrder,String> {
+public interface FleaOrderRepository extends JpaRepository<FleaOrder, String> {
 
     @Modifying
     @Transactional

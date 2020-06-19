@@ -27,30 +27,30 @@ public class Message {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pk_message_id",nullable = false)
+    @Column(name = "pk_message_id", nullable = false)
     private Long pkMessageId;
 
     /**
      * 消息内容
      */
-    @Column(name = "content",nullable = false)
-    private String content	;
+    @Column(name = "content", nullable = false)
+    private String content;
 
     /**
      * 阅读状态( 0 表示未读，1表示已读)
      */
-    @Column(name = "is_readed",nullable = false)
+    @Column(name = "is_readed", nullable = false)
     private Boolean isReaded;
 
     /**
      * 创建时间
      */
-    @Column(name = "gmt_create",nullable = false)
+    @Column(name = "gmt_create", nullable = false)
     private Timestamp gmtCreate;
 
     /**
      * 修改时间
      */
-    @Column(name = "gmt_modified",nullable = false)
+    @Column(name = "gmt_modified", nullable = false)
     private Timestamp gmtModified;
 }

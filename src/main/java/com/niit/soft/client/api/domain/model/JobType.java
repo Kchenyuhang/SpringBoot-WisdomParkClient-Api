@@ -41,13 +41,13 @@ public class JobType extends Model<JobType> {
 
     @TableField("parent_id")
     @Column(length = 10)
-    private  Long parentId;
+    private Long parentId;
 
     /**
      * 删除标志
      */
     @TableField("is_deleted")
-    @Column(nullable = false,length = 1)
+    @Column(nullable = false, length = 1)
     private Boolean isDeleted;
     /**
      * 创建时间
@@ -62,7 +62,7 @@ public class JobType extends Model<JobType> {
     @TableField("gmt_modified")
     @Column(nullable = false)
     @CreationTimestamp
-    private  Timestamp gmtModified;
+    private Timestamp gmtModified;
 
 
 }

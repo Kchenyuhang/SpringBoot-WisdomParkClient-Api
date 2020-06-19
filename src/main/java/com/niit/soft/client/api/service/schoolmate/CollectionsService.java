@@ -15,21 +15,23 @@ public interface CollectionsService {
 
     /**
      * 根据用户id查找所有收藏动态
+     *
      * @param id
      * @return
      */
     ResponseResult findCollections(String id);
 
     /**
-     *分页查询所有咨询
-     * @param pageDto
+     * 分页查询所有咨询
      *
+     * @param pageDto
      * @return PageDto pageDto
      */
     ResponseResult getCollectionsByUserId(PageDto pageDto);
 
     /**
      * 添加加收藏
+     *
      * @param dynamicCollectionInDto
      * @return
      */
@@ -38,8 +40,9 @@ public interface CollectionsService {
 
     /**
      * 删除用户以收藏的动态资讯
+     *
      * @param id
      * @return
      */
-    ResponseResult updateCollectionsIsDelete(String  id);
+    ResponseResult updateCollectionsIsDelete(String id);
 }

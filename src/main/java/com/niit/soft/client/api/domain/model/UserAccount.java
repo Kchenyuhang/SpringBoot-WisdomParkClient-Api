@@ -22,7 +22,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "user_account",indexes = {@Index(name = "user_nameIndex",columnList = "user_name")})
+@Table(name = "user_account", indexes = {@Index(name = "user_nameIndex", columnList = "user_name")})
 public class UserAccount implements Serializable {
     /**
      * 主键，策略为自增
@@ -41,31 +41,31 @@ public class UserAccount implements Serializable {
     /**
      * 真实姓名
      */
-    @Column(name ="user_name",nullable = false, length = 32)
+    @Column(name = "user_name", nullable = false, length = 32)
     private String userName;
     /**
      * 昵称
      */
-    @Column(nullable = false,length = 50)
+    @Column(nullable = false, length = 50)
     private String nickname;
 
     /**
      * 教工号/学号
      */
-    @Column(nullable = false, unique = true ,length = 32)
+    @Column(nullable = false, unique = true, length = 32)
     private String jobNumber;
 
     /**
      * 密码
      */
-    @Column(nullable = false,length = 32)
+    @Column(nullable = false, length = 32)
     private String password;
 
 
     /**
      * 头像
      */
-    @Column(nullable = false ,length = 255)
+    @Column(nullable = false, length = 255)
     private String avatar;
 
     /**
@@ -96,7 +96,7 @@ public class UserAccount implements Serializable {
     /**
      * 校园卡号
      */
-    @Column(nullable = false, unique = true,length = 32)
+    @Column(nullable = false, unique = true, length = 32)
     private String cardNumber;
 
     /**
@@ -115,7 +115,7 @@ public class UserAccount implements Serializable {
     /**
      * 删除标志（0 逻辑删除， 1 未删除）
      */
-    @Column(nullable = false,length = 4)
+    @Column(nullable = false, length = 4)
     private Boolean isDeleted;
 
     /**

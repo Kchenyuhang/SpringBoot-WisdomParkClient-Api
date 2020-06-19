@@ -11,6 +11,6 @@ import com.niit.soft.client.api.domain.dto.AlipayDto;
  **/
 public interface AliPayService {
 
-  String  AliPay(AlipayDto alipayDto) throws  AlipayApiException;
+    String AliPay(AlipayDto alipayDto) throws AlipayApiException;
 
 }

@@ -33,39 +33,39 @@ public class Job extends Model<Job> {
     @Id
     @TableId
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long pkJobId;
+    private Long pkJobId;
 
     @TableField("name")
-    @Column(nullable = false,length = 60)
-    private  String name;
+    @Column(nullable = false, length = 60)
+    private String name;
 
     @TableField("description")
     @Column(nullable = false)
-    private  String description;
+    private String description;
 
     @TableField("boss")
-    @Column(nullable = false,length = 60)
-    private  String boss;
+    @Column(nullable = false, length = 60)
+    private String boss;
 
     @TableField("boss_phone")
-    @Column(nullable = false,length = 60)
-    private  String bossPhone;
+    @Column(nullable = false, length = 60)
+    private String bossPhone;
 
     @TableField("boss_avatar")
-    @Column(nullable = false,length = 60)
-    private  String bossAvatar;
+    @Column(nullable = false, length = 60)
+    private String bossAvatar;
 
     @TableField("company_id")
     @Column(length = 20)
-    private  Long companyId;
+    private Long companyId;
 
     @TableField("workplace")
-    @Column(nullable = false,length = 60)
-    private  String workplace;
+    @Column(nullable = false, length = 60)
+    private String workplace;
 
     @TableField("working_time")
-    @Column(nullable = false,length = 60)
-    private  String workingTime;
+    @Column(nullable = false, length = 60)
+    private String workingTime;
 
     @TableField("pay")
     @Column(length = 10)
@@ -73,27 +73,27 @@ public class Job extends Model<Job> {
 
     @TableField("min")
     @Column(length = 10)
-    private  Integer min;
+    private Integer min;
 
     @TableField("max")
     @Column(length = 10)
-    private  Integer max;
+    private Integer max;
 
     @TableField("experience")
     @Column(length = 20)
-    private  String experience;
+    private String experience;
 
     @TableField("diploma")
     @Column(length = 20)
-    private  String diploma;
+    private String diploma;
 
     @TableField("job_type_id")
     @Column(length = 20)
-    private  Long jobTypeId;
+    private Long jobTypeId;
 
     @TableField("number")
     @Column(length = 4)
-    private  Integer number;
+    private Integer number;
 
     @TableField("resumes")
     private String resumes;
@@ -101,7 +101,7 @@ public class Job extends Model<Job> {
      * 删除标志
      */
     @TableField("is_deleted")
-    @Column(nullable = false,length = 4)
+    @Column(nullable = false, length = 4)
     private Boolean isDeleted;
     /**
      * 创建时间
@@ -116,7 +116,7 @@ public class Job extends Model<Job> {
     @TableField("gmt_modified")
     @Column(nullable = false)
     @CreationTimestamp
-    private  Timestamp gmtModified;
+    private Timestamp gmtModified;
 
 
 }

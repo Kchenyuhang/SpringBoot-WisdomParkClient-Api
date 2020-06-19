@@ -17,10 +17,11 @@ import java.io.UnsupportedEncodingException;
 public interface LoginService {
     /**
      * 登录
+     *
      * @param
      * @return 返回用户信息
      */
-    Long findIdByLoginDto(String userAccount,String password);
+    Long findIdByLoginDto(String userAccount, String password);
 
 
     ResponseResult login(LoginDto loginDto) throws UnsupportedEncodingException;
@@ -36,6 +37,7 @@ public interface LoginService {
 
     /**
      * 刷新用户信息
+     *
      * @param smsPhoneDto
      * @return
      */

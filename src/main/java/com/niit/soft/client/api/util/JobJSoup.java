@@ -40,12 +40,10 @@ public class JobJSoup {
     @Resource
     private JobTypeMapper jobTypeMapper;
 
-    private  Timestamp timestamp = Timestamp.valueOf(LocalDateTime.now());
+    private Timestamp timestamp = Timestamp.valueOf(LocalDateTime.now());
 
 
-
-
-    public List<JobType> getData(){
+    public List<JobType> getData() {
         Set<String> set = new HashSet<>();
         List<JobType> list = new ArrayList<>();
         for (int i = 1; i < 2; i++) {
@@ -87,13 +85,13 @@ public class JobJSoup {
                     //把遍历出来的数据转换JSONObject类型
                     JSONObject jsonObject1 = JSONObject.parseObject(o.toString());
                     String typeName = jobTypeMapper.selectName(jsonObject1.getString("entTrade"));
-                    if ("".equals(jsonObject1.getString("entTrade")) || jsonObject1.getString("entTrade") == null || typeName != null){
+                    if ("".equals(jsonObject1.getString("entTrade")) || jsonObject1.getString("entTrade") == null || typeName != null) {
                         System.out.println("name为空或者已存在");
-                    }else {
+                    } else {
                         set.add(jsonObject1.getString("entTrade"));
                     }
                 });
-                for (String name : set){
+                for (String name : set) {
                     JobType jobType = JobType.builder()
                             .name(name)
                             .parentId(0L)
@@ -112,9 +110,10 @@ public class JobJSoup {
 
     /**
      * 获取数据列表
+     *
      * @return
      */
-    public JSONArray getList(){
+    public JSONArray getList() {
 //        JSONArray list = null;
 //        for (int i = 1; i < 2; i++) {
 //            //获取地址
@@ -161,15 +160,11 @@ public class JobJSoup {
     }
 
 
-
-    public Long getTypeId(String name){
+    public Long getTypeId(String name) {
         QueryWrapper<JobType> wrapper = new QueryWrapper<>();
         wrapper.select("pk_job_type_id").eq("name", name);
         return jobTypeMapper.selectOne(wrapper).getPkJobTypeId();
     }
-
-
-
 
 
 }

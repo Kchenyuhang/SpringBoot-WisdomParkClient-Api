@@ -13,15 +13,16 @@ import org.springframework.data.jpa.repository.Query;
 public interface UserAccountService {
     /**
      * 修改
+     *
      * @param updateUserAccountDto
      * @return
      */
     ResponseResult updateUserInfo(UpdateUserAccountDto updateUserAccountDto);
 
 
-
     /**
      * 修改手机号码
+     *
      * @param userAccount
      * @return
      */
@@ -30,6 +31,7 @@ public interface UserAccountService {
 
     /**
      * 根据主键查询用户信息
+     *
      * @param id
      * @return
      */
@@ -45,6 +47,7 @@ public interface UserAccountService {
 
     /**
      * 根据userAccount或job_number或phoneNumber修改密码
+     *
      * @param userAccount
      * @param password
      * @return
@@ -54,6 +57,7 @@ public interface UserAccountService {
 
     /**
      * 根据手机号或者用户名模糊查询
+     *
      * @param keyword
      * @return
      */

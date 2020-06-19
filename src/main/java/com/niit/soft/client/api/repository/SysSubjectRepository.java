@@ -15,6 +15,7 @@ import java.util.List;
 public interface SysSubjectRepository extends JpaRepository<SysSubject, Long> {
     /**
      * 根据科目id查询科目的名称、图片、科目背景色
+     *
      * @param pkSubjectId
      * @return
      */
@@ -24,6 +25,7 @@ public interface SysSubjectRepository extends JpaRepository<SysSubject, Long> {
 
     /**
      * 根据科目id查询科目
+     *
      * @param id
      * @return
      */
@@ -31,6 +33,7 @@ public interface SysSubjectRepository extends JpaRepository<SysSubject, Long> {
 
     /**
      * 根据科目id查询科目
+     *
      * @param pkSubjectId
      * @return
      */

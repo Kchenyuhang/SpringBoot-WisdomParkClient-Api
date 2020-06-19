@@ -28,7 +28,4 @@ public class RewardVo {
     private String phoneNumber;
 
 
-
-
-
 }

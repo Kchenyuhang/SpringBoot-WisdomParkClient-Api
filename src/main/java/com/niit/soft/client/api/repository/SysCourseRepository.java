@@ -22,10 +22,11 @@ public interface SysCourseRepository extends JpaRepository<SysCourse, Long> {
             "LEFT JOIN first_smart_campus.sys_course c " +
             "ON s.pk_subject_id = c.subject_id " +
             "WHERE c.schedule_id=?1", nativeQuery = true)
-    List<Map<String,Object>> selectById(Long timetableId);
+    List<Map<String, Object>> selectById(Long timetableId);
 
     /**
      * 根据scheduleId查询数据
+     *
      * @param scheduleId
      * @return
      */

@@ -60,6 +60,7 @@ import java.util.UUID;
 public class QQController {
     @Resource
     private QQService qqService;
+
     /**
      * @param session
      * @return
@@ -72,6 +73,7 @@ public class QQController {
 
     /**
      * QQ回调
+     *
      * @param request
      * @return
      */

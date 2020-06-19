@@ -21,19 +21,19 @@ public class DataTypeChange {
         }
         List<Map<String, Object>> maps = new ArrayList<>();
         for (Object obj : objects) {
-        try {
-            Map<String, Object> map = new LinkedHashMap<>();
-            Field[] fields = obj.getClass().getDeclaredFields();
-            for (Field field : fields) {
-                //设置私有属性为true
-                field.setAccessible(true);
-                //获取字段名和字段值
-                map.put(field.getName(), field.get(obj));
+            try {
+                Map<String, Object> map = new LinkedHashMap<>();
+                Field[] fields = obj.getClass().getDeclaredFields();
+                for (Field field : fields) {
+                    //设置私有属性为true
+                    field.setAccessible(true);
+                    //获取字段名和字段值
+                    map.put(field.getName(), field.get(obj));
+                }
+                maps.add(map);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            maps.add(map);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         }
         return maps;
     }

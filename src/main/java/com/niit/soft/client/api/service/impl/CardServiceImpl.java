@@ -30,7 +30,7 @@ import java.util.List;
 @Service
 public class CardServiceImpl implements CardService {
     @Resource
-   private CardRepository cardRepository;
+    private CardRepository cardRepository;
     @Resource
     private OrderRepository orderRepository;
     @Resource
@@ -49,47 +49,47 @@ public class CardServiceImpl implements CardService {
 
     @Override
     public ResponseResult insertAll(List<SysCard> sysCards) {
-        List<SysCard> sysCardList=new ArrayList<>();
+        List<SysCard> sysCardList = new ArrayList<>();
         return ResponseResult.success(sysCardList);
     }
 
     @Override
     public ResponseResult selectCardBalance(String jobNumber) {
-        Double cardBalance=cardRepository.findCardBalanceByJobNumber(jobNumber);
+        Double cardBalance = cardRepository.findCardBalanceByJobNumber(jobNumber);
         return ResponseResult.success(cardBalance);
     }
 
     @Override
     public ResponseResult insertCardBalance(String cardNumber, Double money) {
-        int a=cardRepository.insertCardBalance(cardNumber,money);
-        SysOrder sysOrder=
-                SysOrder.builder().description("校园卡充值").jobNumber(cardNumber).orderMoney(money).orderNumber("10"+RandomUtil.randomInt(80000,1000000)).isDeleted(false).gmtCreate(Timestamp.valueOf(LocalDateTime.now())).orderType("校园卡充值").payMethod("支付宝转账").status(true).build();
-         orderRepository.save(sysOrder);
+        int a = cardRepository.insertCardBalance(cardNumber, money);
+        SysOrder sysOrder =
+                SysOrder.builder().description("校园卡充值").jobNumber(cardNumber).orderMoney(money).orderNumber("10" + RandomUtil.randomInt(80000, 1000000)).isDeleted(false).gmtCreate(Timestamp.valueOf(LocalDateTime.now())).orderType("校园卡充值").payMethod("支付宝转账").status(true).build();
+        orderRepository.save(sysOrder);
         return ResponseResult.success(a);
     }
 
     @Override
     public ResponseResult insertelectricityBalance(Long id, Double money) {
-        String jobNumber=roomRepository.findRoomLearderNumberById(id);
-        int a=cardRepository.insertelectricityBalance(id,money);
-        SysOrder sysOrder=
-                SysOrder.builder().description("电费充值").jobNumber(jobNumber).orderMoney(money).orderNumber("10"+RandomUtil.randomInt(80000,1000000)).isDeleted(false).gmtCreate(Timestamp.valueOf(LocalDateTime.now())).orderType("充值").payMethod("持卡人消费").status(true).build();
+        String jobNumber = roomRepository.findRoomLearderNumberById(id);
+        int a = cardRepository.insertelectricityBalance(id, money);
+        SysOrder sysOrder =
+                SysOrder.builder().description("电费充值").jobNumber(jobNumber).orderMoney(money).orderNumber("10" + RandomUtil.randomInt(80000, 1000000)).isDeleted(false).gmtCreate(Timestamp.valueOf(LocalDateTime.now())).orderType("充值").payMethod("持卡人消费").status(true).build();
         orderRepository.save(sysOrder);
         return ResponseResult.success(a);
     }
 
     @Override
     public ResponseResult insertBalance(String jobNumber, Double money) {
-        int a=cardRepository.insertBalance(jobNumber,money);
-        SysOrder sysOrder=
-                SysOrder.builder().description("网费充值").jobNumber(jobNumber).orderMoney(money).orderNumber("10"+RandomUtil.randomInt(80000,1000000)).isDeleted(false).gmtCreate(Timestamp.valueOf(LocalDateTime.now())).orderType("充值").payMethod("持卡人消费").status(true).build();
+        int a = cardRepository.insertBalance(jobNumber, money);
+        SysOrder sysOrder =
+                SysOrder.builder().description("网费充值").jobNumber(jobNumber).orderMoney(money).orderNumber("10" + RandomUtil.randomInt(80000, 1000000)).isDeleted(false).gmtCreate(Timestamp.valueOf(LocalDateTime.now())).orderType("充值").payMethod("持卡人消费").status(true).build();
         orderRepository.save(sysOrder);
         return ResponseResult.success(a);
     }
 
     @Override
     public ResponseResult updateStatus(Long pkCardId, Boolean Status) {
-        return ResponseResult.success(cardRepository.updateStatus(pkCardId,Status));
+        return ResponseResult.success(cardRepository.updateStatus(pkCardId, Status));
 
     }
 }

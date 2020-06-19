@@ -27,24 +27,25 @@ import javax.annotation.Resource;
 @RequestMapping("/transaction")
 public class TransactionController {
     @Resource
-   private TransactionService transactionService;
-    @ApiOperation(value = "抢到订单 ",notes = "请求参数为订单dto")
+    private TransactionService transactionService;
+
+    @ApiOperation(value = "抢到订单 ", notes = "请求参数为订单dto")
     @PostMapping("/order")
-    public ResponseResult insertDeliveryOrder(@RequestBody TransactionDto transactionDto){
+    public ResponseResult insertDeliveryOrder(@RequestBody TransactionDto transactionDto) {
         return transactionService.insertTransaction(transactionDto);
     }
 
 
-    @ApiOperation(value = "取货",notes = "请求参数是订单dto")
+    @ApiOperation(value = "取货", notes = "请求参数是订单dto")
     @PostMapping("/getgoods")
-   public  ResponseResult getGoods(@RequestBody TransactionDto transactionDto){
-        return  transactionService.getGoods(transactionDto);
+    public ResponseResult getGoods(@RequestBody TransactionDto transactionDto) {
+        return transactionService.getGoods(transactionDto);
     }
 
-    @ApiOperation(value = "完成订单",notes = "请求参数是订单id")
+    @ApiOperation(value = "完成订单", notes = "请求参数是订单id")
     @PostMapping("/finshOrder")
-    public ResponseResult finshOrder(@RequestBody TransactionDto transactionDto){
-        return  transactionService.finshOrder(transactionDto.getOrderId());
+    public ResponseResult finshOrder(@RequestBody TransactionDto transactionDto) {
+        return transactionService.finshOrder(transactionDto.getOrderId());
     }
 
 }

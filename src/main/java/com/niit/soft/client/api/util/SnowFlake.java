@@ -174,6 +174,7 @@ public class SnowFlake {
         return id;
 
     }
+
     /**
      * 测试
      */

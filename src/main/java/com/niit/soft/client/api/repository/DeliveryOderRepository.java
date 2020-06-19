@@ -10,5 +10,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @Date 2020/6/9
  * @Version 1.0
  */
-public interface DeliveryOderRepository extends JpaRepository<DeliveryOrder,Long> {
+public interface DeliveryOderRepository extends JpaRepository<DeliveryOrder, Long> {
 }

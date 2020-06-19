@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface ReportLossRepository extends JpaRepository<ReportLoss, Long> {
     /**
      * 修改状态
+     *
      * @param pkReportLossId
      * @param lossStatus
      * @return
@@ -23,28 +24,30 @@ public interface ReportLossRepository extends JpaRepository<ReportLoss, Long> {
     @Modifying
     @LastModifiedBy
     @Transactional(rollbackFor = RuntimeException.class)
-    @Query(value = "update report_loss set loss_status = ?2 where pk_report_loss_id = ?1",nativeQuery = true)
-    int updateLossStatus(Long pkReportLossId,Boolean lossStatus);
+    @Query(value = "update report_loss set loss_status = ?2 where pk_report_loss_id = ?1", nativeQuery = true)
+    int updateLossStatus(Long pkReportLossId, Boolean lossStatus);
 
 
     /**
      * 通过挂失卡号和密码查找挂失数据
+     *
      * @param lossJobNumber
      * @param password
      * @return
      */
 
-    @Query(value = "select * from first_smart_campus.report_loss where loss_job_number=?1 AND password=?2 AND is_deleted=false",nativeQuery = true)
-    ReportLoss findReportLoss(String lossJobNumber,String password);
+    @Query(value = "select * from first_smart_campus.report_loss where loss_job_number=?1 AND password=?2 AND is_deleted=false", nativeQuery = true)
+    ReportLoss findReportLoss(String lossJobNumber, String password);
 
     /**
      * 逻辑删除挂失
+     *
      * @param pkReportLossId
      * @return
      */
     @Modifying
     @LastModifiedBy
     @Transactional(rollbackFor = RuntimeException.class)
-    @Query(value = "update report_loss set is_deleted = true where pk_report_loss_id = ?1",nativeQuery = true)
+    @Query(value = "update report_loss set is_deleted = true where pk_report_loss_id = ?1", nativeQuery = true)
     int deletedReportLoss(Long pkReportLossId);
 }

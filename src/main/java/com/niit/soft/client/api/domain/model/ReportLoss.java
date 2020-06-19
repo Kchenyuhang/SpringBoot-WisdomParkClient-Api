@@ -31,37 +31,37 @@ public class ReportLoss {
      * 挂失备注
      */
     @Column
-    private  String remark;
+    private String remark;
 
     /**
      * 挂失卡密
      */
-    @Column(nullable = false,length = 128)
-    private  String password;
+    @Column(nullable = false, length = 128)
+    private String password;
 
     /**
      * 挂失状态
      */
-    @Column(nullable = false,length = 4)
-    private  Boolean lossStatus;
+    @Column(nullable = false, length = 4)
+    private Boolean lossStatus;
 
     /**
      * 手机号
      */
-    @Column(nullable = false,unique = true,length = 32)
-    private  String lossPhone;
+    @Column(nullable = false, unique = true, length = 32)
+    private String lossPhone;
 
     /**
      * 挂失人
      */
-    @Column(nullable = false,length = 32)
-    private  String lossName;
+    @Column(nullable = false, length = 32)
+    private String lossName;
 
     /**
      * 挂失卡号
      */
-    @Column(nullable = false,unique = true,length = 32)
-    private String  lossJobNumber;
+    @Column(nullable = false, unique = true, length = 32)
+    private String lossJobNumber;
 
     /**
      * 创建时间
@@ -73,11 +73,11 @@ public class ReportLoss {
      * 更新时间
      */
     @Column(nullable = false)
-    private  Timestamp gmtModified;
+    private Timestamp gmtModified;
 
     /**
      * 删除标志
      */
-    @Column(nullable = false,length = 4)
-    private  Boolean isDeleted;
+    @Column(nullable = false, length = 4)
+    private Boolean isDeleted;
 }

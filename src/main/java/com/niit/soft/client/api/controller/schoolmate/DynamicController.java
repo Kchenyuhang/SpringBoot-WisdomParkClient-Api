@@ -5,6 +5,8 @@ import com.niit.soft.client.api.common.ResponseResult;
 import com.niit.soft.client.api.domain.dto.DynamicCollectionInDto;
 import com.niit.soft.client.api.domain.dto.PageDto;
 import com.niit.soft.client.api.domain.dto.schoolmate.*;
+import com.niit.soft.client.api.domain.model.schoolmate.Dynamic;
+import com.niit.soft.client.api.domain.vo.schoolmate.DynamicVo;
 import com.niit.soft.client.api.service.schoolmate.CollectionsService;
 import com.niit.soft.client.api.service.schoolmate.CommentService;
 import com.niit.soft.client.api.service.schoolmate.DynamicService;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -79,7 +82,12 @@ public class DynamicController {
     @ControllerWebLog(name = "findDynamic", isSaved = true)
     @ApiOperation(value = "查找所有动态资讯", notes = "请求参数为传递分页参数")
     ResponseResult findDynamic(@RequestBody SchoolmatePageDto schoolmatePageDto) {
-        return ResponseResult.success(dynamicService.findDynamicByPage(schoolmatePageDto));
+        List<Dynamic> dynamicByPage = dynamicService.findDynamicByPage(schoolmatePageDto);
+        List<DynamicVo> dynamicVos = new ArrayList<>(10);
+        for (Dynamic dynamic : dynamicByPage) {
+            dynamicVos.add(dynamicService.findDynamicVoById(dynamic.getPkDynamicId()));
+        }
+        return ResponseResult.success(dynamicVos);
     }
 
     @PostMapping("/new")

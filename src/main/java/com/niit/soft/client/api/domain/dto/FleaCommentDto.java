@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 
 /**
  * 描述:
- *新增评论的参数
+ * 新增评论的参数
+ *
  * @author：Guorc
  * @create 2020-06-11 16:04
  */

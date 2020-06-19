@@ -12,6 +12,7 @@ import java.util.List;
 public interface SysSemesterRepository extends JpaRepository<SysSemester, Long> {
     /**
      * 查询所有学期数据
+     *
      * @return
      */
     @Query("select s from SysSemester s")
@@ -20,10 +21,11 @@ public interface SysSemesterRepository extends JpaRepository<SysSemester, Long> 
 
     /**
      * 根据学期name查询学期数据
+     *
      * @param name
      * @return
      */
-    @Query(value = "select s.* from first_smart_campus.sys_semester as s where s.name=?1",nativeQuery = true)
+    @Query(value = "select s.* from first_smart_campus.sys_semester as s where s.name=?1", nativeQuery = true)
     SysSemester findSysSemesterByName(String name);
 
 }

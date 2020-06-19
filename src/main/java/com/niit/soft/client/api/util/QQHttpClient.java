@@ -19,14 +19,14 @@ import java.io.IOException;
  * QQ工具类 主要用来解析QQ返回的信息
  */
 public class QQHttpClient {
-//    QQ互联中提供的 appid 和 appkey
+    //    QQ互联中提供的 appid 和 appkey
     public static final String APPID = "101883898";
     public static final String APPKEY = "6e4f3dccaab0a6105160003d7c08bc68";
 
     public static JSONObject parseJSONP(String jsonp) {
         int startIndex = jsonp.indexOf("(");
         int endIndex = jsonp.lastIndexOf(")");
-        String json = jsonp.substring(startIndex + 1,endIndex);
+        String json = jsonp.substring(startIndex + 1, endIndex);
         return JSONObject.parseObject(json);
     }
 
@@ -37,12 +37,12 @@ public class QQHttpClient {
         HttpGet httpGet = new HttpGet(url);
         HttpResponse response = client.execute(httpGet);
         HttpEntity entity = response.getEntity();
-        if(entity != null){
-            String result = EntityUtils.toString(entity,"UTF-8");
-            if(result.indexOf("access_token") >= 0){
+        if (entity != null) {
+            String result = EntityUtils.toString(entity, "UTF-8");
+            if (result.indexOf("access_token") >= 0) {
                 String[] array = result.split("&");
-                for (String str : array){
-                    if(str.indexOf("access_token") >= 0){
+                for (String str : array) {
+                    if (str.indexOf("access_token") >= 0) {
                         token = str.substring(str.indexOf("=") + 1);
                         break;
                     }
@@ -62,48 +62,34 @@ public class QQHttpClient {
         HttpResponse response = client.execute(httpGet);
         HttpEntity entity = response.getEntity();
 
-        if(entity != null){
-            String result = EntityUtils.toString(entity,"UTF-8");
+        if (entity != null) {
+            String result = EntityUtils.toString(entity, "UTF-8");
             jsonObject = parseJSONP(result);
         }
 
         httpGet.releaseConnection();
 
-        if(jsonObject != null){
+        if (jsonObject != null) {
             return jsonObject.getString("openid");
-        }else {
+        } else {
             return null;
         }
     }
-//    CloseableHttpClient 默认会创建一个大小为5的连接池（针对RPC调用不频繁的情况），端到端的链接可以复用，配置evict相关的两个方法，一方面用于处理类似CLOSE_WAIT状态的异常链接，一方面用于处理IDLE状态的链接，其内部源码会开启一个定时任务去检测。
-public static JSONObject getUserInfo(String url) throws IOException {
-    JSONObject jsonObject = null;
-    CloseableHttpClient client = HttpClients.createDefault();
-    HttpGet httpGet = new HttpGet(url);
-    HttpResponse response = client.execute(httpGet);
-    HttpEntity entity = response.getEntity();
-    if(entity != null){
-        String result = EntityUtils.toString(entity,"UTF-8");
-        jsonObject = JSONObject.parseObject(result);
+
+    //    CloseableHttpClient 默认会创建一个大小为5的连接池（针对RPC调用不频繁的情况），端到端的链接可以复用，配置evict相关的两个方法，一方面用于处理类似CLOSE_WAIT状态的异常链接，一方面用于处理IDLE状态的链接，其内部源码会开启一个定时任务去检测。
+    public static JSONObject getUserInfo(String url) throws IOException {
+        JSONObject jsonObject = null;
+        CloseableHttpClient client = HttpClients.createDefault();
+        HttpGet httpGet = new HttpGet(url);
+        HttpResponse response = client.execute(httpGet);
+        HttpEntity entity = response.getEntity();
+        if (entity != null) {
+            String result = EntityUtils.toString(entity, "UTF-8");
+            jsonObject = JSONObject.parseObject(result);
+        }
+        httpGet.releaseConnection();
+        return jsonObject;
     }
-    httpGet.releaseConnection();
-    return jsonObject;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

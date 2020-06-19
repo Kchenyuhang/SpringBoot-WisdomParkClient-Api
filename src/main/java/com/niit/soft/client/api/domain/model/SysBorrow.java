@@ -26,43 +26,43 @@ public class SysBorrow {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long pkBorrowId;
+    private Long pkBorrowId;
 
     /**
      * 借阅人姓名
      */
-    @Column(nullable = false,length = 50)
-    private  String borrowUserName;
+    @Column(nullable = false, length = 50)
+    private String borrowUserName;
 
     /**
      * 借阅人姓名
      */
-    @Column(nullable = false,length = 32)
-    private  String borrowUserNumber;
+    @Column(nullable = false, length = 32)
+    private String borrowUserNumber;
 
     /**
      * 借阅人手机号
      */
-    @Column(nullable = false,length = 32)
-    private  String borrowUserPhone;
+    @Column(nullable = false, length = 32)
+    private String borrowUserPhone;
 
     /**
      * 借阅图书名称
      */
-    @Column(nullable = false,length = 50)
+    @Column(nullable = false, length = 50)
     private String borrowBookName;
 
     /**
      * 借阅图书编号
      */
-    @Column(nullable = false,length = 50)
-    private  String borrowBookId;
+    @Column(nullable = false, length = 50)
+    private String borrowBookId;
 
     /**
      * 归还状态  0 未归还， 1 已归还）
      */
-    @Column(nullable = false,length = 4)
-    private  Boolean isReturned;
+    @Column(nullable = false, length = 4)
+    private Boolean isReturned;
 
     /**
      * 创建时间
@@ -71,17 +71,16 @@ public class SysBorrow {
     private Timestamp gmtCreate;
 
 
-
     /**
      * 更新时间
      */
     @Column(nullable = false)
     @CreationTimestamp
-    private  Timestamp gmtModified;
+    private Timestamp gmtModified;
 
     /**
      * 删除标志
      */
-    @Column(nullable = false,length = 4)
-    private  Boolean isDeleted;
+    @Column(nullable = false, length = 4)
+    private Boolean isDeleted;
 }

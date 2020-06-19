@@ -19,6 +19,7 @@ public interface CompanyService extends IService<Company> {
 
     /**
      * 公司列表
+     *
      * @param jobPageDto
      * @return
      */
@@ -26,6 +27,7 @@ public interface CompanyService extends IService<Company> {
 
     /**
      * 公司详情
+     *
      * @param id
      * @return
      */

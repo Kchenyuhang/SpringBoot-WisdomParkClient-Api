@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Many;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+
 /**
  * @author 倪涛涛
  * @version 1.0.0
@@ -38,13 +39,13 @@ public class FleaGoods {
     /**
      * 商品描述
      */
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String goodsDescription;
 
     /**
      * 商品图片
      */
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String goodsImgUrl;
 
     /**
@@ -79,7 +80,7 @@ public class FleaGoods {
     /**
      * 删除标志
      */
-    @Column(nullable = false,length = 4)
+    @Column(nullable = false, length = 4)
     private Boolean isDeleted;
 
 }

@@ -20,8 +20,10 @@ import java.util.List;
  */
 public interface FleaRewardRepository extends JpaRepository<FleaReward, Long> {
     List<FleaReward> findFleaRewardsByDescriptionLikeOrTitleLike(String description, String title);
+
     /**
      * 根据创建时间查出前两条数据
+     *
      * @param pageable
      * @return
      */

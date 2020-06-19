@@ -28,6 +28,7 @@ public class UserAccountServiceImpl implements UserAccountService {
     private UserAccountRepository userAccountRepository;
     @Resource
     private UserAccountMapper userAccountMapper;
+
     @Override
     public UserAccount findUserAccountById(String id) {
         return userAccountRepository.findUserAccountByInfo(id.toString());
@@ -59,10 +60,10 @@ public class UserAccountServiceImpl implements UserAccountService {
     @Override
     public ResponseResult updateUserInfo(UpdateUserAccountDto updateUserAccountDto) {
         UserAccount userAccount = userAccountRepository.findSysUserAccountByPkUserAccountId(updateUserAccountDto.getPkUserAccountId());
-        if (userAccount!=null){
+        if (userAccount != null) {
             userAccountRepository.updateUserAccount(updateUserAccountDto);
             return ResponseResult.success("修改成功");
-        }else {
+        } else {
             return ResponseResult.failure(ResultCode.RESULT_CODE_DATA_NONE);
         }
 

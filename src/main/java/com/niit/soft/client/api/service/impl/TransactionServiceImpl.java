@@ -44,10 +44,10 @@ public class TransactionServiceImpl implements TransactionService {
                 .id(transactionId).gmtCreate(Timestamp.valueOf(LocalDateTime.now())).gmtModified(Timestamp.valueOf(LocalDateTime.now())).isDeleted(false).build();
         Transaction save = transactionRepository.save(transaction);
         //更改订单状态为被抢单
-        QueryWrapper<DeliveryOrder>queryWrapper =new QueryWrapper<>();
-        queryWrapper.eq("id",transactionDto.getOrderId());
+        QueryWrapper<DeliveryOrder> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("id", transactionDto.getOrderId());
         DeliveryOrder deliveryOrder = DeliveryOrder.builder().status(4).build();
-        deliveryOrderMapper.update(deliveryOrder,queryWrapper);
+        deliveryOrderMapper.update(deliveryOrder, queryWrapper);
         return ResponseResult.success();
     }
 

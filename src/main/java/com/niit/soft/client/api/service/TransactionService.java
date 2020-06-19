@@ -29,8 +29,9 @@ public interface TransactionService {
 
     /**
      * 取货
+     *
      * @param transactionDto
      * @return
      */
-  ResponseResult getGoods(TransactionDto  transactionDto);
+    ResponseResult getGoods(TransactionDto transactionDto);
 }

@@ -23,4 +23,5 @@ public class LoginAccountIncreased {
     private String jobNumber;
 
     //QQ第三方的OpenID
-    private String qqOpenId;}
+    private String qqOpenId;
+}

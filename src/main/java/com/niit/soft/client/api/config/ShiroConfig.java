@@ -18,6 +18,7 @@ import java.util.Map;
 
 /**
  * ShiroConfig:shiro 配置类,配置哪些拦截,哪些不拦截,哪些授权等等各种配置都在这里
+ *
  * @Author 涛涛
  * @Date 2020/5/24 9:55
  * @Version 1.0
@@ -27,6 +28,7 @@ public class ShiroConfig {
 
     /**
      * 注入安全过滤器
+     *
      * @param securityManager
      * @return
      */

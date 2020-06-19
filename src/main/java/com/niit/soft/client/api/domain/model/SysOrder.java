@@ -26,49 +26,49 @@ public class SysOrder {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Integer pkOrderId;
+    private Integer pkOrderId;
 
     /**
      * 卡号
      */
-    @Column(nullable = false,length = 32)
-    private  String jobNumber;
+    @Column(nullable = false, length = 32)
+    private String jobNumber;
 
     /**
      * 类型
      */
-    @Column(nullable = false,length = 16)
-    private  String orderType;
+    @Column(nullable = false, length = 16)
+    private String orderType;
 
     /**
      * 金额
      */
     @Column(nullable = false)
-    private  Double orderMoney;
+    private Double orderMoney;
 
     /**
      * 订单号
      */
-    @Column(nullable = false,length = 32)
-    private  String orderNumber;
+    @Column(nullable = false, length = 32)
+    private String orderNumber;
 
     /**
      * 状态
      */
-    @Column(nullable = false,length = 4)
+    @Column(nullable = false, length = 4)
     private Boolean status;
 
     /**
      * 缴费描述
      */
     @Column
-    private  String description;
+    private String description;
 
     /**
      * 支付方式
      */
-    @Column(nullable = false,length = 16)
-    private  String payMethod;
+    @Column(nullable = false, length = 16)
+    private String payMethod;
 
     /**
      * 创建时间
@@ -81,11 +81,11 @@ public class SysOrder {
      */
     @Column(nullable = false)
     @CreationTimestamp
-    private  Timestamp gmtModified;
+    private Timestamp gmtModified;
 
     /**
      * 删除标志
      */
-    @Column(nullable = false,length = 4)
-    private  Boolean isDeleted;
+    @Column(nullable = false, length = 4)
+    private Boolean isDeleted;
 }

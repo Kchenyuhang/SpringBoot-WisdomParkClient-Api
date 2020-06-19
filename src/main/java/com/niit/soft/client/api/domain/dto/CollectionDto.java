@@ -9,7 +9,8 @@ import java.util.Date;
 
 /**
  * 描述:
- *添加收藏传参类
+ * 添加收藏传参类
+ *
  * @author：Guorc
  * @create 2020-06-10 8:13
  */

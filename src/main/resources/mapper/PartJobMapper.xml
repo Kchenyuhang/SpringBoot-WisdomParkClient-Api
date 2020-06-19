@@ -22,17 +22,27 @@
 
     </resultMap>
     <select id="findPartJob" resultMap="partJobVo">
-        SELECT  j.pk_part_job_id,j.name, j.description, j.boss_id, u.user_name AS boss_name,
-                u.phone_number, u.avatar, j.workplace, j.working_date,j.working_time, j.pay, j.pay_type, j.job_type, j.number,
-                j.have, j.need
+        SELECT j.pk_part_job_id,
+               j.name,
+               j.description,
+               j.boss_id,
+               u.user_name AS boss_name,
+               u.phone_number,
+               u.avatar,
+               j.workplace,
+               j.working_date,
+               j.working_time,
+               j.pay,
+               j.pay_type,
+               j.job_type,
+               j.number,
+               j.have,
+               j.need
         FROM user_account u
-        INNER JOIN part_job j
-        ON u.pk_user_account_id = j.boss_id
+                 INNER JOIN part_job j
+                            ON u.pk_user_account_id = j.boss_id
         ORDER BY ${field} DESC
     </select>
-
-
-
 
 
 </mapper>

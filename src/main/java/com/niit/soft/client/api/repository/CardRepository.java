@@ -27,6 +27,7 @@ public interface CardRepository extends JpaRepository<SysCard, Long> {
 
     /**
      * 通过学号查询余额
+     *
      * @param JobNumber
      * @return
      */
@@ -35,6 +36,7 @@ public interface CardRepository extends JpaRepository<SysCard, Long> {
 
     /**
      * 校园卡充值
+     *
      * @param cardNumber
      * @param money
      * @return
@@ -47,6 +49,7 @@ public interface CardRepository extends JpaRepository<SysCard, Long> {
 
     /**
      * 电费充值
+     *
      * @param id
      * @param money
      * @return
@@ -56,8 +59,10 @@ public interface CardRepository extends JpaRepository<SysCard, Long> {
     @Query(value = "update room as u set  u.electricity_balance = u.electricity_balance + ?2 where u.id=?1",
             nativeQuery = true)
     int insertelectricityBalance(Long id, Double money);
+
     /**
      * 网费充值
+     *
      * @param jobNumber
      * @param money
      * @return
@@ -67,8 +72,10 @@ public interface CardRepository extends JpaRepository<SysCard, Long> {
     @Query(value = "update room as u set  u.electricity_balance = u.electricity_balance + ?2 where u.room_leader_job_number=?1",
             nativeQuery = true)
     int insertBalance(String jobNumber, Double money);
+
     /**
      * 状态激活
+     *
      * @param pkCardId
      * @param status
      * @return
@@ -76,16 +83,17 @@ public interface CardRepository extends JpaRepository<SysCard, Long> {
     @Modifying
     @LastModifiedBy
     @Transactional(rollbackFor = RuntimeException.class)
-    @Query(value = "update sys_card set status = ?2 where pk_card_id = ?1",nativeQuery = true)
-    int updateStatus(Long pkCardId,Boolean status);
+    @Query(value = "update sys_card set status = ?2 where pk_card_id = ?1", nativeQuery = true)
+    int updateStatus(Long pkCardId, Boolean status);
 
     /**
      * 通过卡号和卡密查找一卡通数据
+     *
      * @param cardNumber
      * @param cardPassword
      * @return
      */
-    SysCard findSysCardByCardNumberAndCardPassword(String cardNumber,String cardPassword);
+    SysCard findSysCardByCardNumberAndCardPassword(String cardNumber, String cardPassword);
 
 
 }

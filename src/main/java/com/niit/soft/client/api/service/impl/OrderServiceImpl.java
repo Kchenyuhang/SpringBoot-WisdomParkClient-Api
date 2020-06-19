@@ -22,7 +22,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public ResponseResult findALLByJobNumer(String jobNumber) {
-        List<SysOrder> sysOrderList=orderRepository.findAllByJobNumber(jobNumber);
+        List<SysOrder> sysOrderList = orderRepository.findAllByJobNumber(jobNumber);
 
         return ResponseResult.success(sysOrderList);
     }

@@ -290,7 +290,7 @@ public final class RedisUtil {
      * @param item 项 不能为null
      * @return true 存在 false不存在
      */
-    public boolean hHasKey(String key, String item){
+    public boolean hHasKey(String key, String item) {
         return redisTemplate.opsForHash().hasKey(key, item);
     }
 

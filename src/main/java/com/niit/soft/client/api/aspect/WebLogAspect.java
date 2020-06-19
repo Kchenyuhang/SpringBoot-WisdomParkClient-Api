@@ -130,7 +130,7 @@ public class WebLogAspect {
     //这个webLog()是上面的方法    在方法调用的前后执行自定义的增强行为
     // 符合这个条件并且这个方法还要带@ControllerWebLog注解
     @Around(value = "webLog()")
-    public Object doAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable ,NullPointerException{
+    public Object doAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable, NullPointerException {
         log.info("-----请求执行时间-----" + "**1**");
         //得到开始时间
         long startTime = System.currentTimeMillis();

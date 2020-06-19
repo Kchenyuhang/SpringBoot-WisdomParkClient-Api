@@ -8,6 +8,7 @@ import com.niit.soft.client.api.common.ResponseResult;
 public interface TowerService {
     /**
      * 查询所有宿舍名
+     *
      * @return
      */
     ResponseResult getAllDormByType();

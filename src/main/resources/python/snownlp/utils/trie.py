@@ -26,7 +26,7 @@ class Trie(object):
             else:
                 return ret
             if 'value' in now:
-                ret = (text[start:pos+1], now['value'])
+                ret = (text[start:pos + 1], now['value'])
             pos += 1
         return ret
 

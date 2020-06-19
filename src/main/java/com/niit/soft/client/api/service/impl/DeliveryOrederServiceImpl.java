@@ -153,7 +153,7 @@ public class DeliveryOrederServiceImpl extends ServiceImpl<DeliveryOrderMapper, 
     @Override
     public ResponseResult deleteOrder(Long id) {
         QueryWrapper<DeliveryOrder> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("id", id).ne("status",2);
+        queryWrapper.eq("id", id).ne("status", 2);
         DeliveryOrder deliveryOrder = DeliveryOrder.builder().isDeleted(true).build();
         deliveryOrderMapper.update(deliveryOrder, queryWrapper);
         return ResponseResult.success();

@@ -32,6 +32,7 @@ public class FleaCommentServiceImpl implements FleaCommentService {
     private FleaUserRepository userRepository;
     @Autowired
     private FleaRewardRepository rewardRepository;
+
     @Override
     public ResponseResult addComment(FleaCommentDto commentDto) {
         FleaComment fleaComment = FleaComment.builder()

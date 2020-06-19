@@ -13,6 +13,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface LoginAccountRepository extends JpaRepository<LoginAccount, Long> {
     /**
      * 根据qqOpenId查询
+     *
      * @param qqOpenId
      * @return
      */

@@ -29,15 +29,15 @@ public class ReviewFormServiceImpl implements ReviewFormService {
 
     @Override
     public ResponseResult insertReview(ReviewFormDto reviewFormDto) {
-        SnowFlake snowFlake=new SnowFlake(1,3);
+        SnowFlake snowFlake = new SnowFlake(1, 3);
         long l = snowFlake.nextId();
         //新增申请记录
-        ReviewForm reviewForm =ReviewForm.builder()
+        ReviewForm reviewForm = ReviewForm.builder()
                 .id(l).gmtCreate(Timestamp.valueOf(LocalDateTime.now())).gmtModified(Timestamp.valueOf(LocalDateTime.now())).idCardBack(reviewFormDto.getIdCardBack())
                 .idCardFront(reviewFormDto.getIdCardFront()).requesterId(reviewFormDto.getRequesterId())
                 .remark(reviewFormDto.getRemark()).requesterName(reviewFormDto.getRequesterName()).requesterPhonenumber(reviewFormDto.getRequesterPhonenumber()).status(0L).isDeleted(false)
                 .build();
-      reviewFormRepository.save(reviewForm);
+        reviewFormRepository.save(reviewForm);
         return ResponseResult.success();
 
     }

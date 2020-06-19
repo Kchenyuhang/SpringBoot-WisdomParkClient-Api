@@ -37,7 +37,7 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("智慧校园项目在线接口文档。")
                 .description("swagger-bootstrap-ui")
-                .contact(new Contact("第一小组","https://github.com/LibraZYJ","1836686674@qq.com"))
+                .contact(new Contact("第一小组", "https://github.com/LibraZYJ", "1836686674@qq.com"))
                 .termsOfServiceUrl("http://localhost:8080/")
                 .version("1.0")
                 .build();

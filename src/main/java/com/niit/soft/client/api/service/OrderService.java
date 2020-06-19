@@ -11,6 +11,7 @@ import com.niit.soft.client.api.common.ResponseResult;
 public interface OrderService {
     /**
      * 查询清单明细
+     *
      * @param jobNumber
      * @return
      */

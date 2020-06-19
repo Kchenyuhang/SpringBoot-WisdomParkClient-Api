@@ -13,9 +13,9 @@ import com.niit.soft.client.api.domain.dto.PageDto;
 public interface InfoManageService {
 
     /**
-     *分页查询所有咨询
-     * @param pageDto
+     * 分页查询所有咨询
      *
+     * @param pageDto
      * @return PageDto pageDto
      */
     ResponseResult findAllInfoByPage(PageDto pageDto);
@@ -23,6 +23,7 @@ public interface InfoManageService {
 
     /**
      * 查询置顶资讯
+     *
      * @param pageDto
      * @return
      */
@@ -31,6 +32,7 @@ public interface InfoManageService {
 
     /**
      * 通过id查询咨询详情
+     *
      * @param id
      * @return
      */

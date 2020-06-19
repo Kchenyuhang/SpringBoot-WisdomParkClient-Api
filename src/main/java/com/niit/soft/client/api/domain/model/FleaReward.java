@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+
 /**
  * @author 倪涛涛
  * @version 1.0.0
@@ -62,6 +63,6 @@ public class FleaReward {
     /**
      * 删除标志
      */
-    @Column(nullable = false,length = 4)
+    @Column(nullable = false, length = 4)
     private Boolean isDeleted;
 }

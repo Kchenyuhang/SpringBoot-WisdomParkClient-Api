@@ -1,4 +1,5 @@
 package com.niit.soft.client.api.util.Alioss;
+
 import lombok.Data;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;

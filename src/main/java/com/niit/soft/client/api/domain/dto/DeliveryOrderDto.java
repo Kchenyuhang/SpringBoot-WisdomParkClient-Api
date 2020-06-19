@@ -33,11 +33,11 @@ public class DeliveryOrderDto {
      * 送件人姓名
      */
 
-    private  String founderName;
+    private String founderName;
     /**
      * 送件人手机号
      */
-    private  String founderPhonenumer;
+    private String founderPhonenumer;
     /**
      * 初始位置
      */

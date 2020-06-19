@@ -58,18 +58,17 @@ public class DeliveryOderInformationVo {
     private LocalDateTime cancleTime;
     /**
      * 完成模块
-     *
      */
     //完成人名字
     private String name;
     /**
      * 完成人的手机号
      */
-    private  String errendsPhoneNumber;
+    private String errendsPhoneNumber;
     /**
      * 完成时间
      */
-    private  LocalDateTime finshTime;
+    private LocalDateTime finshTime;
     /**
      * 订单金额（起步价格6）
      */

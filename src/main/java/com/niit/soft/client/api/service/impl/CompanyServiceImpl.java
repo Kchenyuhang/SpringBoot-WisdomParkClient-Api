@@ -32,10 +32,10 @@ public class CompanyServiceImpl extends ServiceImpl<CompanyMapper, Company> impl
     public List<Company> findByPage(JobPageDto jobPageDto) {
         QueryWrapper<Company> wrapper = new QueryWrapper<>();
 
-        if ("workers".equals(jobPageDto.getField())){
-            wrapper.select("pk_company_id","name","tag","logo","workers","type","address").orderByDesc("workers");
-        }else {
-            wrapper.select("pk_company_id","name","tag","logo","workers","type","address").like("name",jobPageDto.getField().toString()).orderByDesc("workers");
+        if ("workers".equals(jobPageDto.getField())) {
+            wrapper.select("pk_company_id", "name", "tag", "logo", "workers", "type", "address").orderByDesc("workers");
+        } else {
+            wrapper.select("pk_company_id", "name", "tag", "logo", "workers", "type", "address").like("name", jobPageDto.getField().toString()).orderByDesc("workers");
         }
         IPage<Company> page = new Page<>(jobPageDto.getCurrentPage(), jobPageDto.getPageSize());
         return companyMapper.selectPage(page, wrapper).getRecords();

@@ -27,19 +27,19 @@ import java.util.concurrent.TimeUnit;
  **/
 @RestController
 @Slf4j
-@Api(value = "SmsApiController",tags = {"短信服务接口"})
+@Api(value = "SmsApiController", tags = {"短信服务接口"})
 public class SmsApiController {
     @Autowired
     private SendSmsService sendSmsService;
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
 
-    @ApiOperation(value = "发送验证码",notes = "参数为 手机号")
+    @ApiOperation(value = "发送验证码", notes = "参数为 手机号")
     @PostMapping(value = "/sendCode")
     @ControllerWebLog(name = "code", isSaved = true)
     public ResponseResult code(@RequestBody SmsPhoneDto smsPhoneDto) {
         log.info("访问 /sendCode 接口");
-        log.info("-----/sendCode-----请求参数：" + smsPhoneDto+"**1**");
+        log.info("-----/sendCode-----请求参数：" + smsPhoneDto + "**1**");
         return sendSmsService.code(smsPhoneDto);
     }
 
@@ -48,7 +48,7 @@ public class SmsApiController {
     @ApiOperation(value = "校验验证码", tags = {"参数为手机号和接收的验证码"})
     @PostMapping(value = "/verifyCode")
     public ResponseResult verifyCode(@RequestBody VerifyPhoneDto verifyPhone) {
-        log.info("-----/verifyCode-----请求参数：" + verifyPhone+"**1**");
+        log.info("-----/verifyCode-----请求参数：" + verifyPhone + "**1**");
         if (sendSmsService.verify(verifyPhone)) {
             log.info("验证码通过");
             return ResponseResult.success(true);

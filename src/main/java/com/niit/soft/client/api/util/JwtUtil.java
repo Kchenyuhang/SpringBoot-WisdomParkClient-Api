@@ -26,9 +26,9 @@ public class JwtUtil {
     /**
      * 校验token是否正确
      *
-     * @param token    秘钥
+     * @param token       秘钥
      * @param userAccount 用户名
-     * @param password   密码
+     * @param password    密码
      * @return
      */
     public static boolean verify(String token, String userAccount, String password) {
@@ -51,6 +51,7 @@ public class JwtUtil {
 
     /**
      * 获得token中的用户名，无需password也能解密
+     *
      * @param token
      * @return
      */
@@ -58,10 +59,12 @@ public class JwtUtil {
         DecodedJWT jwt = JWT.decode(token);
         return jwt.getClaim("userAccount").asString();
     }
+
     /**
      * 生成token签名EXPIRE_TIME 分钟后过期
+     *
      * @param userAccount 用户名
-     * @param password 用户密码
+     * @param password    用户密码
      * @return 加密的token
      * @throws UnsupportedEncodingException
      */

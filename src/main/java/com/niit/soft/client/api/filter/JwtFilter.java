@@ -44,6 +44,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter implements Filter {
 
     /**
      * 执行登录认证
+     *
      * @param request
      * @param response
      * @param mappedValue
@@ -61,6 +62,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter implements Filter {
 
     /**
      * 对跨域提供支持
+     *
      * @param request
      * @param response
      * @return

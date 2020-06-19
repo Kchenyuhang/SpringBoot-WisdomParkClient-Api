@@ -22,7 +22,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "examination",indexes = {@Index(name = "job_numberId",columnList = "job_number")})
+@Table(name = "examination", indexes = {@Index(name = "job_numberId", columnList = "job_number")})
 public class Examination {
     /**
      * 主键，策略为自增
@@ -47,7 +47,7 @@ public class Examination {
     /**
      * 班级id
      */
-    @Column(name = "job_number",nullable = false)
+    @Column(name = "job_number", nullable = false)
     private String jobNumber;
 
     /**
@@ -77,7 +77,7 @@ public class Examination {
     /**
      * 考试类型
      */
-    @Column(nullable = false ,length = 32)
+    @Column(nullable = false, length = 32)
     private String type;
 
     /**
@@ -96,7 +96,7 @@ public class Examination {
     /**
      * 删除标志（0 逻辑删除， 1 未删除）
      */
-    @Column(nullable = false,length = 4)
+    @Column(nullable = false, length = 4)
     private Boolean isDeleted;
 
     /**

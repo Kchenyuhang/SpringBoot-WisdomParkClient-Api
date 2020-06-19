@@ -8,9 +8,9 @@ import com.niit.soft.client.api.common.ResponseResult;
 public interface SysBorrowService {
 
 
-
     /**
      * 查询借阅图书的情况
+     *
      * @param borrowUserNumber
      * @return
      */

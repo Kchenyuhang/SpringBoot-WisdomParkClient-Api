@@ -30,6 +30,7 @@ public class InfoManageServiceImpl implements InfoManageService {
 
     /**
      * 分页查询全部资讯
+     *
      * @param pageDto
      * @return
      */
@@ -46,6 +47,7 @@ public class InfoManageServiceImpl implements InfoManageService {
 
     /**
      * 分页查询置顶资讯
+     *
      * @return List<InfoManage>
      */
     @Override
@@ -62,9 +64,9 @@ public class InfoManageServiceImpl implements InfoManageService {
     @Override
     public ResponseResult findInfoManageById(Long id) {
         InfoManage infoManage = infoManageRepository.getInfoManageByPkInfoManageId(id);
-        if (infoManage!=null){
+        if (infoManage != null) {
             return ResponseResult.success(infoManage);
-        }else {
+        } else {
             return ResponseResult.failure(ResultCode.RESULT_CODE_DATA_NONE);
         }
     }

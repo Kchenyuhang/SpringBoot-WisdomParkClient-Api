@@ -33,14 +33,14 @@ public class CompanyController {
 
     @PostMapping("/list")
     @ApiOperation(value = "公司列表", notes = "JobPageDto,field参数为workers")
-    public ResponseResult findCompany(@RequestBody JobPageDto jobPageDto){
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>"+jobPageDto);
+    public ResponseResult findCompany(@RequestBody JobPageDto jobPageDto) {
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>" + jobPageDto);
         return ResponseResult.success(companyService.findByPage(jobPageDto));
     }
 
     @PostMapping("/detail")
     @ApiOperation(value = "公司详情", notes = "请求参数为公司id")
-    public ResponseResult companyDetail(@RequestBody JobDto jobDto){
+    public ResponseResult companyDetail(@RequestBody JobDto jobDto) {
         return ResponseResult.success(companyService.findById(jobDto.getId()));
     }
 }

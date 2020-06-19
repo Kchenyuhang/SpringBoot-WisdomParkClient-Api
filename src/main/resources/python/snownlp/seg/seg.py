@@ -39,7 +39,7 @@ class Seg(object):
         tmp = ''
         for i in ret:
             if i[1] == 'e':
-                yield tmp+i[0]
+                yield tmp + i[0]
                 tmp = ''
             elif i[1] == 'b' or i[1] == 's':
                 if tmp:

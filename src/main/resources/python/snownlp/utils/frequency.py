@@ -2,6 +2,7 @@
 
 from . import good_turing
 
+
 class BaseProb(object):
 
     def __init__(self):
@@ -21,7 +22,7 @@ class BaseProb(object):
         return True, self.d[key]
 
     def freq(self, key):
-        return float(self.get(key)[1])/self.total
+        return float(self.get(key)[1]) / self.total
 
     def samples(self):
         return self.d.keys()
@@ -68,7 +69,7 @@ class GoodTuringProb(BaseProb):
             self.handled = True
             tmp, self.d = good_turing.main(self.d)
             self.none = tmp
-            self.total = sum(self.d.values())+0.0
+            self.total = sum(self.d.values()) + 0.0
         if not self.exists(key):
             return False, self.none
         return True, self.d[key]

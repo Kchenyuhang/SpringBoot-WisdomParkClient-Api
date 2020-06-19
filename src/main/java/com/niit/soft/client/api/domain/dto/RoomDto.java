@@ -16,9 +16,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class RoomDto {
-    private  String towerName;
-    private  String towerUnitName;
-    private  String roomName;
+    private String towerName;
+    private String towerUnitName;
+    private String roomName;
 
 
 }

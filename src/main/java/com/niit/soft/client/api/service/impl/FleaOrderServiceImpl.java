@@ -30,6 +30,7 @@ public class FleaOrderServiceImpl implements FleaOrderService {
     private FleaGoodsRepository fleaGoodsRepository;
     @Resource
     private FleaUserRepository fleaUserRepository;
+
     @Override
     public ResponseResult orderIncreased(FleaOrderDto fleaOrderDto) {
         FleaOrder fleaOrder = FleaOrder.builder()

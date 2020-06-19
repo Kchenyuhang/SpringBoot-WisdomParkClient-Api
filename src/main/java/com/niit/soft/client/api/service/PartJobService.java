@@ -20,6 +20,7 @@ public interface PartJobService extends IService<PartJob> {
 
     /**
      * 分页查询兼职信息,按照传递的参数排列
+     *
      * @param jobPageDto
      * @return
      */
@@ -28,6 +29,7 @@ public interface PartJobService extends IService<PartJob> {
 
     /**
      * 通过id查找兼职详情
+     *
      * @param id
      * @return
      */
@@ -35,6 +37,7 @@ public interface PartJobService extends IService<PartJob> {
 
     /**
      * 添加兼职
+     *
      * @param partJob
      * @return
      */
@@ -43,6 +46,7 @@ public interface PartJobService extends IService<PartJob> {
 
     /**
      * 分页查询兼职信息,按照传递的参数排列
+     *
      * @param jobPageDto
      * @return
      */

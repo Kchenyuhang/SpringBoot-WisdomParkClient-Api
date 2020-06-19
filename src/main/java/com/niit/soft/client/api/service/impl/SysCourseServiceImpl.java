@@ -51,6 +51,7 @@ public class SysCourseServiceImpl implements SysCourseService {
 
     /**
      * 根据学期id、周次、班级id进行课表数据的查询
+     *
      * @param scheduleDto
      * @return
      */
@@ -67,6 +68,7 @@ public class SysCourseServiceImpl implements SysCourseService {
 
     /**
      * 获取今日课表数据
+     *
      * @param classId
      * @return
      */
@@ -84,22 +86,23 @@ public class SysCourseServiceImpl implements SysCourseService {
 
     /**
      * 获取此周的课程数据
+     *
      * @param sysCourseList
      * @return
      */
     private List<CourseVo> createVo(List<SysCourse> sysCourseList) {
         List<CourseVo> list = new ArrayList<>(10);
         //根据科目id、房间id、教工号id 取出需要的数据
-        sysCourseList.forEach((item)->{
+        sysCourseList.forEach((item) -> {
             CourseVo course = new CourseVo();
             //获取科目名称、科目图片、科目背景色
             List<Tuple> subjectTuple = sysSubjectRepository.selectSysSubjectById(item.getSubjectId());
             //设置科目名称
-            course.setSubjectName(subjectTuple.get(0).get(0,String.class));
+            course.setSubjectName(subjectTuple.get(0).get(0, String.class));
             //设置科目背景
-            course.setBackgroundColor(subjectTuple.get(0).get(2,String.class));
+            course.setBackgroundColor(subjectTuple.get(0).get(2, String.class));
             //设置科目封面
-            course.setCover(subjectTuple.get(0).get(1,String.class));
+            course.setCover(subjectTuple.get(0).get(1, String.class));
             //设置房间名
             course.setTowerName(roomRepository.findTowerNameById(Long.valueOf(item.getRoomId())));
             //获取课程的上课周次
@@ -121,7 +124,7 @@ public class SysCourseServiceImpl implements SysCourseService {
         List<TodayCourseVo> list = new ArrayList<>(10);
         //根据科目id、房间id、教工号id 取出需要的数据
         sysCourseList.forEach((item) -> {
-            if (item.getWeekDay()==DateTest.getCurrentWeek()){
+            if (item.getWeekDay() == DateTest.getCurrentWeek()) {
                 TodayCourseVo course = new TodayCourseVo();
                 //获取科目名称、科目图片、科目背景色
                 List<Tuple> subjectTuple = sysSubjectRepository.selectSysSubjectById(item.getSubjectId());

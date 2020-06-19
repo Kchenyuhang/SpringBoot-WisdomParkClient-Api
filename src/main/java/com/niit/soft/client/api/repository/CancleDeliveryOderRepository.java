@@ -11,5 +11,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @Date 2020/6/10
  * @Version 1.0
  */
-public interface CancleDeliveryOderRepository extends JpaRepository<CancleDeliveryOrder,Long> {
+public interface CancleDeliveryOderRepository extends JpaRepository<CancleDeliveryOrder, Long> {
 }

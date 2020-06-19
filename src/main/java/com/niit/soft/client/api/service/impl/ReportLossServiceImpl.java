@@ -105,7 +105,7 @@ public class ReportLossServiceImpl implements ReportLossService {
         //挂失数据存在
         if (reportLoss1 != null) {
             //修改一卡通状态
-            cardRepository.updateStatus(sysCard.getPkCardId(),false);
+            cardRepository.updateStatus(sysCard.getPkCardId(), false);
             //逻辑删除挂失记录
             reportLossRepository.deletedReportLoss(reportLoss1.getPkReportLossId());
             return ResponseResult.success("取消挂失成功！");

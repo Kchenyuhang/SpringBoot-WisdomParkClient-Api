@@ -22,9 +22,11 @@ public class CommentVo {
     private String pkCommentId;
     private String dynamicId;
     private String userId;
+    private String avatar;
     private String content;
     private Timestamp gmtCreate;
     private Boolean isDeleted;
     //    private Comment comment;
     private List<ReplyComment> replyComments;
+    private List<ReplyCommentVo> replyCommentVos;
 }

@@ -26,38 +26,38 @@ public class SysCard {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pk_card_id",nullable = false)
+    @Column(name = "pk_card_id", nullable = false)
     private Long pkCardId;
 
     /**
      * 卡号
      */
-    @Column(nullable = false,length = 32)
+    @Column(nullable = false, length = 32)
     private String cardNumber;
 
     /**
      * 卡密
      */
-    @Column(nullable = false,length = 32)
-    private  String cardPassword;
+    @Column(nullable = false, length = 32)
+    private String cardPassword;
 
     /**
      * 绑定账号
      */
-    @Column(nullable = false,length = 32)
-    private  String jobNumber;
+    @Column(nullable = false, length = 32)
+    private String jobNumber;
 
     /**
      * 余额
      */
     @Column(nullable = false)
-    private  Double cardBalance;
+    private Double cardBalance;
 
     /**
      * 状态
      */
-    @Column(nullable = false,length = 4)
-   private  Boolean status;
+    @Column(nullable = false, length = 4)
+    private Boolean status;
 
     /**
      * 创建时间
@@ -70,13 +70,13 @@ public class SysCard {
      */
     @Column(nullable = false)
     @UpdateTimestamp
-    private  Timestamp gmtModified;
+    private Timestamp gmtModified;
 
     /**
      * 删除标志
      */
-    @Column(nullable = false,length = 4)
-    private  Boolean isDeleted;
+    @Column(nullable = false, length = 4)
+    private Boolean isDeleted;
 
 
 }

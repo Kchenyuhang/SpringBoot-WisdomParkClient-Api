@@ -17,7 +17,6 @@ import org.springframework.stereotype.Component;
 public interface JobTypeMapper extends BaseMapper<JobType> {
 
 
-
     @Select("SELECT name FROM job_type WHERE name = #{name}")
     String selectName(String name);
 }

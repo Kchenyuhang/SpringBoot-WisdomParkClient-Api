@@ -21,7 +21,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "address_book",indexes = {@Index(name = "phone_numberIndex",columnList = "phone_number")})
+@Table(name = "address_book", indexes = {@Index(name = "phone_numberIndex", columnList = "phone_number")})
 public class AddressBook {
 
     /**
@@ -34,7 +34,7 @@ public class AddressBook {
     /**
      * 用户id
      */
-    @Column(nullable = false,length = 32)
+    @Column(nullable = false, length = 32)
     private String userId;
     /**
      * 性别
@@ -44,12 +44,12 @@ public class AddressBook {
     /**
      * 真实名字
      */
-    private  String realName;
+    private String realName;
 
     /**
      * 手机号
      */
-    @Column(name = "phone_number",nullable = false, length = 32)
+    @Column(name = "phone_number", nullable = false, length = 32)
     private String phoneNumber;
 
     /**
@@ -80,7 +80,7 @@ public class AddressBook {
     /**
      * 删除标志（0 逻辑删除， 1 未删除）
      */
-    @Column(nullable = false,length = 4)
+    @Column(nullable = false, length = 4)
     private Boolean isDeleted;
 
     /*@OneToOne(targetEntity = UserAccount.class)

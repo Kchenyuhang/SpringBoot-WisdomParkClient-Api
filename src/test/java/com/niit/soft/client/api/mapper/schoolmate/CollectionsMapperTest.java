@@ -15,7 +15,7 @@ class CollectionsMapperTest {
 
     @Test
     void findCollectionsByUserId() {
-        List<Map<String, Object>> list =  collectionsMapper.findCollectionsByUserId("1");
+        List<Map<String, Object>> list = collectionsMapper.findCollectionsByUserId("1");
         System.out.println(list);
     }
 

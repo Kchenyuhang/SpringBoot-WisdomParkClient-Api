@@ -12,6 +12,7 @@ import java.util.List;
 public interface TowerMapper {
     /**
      * 查询所有宿舍名
+     *
      * @return
      * @throws SQLException
      */

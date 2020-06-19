@@ -23,28 +23,28 @@ import java.sql.Timestamp;
 public class TowerUnit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "unit_id",nullable = false)
+    @Column(name = "unit_id", nullable = false)
     private Long unitId;
     /**
      * 单元名
      */
-    @Column(name = "name",nullable = false,length = 20)
-    private String name	;
+    @Column(name = "name", nullable = false, length = 20)
+    private String name;
     /**
      * 创建时间
      */
-    @Column(name = "gmt_create",nullable = false)
+    @Column(name = "gmt_create", nullable = false)
     private Timestamp gmtCreate;
 
     /**
      * 更新时间
      */
     @UpdateTimestamp
-    @Column(name = "gmt_modified",nullable = false)
+    @Column(name = "gmt_modified", nullable = false)
     private Timestamp gmtModified;
     /**
      * 删除标志
      */
-    @Column(name = "is_deleted",nullable = false,length = 4)
+    @Column(name = "is_deleted", nullable = false, length = 4)
     private Boolean isDeleted;
 }

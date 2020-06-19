@@ -30,6 +30,7 @@ public interface FleaRewardService {
 
     /**
      * 添加悬赏
+     *
      * @param fleaRewardDto
      * @return
      */
@@ -37,6 +38,7 @@ public interface FleaRewardService {
 
     /**
      * 修改悬赏
+     *
      * @param fleaRewardDto
      * @return
      */
@@ -44,6 +46,7 @@ public interface FleaRewardService {
 
     /**
      * 删除悬赏
+     *
      * @param rewardId
      * @return
      */

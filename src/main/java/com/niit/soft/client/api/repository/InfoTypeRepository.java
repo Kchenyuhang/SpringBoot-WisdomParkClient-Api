@@ -81,6 +81,6 @@ public interface InfoTypeRepository extends JpaRepository<InfoType, Long>, JpaSp
             "WHERE mt.infoId = m.pkInfoManageId " +
             "AND mt.typeId = ?1 " +
             "AND m.isTop = false ")
-    Page<InfoManage> findInfoMangeByPage(Long typeId,Pageable pageable);
+    Page<InfoManage> findInfoMangeByPage(Long typeId, Pageable pageable);
 }
 

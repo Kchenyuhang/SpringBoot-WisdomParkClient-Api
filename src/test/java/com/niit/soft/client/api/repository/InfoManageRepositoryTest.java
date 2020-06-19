@@ -13,9 +13,10 @@ class InfoManageRepositoryTest {
 
     @Resource
     private InfoManageRepository infoManageRepository;
+
     @Test
     void getInfoManageByPkInfoManageId() {
-        InfoManage infoManage = infoManageRepository.getInfoManageByPkInfoManageId((long)1);
+        InfoManage infoManage = infoManageRepository.getInfoManageByPkInfoManageId((long) 1);
         System.out.println(infoManage);
     }
 }

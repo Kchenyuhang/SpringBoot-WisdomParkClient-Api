@@ -16,6 +16,7 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest
 class FleaOrderServiceTest {
     @Resource
@@ -26,6 +27,7 @@ class FleaOrderServiceTest {
     private FleaGoodsRepository goodsRepository;
     @Resource
     private FleaOrderService orderService;
+
     @Test
     void orderIncreased() {
         FleaOrderDto fleaOrderDto = FleaOrderDto.builder()

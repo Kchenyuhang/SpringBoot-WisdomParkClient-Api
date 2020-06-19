@@ -1,8 +1,13 @@
 package com.niit.soft.client.api.service.impl.schoolmate;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.niit.soft.client.api.common.ResponseResult;
 import com.niit.soft.client.api.domain.dto.schoolmate.ReplyCommentDto;
+import com.niit.soft.client.api.domain.model.schoolmate.DynamicPhoto;
 import com.niit.soft.client.api.domain.model.schoolmate.ReplyComment;
+import com.niit.soft.client.api.mapper.schoolmate.DynamicMapper;
+import com.niit.soft.client.api.mapper.schoolmate.DynamicPhotoMapper;
+import com.niit.soft.client.api.mapper.schoolmate.ReplyCommentMapper;
 import com.niit.soft.client.api.repository.schoolmate.ReplyCommentRepository;
 import com.niit.soft.client.api.service.schoolmate.ReplyCommentService;
 import com.niit.soft.client.api.util.SnowFlake;
@@ -18,7 +23,7 @@ import javax.annotation.Resource;
  * @Version 1.0
  **/
 @Service
-public class ReplyCommentServiceImpl implements ReplyCommentService {
+public class ReplyCommentServiceImpl extends ServiceImpl<ReplyCommentMapper, ReplyComment> implements ReplyCommentService {
     @Resource
     private ReplyCommentRepository replyCommentRepository;
 

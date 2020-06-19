@@ -18,7 +18,8 @@ public class ScheduleDto {
      */
     private Long clazzId;
 
-    /**a
+    /**
+     * a
      * 学期id
      */
     private Long semesterId;

@@ -41,35 +41,35 @@ public class PartJob extends Model<PartJob> {
 
     @TableField("description")
     @Column(nullable = false)
-    private  String description;
+    private String description;
 
     @TableField("boss_id")
-    @Column(nullable = false,length = 60)
-    private  Long bossId;
+    @Column(nullable = false, length = 60)
+    private Long bossId;
 
     @TableField("boss_name")
-    @Column(nullable = false,length = 60)
-    private  String bossName;
+    @Column(nullable = false, length = 60)
+    private String bossName;
 
     @TableField("boss_phone")
-    @Column(nullable = false,length = 60)
-    private  String bossPhone;
+    @Column(nullable = false, length = 60)
+    private String bossPhone;
 
     @TableField("boss_avatar")
     @Column(nullable = false)
-    private  String bossAvatar;
+    private String bossAvatar;
 
     @TableField("workplace")
-    @Column(nullable = false,length = 60)
-    private  String workplace;
+    @Column(nullable = false, length = 60)
+    private String workplace;
 
     @TableField("working_date")
-    @Column(nullable = false,length = 60)
-    private  String workingDate;
+    @Column(nullable = false, length = 60)
+    private String workingDate;
 
     @TableField("working_time")
-    @Column(nullable = false,length = 60)
-    private  String workingTime;
+    @Column(nullable = false, length = 60)
+    private String workingTime;
 
     @TableField("pay")
     @Column(length = 10)
@@ -77,29 +77,29 @@ public class PartJob extends Model<PartJob> {
 
     @TableField("pay_type")
     @Column(length = 20)
-    private  String payType;
+    private String payType;
 
     @TableField("job_type")
     @Column(length = 20)
-    private  String jobType;
+    private String jobType;
 
     @TableField("number")
     @Column(length = 10)
-    private  Integer number;
+    private Integer number;
 
     @TableField("have")
     @Column(length = 10)
-    private  Integer have;
+    private Integer have;
 
     @TableField("need")
     @Column(length = 10)
-    private  Boolean need;
+    private Boolean need;
 
     /**
      * 删除标志
      */
     @TableField("is_deleted")
-    @Column(nullable = false,length = 4)
+    @Column(nullable = false, length = 4)
     private Boolean isDeleted;
     /**
      * 创建时间
@@ -114,7 +114,7 @@ public class PartJob extends Model<PartJob> {
     @TableField("gmt_modified")
     @Column(nullable = false)
     @CreationTimestamp
-    private  Timestamp gmtModified;
+    private Timestamp gmtModified;
 
 
 }

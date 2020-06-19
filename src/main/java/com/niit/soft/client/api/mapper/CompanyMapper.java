@@ -12,7 +12,7 @@ import com.niit.soft.client.api.domain.vo.CompanyVo;
  * @Date 2020/6/11 17:33
  * @Version 1.0
  **/
-public interface CompanyMapper  extends BaseMapper<Company> {
+public interface CompanyMapper extends BaseMapper<Company> {
 
     CompanyVo findDetails(Long id);
 }

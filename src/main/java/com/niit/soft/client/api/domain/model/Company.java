@@ -30,37 +30,37 @@ public class Company extends Model<Company> {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long pkCompanyId;
+    private Long pkCompanyId;
 
     @TableField("name")
-    @Column(nullable = false,length = 60)
-    private  String name;
+    @Column(nullable = false, length = 60)
+    private String name;
 
     @TableField("tag")
     @Column(nullable = false)
-    private  String tag;
+    private String tag;
 
     @TableField("logo")
-    private  String logo;
+    private String logo;
 
     @TableField("workers")
-    @Column(nullable = false,length = 20)
-    private  Integer workers;
+    @Column(nullable = false, length = 20)
+    private Integer workers;
 
     @TableField("type")
     @Column(length = 60)
-    private  String type;
+    private String type;
 
     @TableField("description")
-    private  String description;
+    private String description;
 
     @TableField("working_time")
-    @Column(nullable = false,length = 60)
-    private  String workingTime;
+    @Column(nullable = false, length = 60)
+    private String workingTime;
 
     @TableField("working_status")
-    @Column(nullable = false,length = 60)
-    private  String workingStatus;
+    @Column(nullable = false, length = 60)
+    private String workingStatus;
 
     @TableField("job_numbers")
     @Column(length = 10)
@@ -68,24 +68,24 @@ public class Company extends Model<Company> {
 
     @TableField("vacation")
     @Column(length = 10)
-    private  String vacation;
+    private String vacation;
 
     @TableField("address")
-    private  String address;
+    private String address;
 
     @TableField("longitude")
     @Column(length = 60)
-    private  String longitude;
+    private String longitude;
 
     @TableField("latitude")
     @Column(length = 60)
-    private  String latitude;
+    private String latitude;
 
     /**
      * 删除标志
      */
     @TableField("is_deleted")
-    @Column(nullable = false,length = 2)
+    @Column(nullable = false, length = 2)
     private Boolean isDeleted;
     /**
      * 创建时间
@@ -100,7 +100,7 @@ public class Company extends Model<Company> {
     @TableField("gmt_modified")
     @Column(nullable = false)
     @CreationTimestamp
-    private  Timestamp gmtModified;
+    private Timestamp gmtModified;
 
 
 }

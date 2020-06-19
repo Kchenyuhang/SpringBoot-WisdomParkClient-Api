@@ -16,6 +16,7 @@ public interface SysUserRepository extends JpaRepository<SysUser, Long> {
 
     /**
      * 根据id查询用户信息
+     *
      * @param userId
      * @return
      */

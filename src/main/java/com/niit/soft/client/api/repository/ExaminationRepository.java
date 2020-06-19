@@ -39,7 +39,4 @@ public interface ExaminationRepository extends JpaRepository<Examination, Long> 
     List<Object> selectAll(String jobNumber);
 
 
-
-
-
 }

@@ -16,8 +16,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class AlipayDto {
-   private   Double amount;
-    private   String jobNumber;
-    private  String rechargeType;
-    private  Integer regexId ;
+    private Double amount;
+    private String jobNumber;
+    private String rechargeType;
+    private Integer regexId;
 }

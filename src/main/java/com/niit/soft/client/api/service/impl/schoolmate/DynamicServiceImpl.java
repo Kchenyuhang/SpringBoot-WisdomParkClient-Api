@@ -10,12 +10,10 @@ import com.niit.soft.client.api.domain.dto.schoolmate.DynamicPhotoDto;
 import com.niit.soft.client.api.domain.dto.schoolmate.SchoolmatePageDto;
 import com.niit.soft.client.api.domain.dto.schoolmate.ThumbDto;
 import com.niit.soft.client.api.domain.model.UserAccount;
-import com.niit.soft.client.api.domain.model.schoolmate.Comment;
-import com.niit.soft.client.api.domain.model.schoolmate.Dynamic;
-import com.niit.soft.client.api.domain.model.schoolmate.DynamicPhoto;
-import com.niit.soft.client.api.domain.model.schoolmate.Thumb;
+import com.niit.soft.client.api.domain.model.schoolmate.*;
 import com.niit.soft.client.api.domain.vo.schoolmate.CommentVo;
 import com.niit.soft.client.api.domain.vo.schoolmate.DynamicVo;
+import com.niit.soft.client.api.domain.vo.schoolmate.ReplyCommentVo;
 import com.niit.soft.client.api.mapper.schoolmate.CommentMapper;
 import com.niit.soft.client.api.mapper.schoolmate.DynamicMapper;
 import com.niit.soft.client.api.mapper.schoolmate.DynamicPhotoMapper;
@@ -24,6 +22,7 @@ import com.niit.soft.client.api.repository.UserAccountRepository;
 import com.niit.soft.client.api.repository.schoolmate.DynamicRepository;
 import com.niit.soft.client.api.service.schoolmate.DynamicPhotoService;
 import com.niit.soft.client.api.service.schoolmate.DynamicService;
+import com.niit.soft.client.api.service.schoolmate.ReplyCommentService;
 import com.niit.soft.client.api.util.RedisUtil;
 import com.niit.soft.client.api.util.SnowFlake;
 import lombok.extern.slf4j.Slf4j;
@@ -57,6 +56,9 @@ public class DynamicServiceImpl implements DynamicService {
     private DynamicPhotoMapper dynamicPhotoMapper;
 
     @Resource
+    private ReplyCommentService replyCommentService;
+
+    @Resource
     private CommentMapper commentMapper;
 
     @Resource
@@ -76,10 +78,11 @@ public class DynamicServiceImpl implements DynamicService {
 
     @Override
     public DynamicVo findDynamicVoById(String id) {
-        //
+        // 根据id查询动态信息以及，评论，点赞
         DynamicVo dynamicVo = dynamicMapper.findDynamicVoById(id);
 
-        dynamicVo.setDynamicPhotoList(dynamicPhotoMapper.selectList(new QueryWrapper<DynamicPhoto>().eq("dynamic_id", id)));
+        dynamicVo.setDynamicPhotoList(dynamicPhotoMapper.selectList(new QueryWrapper<DynamicPhoto>().eq("dynamic_id", id)
+                .orderByDesc("gmt_create")));
 
         String userId = dynamicVo.getUserId();
         if (userId != null) {
@@ -92,7 +95,28 @@ public class DynamicServiceImpl implements DynamicService {
         List<CommentVo> commentVoList = new ArrayList<>();
         if (commentList.size() != 0) {
             for (Comment comment : commentList) {
-                commentVoList.add(commentMapper.findCommentVoById(comment.getPkCommentId()));
+                String userId1 = comment.getUserId();
+                String avatar = userAccountRepository.findUserAccountByInfo(userId1).getAvatar();
+                CommentVo commentVoById = commentMapper.findCommentVoById(comment.getPkCommentId());
+                commentVoById.setAvatar(avatar);
+                commentVoList.add(commentVoById);
+                List<ReplyCommentVo> replyCommentVos = new ArrayList<>(10);
+                for (ReplyComment replyComment : commentVoById.getReplyComments()) {
+                    ReplyComment pk_reply_comment_id = replyCommentService.getOne(
+                            new QueryWrapper<ReplyComment>().eq("pk_reply_comment_id", replyComment.getPkReplyCommentId()));
+                    String userId2 = replyComment.getUserId();
+                    String avatar1 = userAccountRepository.findUserAccountByInfo(userId2).getAvatar();
+                    replyCommentVos.add(ReplyCommentVo.builder()
+                            .avatar(avatar1)
+                            .pkReplyCommentId(pk_reply_comment_id.getPkReplyCommentId())
+                            .userId(userId2)
+                            .isDeleted(pk_reply_comment_id.getIsDeleted())
+                            .commentId(pk_reply_comment_id.getCommentId())
+                            .content(pk_reply_comment_id.getContent())
+                            .gmtCreate(pk_reply_comment_id.getGmtCreate())
+                            .gmtModified(pk_reply_comment_id.getGmtModified()).build());
+                }
+                commentVoById.setReplyCommentVos(replyCommentVos);
             }
             dynamicVo.setCommentVoList(commentVoList);
         }
@@ -172,7 +196,7 @@ public class DynamicServiceImpl implements DynamicService {
     @Override
     public List<Dynamic> findDynamicByPage(SchoolmatePageDto schoolmatePageDto) {
         return dynamicMapper.selectPage(new Page(schoolmatePageDto.getCurrentPage(), schoolmatePageDto.getPageSize()),
-                new QueryWrapper<>()).getRecords();
+                new QueryWrapper<Dynamic>().orderByDesc("gmt_create")).getRecords();
     }
 
     @Override
