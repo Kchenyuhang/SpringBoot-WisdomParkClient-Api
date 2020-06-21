@@ -7,8 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.servlet.http.HttpSession;
 
 /**
- * @author ck
- * @create 2019-05-18 20:31
+ * @author 倪涛涛
+ * @version 1.0.0
+ * @ClassName IndexController.java
+ * @Description TODO
+ * @createTime 2020年06月16日 16:59:00
  */
 @Controller
 public class IndexController {

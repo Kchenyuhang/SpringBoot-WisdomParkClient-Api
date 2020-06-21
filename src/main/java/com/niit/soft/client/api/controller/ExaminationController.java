@@ -1,5 +1,6 @@
 package com.niit.soft.client.api.controller;
 
+import com.niit.soft.client.api.common.ResponseResult;
 import com.niit.soft.client.api.domain.dto.SingleFieldDto;
 import com.niit.soft.client.api.domain.model.Examination;
 import com.niit.soft.client.api.service.ExaminationService;
@@ -26,7 +27,7 @@ public class ExaminationController {
 
     @ApiOperation("根据学期分类查询所有接口")
     @PostMapping(value = "list/semester")
-    public List<Map<String, Object>> getExaminationBySemester(@RequestBody SingleFieldDto singleFieldDto) {
-        return examinationService.getExaminationBySemester(singleFieldDto.getField().toString());
+    public ResponseResult getExaminationBySemester(@RequestBody SingleFieldDto singleFieldDto) {
+        return ResponseResult.success(examinationService.getExaminationBySemester(singleFieldDto.getField().toString()));
     }
 }

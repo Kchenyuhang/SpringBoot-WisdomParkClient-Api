@@ -31,7 +31,7 @@ public class UserAccountServiceImpl implements UserAccountService {
 
     @Override
     public UserAccount findUserAccountById(String id) {
-        return userAccountRepository.findUserAccountByInfo(id.toString());
+        return userAccountRepository.findUserAccountByInfo(id);
     }
 
     @Override

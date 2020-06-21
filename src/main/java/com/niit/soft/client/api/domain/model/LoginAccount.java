@@ -25,8 +25,14 @@ public class LoginAccount {
 //    关于 unique的坑:如果String类型不给长度，则不生效
 //    long类型不给长度也生效
 
-    //学号
-    @Column(nullable = false, unique = true, length = 32)
+    //学号     此处因为修改不可行
+    /**
+     * 修改＝添加新数据+删除旧数据
+     * 设置jobNumber可重复，openid不可重复
+     * 添加时两个参数
+     * 删除时根据openid查找，然后删除
+     */
+    @Column(nullable = false,unique = true,length = 32)
     private String jobNumber;
 
     //标准32位

@@ -9,6 +9,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author Yujie_Zhao
@@ -129,4 +130,9 @@ public class UserAccount implements Serializable {
      */
     @Column()
     private String Address;
+    /**
+     * 生日
+     */
+    @Column(name = "birthday", nullable = false)
+    private Date birthday;
 }

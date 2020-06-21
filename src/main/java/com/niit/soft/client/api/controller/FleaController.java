@@ -144,7 +144,7 @@ public class FleaController {
     @ControllerWebLog(name = "soldOutGood", isSaved = true)
     @ApiOperation(value = "下架商品", notes = "请求参数为删除标志、商品id----isDeleted、goodId  ")
     @PostMapping(value = "goods/delete")
-    public ResponseResult soldOutGood(@RequestBody SoldOutGoodDto soldOutGoodDto) {
+    public ResponseResult esoldOutGood(@RequestBody SoldOutGoodDto soldOutGoodDto) {
         log.info("访问goods/delete接口");
         log.info("-----goods/delete-----请求参数：" + "**1**");
         return fleaGoodsService.soldOutGood(soldOutGoodDto);

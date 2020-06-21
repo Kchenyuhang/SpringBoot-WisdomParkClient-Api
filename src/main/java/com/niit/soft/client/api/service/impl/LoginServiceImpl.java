@@ -11,6 +11,7 @@ import com.niit.soft.client.api.service.LoginService;
 import com.niit.soft.client.api.service.SendSmsService;
 import com.niit.soft.client.api.service.UserAccountService;
 import com.niit.soft.client.api.util.JwtUtil;
+import com.niit.soft.client.api.util.Md5Util;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.stereotype.Service;
@@ -40,12 +41,15 @@ public class LoginServiceImpl implements LoginService {
         log.info(userAccount + "*****" + password);
         log.info("查询id{}", userAccountRepository.findIdByLoginDto(userAccount, password));
         return userAccountRepository.findIdByLoginDto(userAccount, password);
+//        return userAccountRepository.findIdByLoginDto(userAccount, Md5Util.getMd5(password, true, 32));
     }
 
     @Override
     public ResponseResult login(LoginDto loginDto) throws UnsupportedEncodingException {
         //如果查到数据，返回用户数据
+//        Long id = this.findIdByLoginDto(loginDto.getUserAccount(), Md5Util.getMd5(loginDto.getPassword(), true, 32));
         Long id = this.findIdByLoginDto(loginDto.getUserAccount(), loginDto.getPassword());
+
         if (id != 0) {
             log.info("登录成功");
             log.info(userAccountService.findUserAccountById(String.valueOf(id)).toString());

@@ -34,6 +34,7 @@ class RedisUtilTest {
     }
 
     public static void main(String[] args) throws Exception {
+//        PythonUtil.getSentiment("开开心心");
 //        Properties props = new Properties();
 //        props.put("python.home", "/Library/Frameworks/Python.framework/Versions/3.8/lib");
 //        props.put("python.console.encoding", "UTF-8");
@@ -47,17 +48,17 @@ class RedisUtilTest {
 //
 //        interpreter.exec("print(sorted(a));");
 
-        String a = "18";
-        String[] argss = new String[]{"python", "/Users/xiaobinggan/client_api/src/main/resources/python/dealWithHex.py", a};
-        Process process = Runtime.getRuntime().exec(argss);// 执行py文件
-
-        BufferedReader bfr = new BufferedReader(new InputStreamReader(process.getInputStream()));
-        String str = null;
-        while ((str = bfr.readLine()) != null) {
-            System.out.println(str);
-        }
-        bfr.close();
-        process.waitFor();
+//        String a = "18";
+//        String[] argss = new String[]{"python", "/Users/xiaobinggan/client_api/src/main/resources/python/dealWithHex.py", a};
+//        Process process = Runtime.getRuntime().exec(argss);// 执行py文件
+//
+//        BufferedReader bfr = new BufferedReader(new InputStreamReader(process.getInputStream()));
+//        String str = null;
+//        while ((str = bfr.readLine()) != null) {
+//            System.out.println(str);
+//        }
+//        bfr.close();
+//        process.waitFor();
 
 //        Process proc;
 //        String[] cmdArr = new String[]{"python", "/Users/xiaobinggan/client_api/src/main/resources/python/demo.py"};
@@ -96,18 +97,18 @@ class RedisUtilTest {
 //        proc.waitFor();
 
 
-//        int a = 18;
-//        int b = 23;
-//        String[] argss = new String[]{"python", "/Users/xiaobinggan/client_api/src/main/resources/python/demo2.py", String.valueOf(a), String.valueOf(b)};
-//        Process proc = Runtime.getRuntime().exec(argss);// 执行py文件
-//
-//        BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream()));
-//        String line = null;
-//        while ((line = in.readLine()) != null) {
-//            System.out.println(line);
-//        }
-//        in.close();
-//        proc.waitFor();
+        int a = 18;
+        int b = 23;
+        String[] argss = new String[]{"python", "/Users/xiaobinggan/client_api/src/main/resources/python/demo2.py", String.valueOf(a), String.valueOf(b)};
+        Process proc = Runtime.getRuntime().exec(argss);// 执行py文件
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+        String line = null;
+        while ((line = in.readLine()) != null) {
+            System.out.println(line);
+        }
+        in.close();
+        proc.waitFor();
 
 //        interpreter.execfile("/Users/xiaobinggan/client_api/src/main/resources/python/chinese.py");
 //        PyFunction pyFunction = interpreter.get("chinese", PyFunction.class);

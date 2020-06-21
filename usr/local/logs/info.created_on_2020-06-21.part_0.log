@@ -1,0 +1,218 @@
+2020-06-21 12:05:57.331  INFO 17888 --- [restartedMain] c.n.s.client.api.ClientApiApplication    : Starting ClientApiApplication on DESKTOP-MSQL8V0 with PID 17888 (D:\CompcuteApplication\projectTest\SpringStudy\practical-training\client_api\target\classes started by nitaotao in D:\CompcuteApplication\projectTest\SpringStudy\practical-training\client_api)
+2020-06-21 12:05:57.334  INFO 17888 --- [restartedMain] c.n.s.client.api.ClientApiApplication    : The following profiles are active: dev
+2020-06-21 12:05:57.544  INFO 17888 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in D:\CompcuteApplication\tools\mavenjar\com\sun\xml\bind\jaxb-impl\2.1\jaxb-impl-2.1.jar referenced one or more files that do not exist: file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jaxb-api.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/activation.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jsr173_1.0_api.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jaxb1-impl.jar
+2020-06-21 12:05:57.550  INFO 17888 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-06-21 12:05:57.551  INFO 17888 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-06-21 12:06:03.221  INFO 17888 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-06-21 12:06:03.221  INFO 17888 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-06-21 12:06:03.666  INFO 17888 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 429ms. Found 41 JPA repository interfaces.
+2020-06-21 12:06:04.669  INFO 17888 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2020-06-21 12:06:04.678  INFO 17888 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-06-21 12:06:04.678  INFO 17888 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-06-21 12:06:04.871  INFO 17888 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-06-21 12:06:04.871  INFO 17888 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 7320 ms
+2020-06-21 12:06:05.420  INFO 17888 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-06-21 12:06:05.507  INFO 17888 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.15.Final
+2020-06-21 12:06:05.767  INFO 17888 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-06-21 12:06:05.895  INFO 17888 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-06-21 12:06:07.574  INFO 17888 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-06-21 12:06:07.588  INFO 17888 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-06-21 12:06:15.778  INFO 17888 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-06-21 12:06:15.808  INFO 17888 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-06-21 12:06:15.867  INFO 17888 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-06-21 12:06:17.019  WARN 17888 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.niit.soft.client.api.domain.model.Company.
+2020-06-21 12:06:19.405  WARN 17888 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.niit.soft.client.api.domain.model.schoolmate.DynamicPhoto.
+2020-06-21 12:06:19.445  WARN 17888 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.niit.soft.client.api.domain.model.schoolmate.ReplyComment.
+2020-06-21 12:06:19.569  WARN 17888 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.niit.soft.client.api.domain.model.schoolmate.Collections.
+2020-06-21 12:06:19.739  INFO 17888 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-06-21 12:06:19.757  INFO 17888 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-06-21 12:06:20.075  WARN 17888 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-06-21 12:06:20.311  INFO 17888 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-06-21 12:06:20.377  INFO 17888 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-06-21 12:06:20.438  INFO 17888 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'brokerChannelExecutor'
+2020-06-21 12:06:20.572  INFO 17888 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-06-21 12:06:21.145  INFO 17888 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2020-06-21 12:06:21.155  INFO 17888 --- [restartedMain] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-06-21 12:06:21.155  INFO 17888 --- [restartedMain] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2020-06-21 12:06:21.156  INFO 17888 --- [restartedMain] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2020-06-21 12:06:21.156  INFO 17888 --- [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-06-21 12:06:21.157  INFO 17888 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-06-21 12:06:21.157  INFO 17888 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2020-06-21 12:06:21.157  INFO 17888 --- [restartedMain] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@32132757
+2020-06-21 12:06:21.542  INFO 17888 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2020-06-21 12:06:21.543  INFO 17888 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-06-21 12:06:21.559  INFO 17888 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-06-21 12:06:21.582  INFO 17888 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-06-21 12:06:21.825  INFO 17888 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllByPageUsingPOST_1
+2020-06-21 12:06:21.951  INFO 17888 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllByPageUsingPOST_2
+2020-06-21 12:06:21.962  INFO 17888 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllByPageUsingPOST_3
+2020-06-21 12:06:21.965  INFO 17888 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: insertDeliveryOrderUsingPOST_1
+2020-06-21 12:06:21.976  INFO 17888 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: insertDeliveryOrderUsingPOST_2
+2020-06-21 12:06:21.997  INFO 17888 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-06-21 12:06:21.997  INFO 17888 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-06-21 12:06:21.998  INFO 17888 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-06-21 12:06:21.998  INFO 17888 --- [restartedMain] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2020-06-21 12:06:21.998  INFO 17888 --- [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-06-21 12:06:21.999  INFO 17888 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-06-21 12:06:22.093  INFO 17888 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-06-21 12:06:22.108  INFO 17888 --- [restartedMain] c.n.s.client.api.ClientApiApplication    : Started ClientApiApplication in 26.221 seconds (JVM running for 28.62)
+2020-06-21 12:07:08.397  INFO 17888 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-06-21 12:07:08.398  INFO 17888 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-06-21 12:07:08.405  INFO 17888 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2020-06-21 12:07:08.499  INFO 17888 --- [http-nio-80-exec-1] c.n.s.c.api.controller.LoginController   : 访问login接口
+2020-06-21 12:07:08.500  INFO 17888 --- [http-nio-80-exec-1] c.n.s.c.api.controller.LoginController   : loginDtoLoginDto(userAccount=1802343210, password=123456)
+2020-06-21 12:07:08.504  INFO 17888 --- [http-nio-80-exec-1] c.n.s.c.a.service.impl.LoginServiceImpl  : 1802343210*****E10ADC3949BA59ABBE56E057F20F883E
+2020-06-21 12:07:08.767  INFO 17888 --- [http-nio-80-exec-1] c.n.s.c.a.service.impl.LoginServiceImpl  : 查询id9999
+2020-06-21 12:07:08.834  INFO 17888 --- [http-nio-80-exec-1] c.n.s.c.a.service.impl.LoginServiceImpl  : 登录成功
+2020-06-21 12:07:08.980  INFO 17888 --- [http-nio-80-exec-1] c.n.s.c.a.service.impl.LoginServiceImpl  : UserAccount(pkUserAccountId=9999, userAccount=1802343210, userName=涛涛, nickname=涛涛, jobNumber=1802343210, password=E10ADC3949BA59ABBE56E057F20F883E, avatar=别删我数据, role=1, phoneNumber=18851855106, status=false, clazzId=1, cardNumber=1802343210, gmtCreate=2020-06-19 21:13:34.0, gmtModified=2020-06-19 16:16:07.0, isDeleted=false, gender=男, Address=别删我数据, birthday=2020-06-19 00:00:00.0)
+2020-06-21 12:07:09.219  INFO 17888 --- [http-nio-80-exec-1] c.n.s.c.a.service.impl.LoginServiceImpl  : 生成的tokeneyJhbGciOiJIUzI1NiJ9.eyJ1c2VyQWNjb3VudCI6IjE4MDIzNDMyMTAiLCJleHAiOjE1OTI3MTQyMjl9.r6LtZ5ISKIR6-PaAAVy3FwxhFafQcvvV5tlnWuUk-TU
+2020-06-21 12:07:20.438  INFO 17888 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 2, completed tasks = 0]
+2020-06-21 12:10:00.795  INFO 23464 --- [restartedMain] c.n.s.client.api.ClientApiApplication    : Starting ClientApiApplication on DESKTOP-MSQL8V0 with PID 23464 (D:\CompcuteApplication\projectTest\SpringStudy\practical-training\client_api\target\classes started by nitaotao in D:\CompcuteApplication\projectTest\SpringStudy\practical-training\client_api)
+2020-06-21 12:10:00.797  INFO 23464 --- [restartedMain] c.n.s.client.api.ClientApiApplication    : The following profiles are active: dev
+2020-06-21 12:10:00.834  INFO 23464 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in D:\CompcuteApplication\tools\mavenjar\com\sun\xml\bind\jaxb-impl\2.1\jaxb-impl-2.1.jar referenced one or more files that do not exist: file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jaxb-api.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/activation.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jsr173_1.0_api.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jaxb1-impl.jar
+2020-06-21 12:10:00.834  INFO 23464 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-06-21 12:10:00.834  INFO 23464 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-06-21 12:10:02.038  INFO 23464 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-06-21 12:10:02.038  INFO 23464 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-06-21 12:10:02.401  INFO 23464 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 358ms. Found 41 JPA repository interfaces.
+2020-06-21 12:10:03.067  INFO 23464 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2020-06-21 12:10:03.075  INFO 23464 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-06-21 12:10:03.075  INFO 23464 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-06-21 12:10:03.215  INFO 23464 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-06-21 12:10:03.216  INFO 23464 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2381 ms
+2020-06-21 12:10:03.469  INFO 23464 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-06-21 12:10:03.502  INFO 23464 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.15.Final
+2020-06-21 12:10:03.581  INFO 23464 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-06-21 12:10:03.654  INFO 23464 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-06-21 12:10:04.787  INFO 23464 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-06-21 12:10:04.799  INFO 23464 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-06-21 12:10:09.775  INFO 23464 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-06-21 12:10:09.782  INFO 23464 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-06-21 12:10:09.816  INFO 23464 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-06-21 12:10:10.401  WARN 23464 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.niit.soft.client.api.domain.model.Company.
+2020-06-21 12:10:12.302  WARN 23464 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.niit.soft.client.api.domain.model.schoolmate.DynamicPhoto.
+2020-06-21 12:10:12.340  WARN 23464 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.niit.soft.client.api.domain.model.schoolmate.ReplyComment.
+2020-06-21 12:10:12.424  WARN 23464 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.niit.soft.client.api.domain.model.schoolmate.Collections.
+2020-06-21 12:10:12.534  INFO 23464 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-06-21 12:10:12.538  INFO 23464 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-06-21 12:10:12.702  WARN 23464 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-06-21 12:10:12.852  INFO 23464 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-06-21 12:10:12.867  INFO 23464 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-06-21 12:10:12.893  INFO 23464 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'brokerChannelExecutor'
+2020-06-21 12:10:12.996  INFO 23464 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-06-21 12:10:13.284  INFO 23464 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2020-06-21 12:10:13.292  INFO 23464 --- [restartedMain] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-06-21 12:10:13.292  INFO 23464 --- [restartedMain] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2020-06-21 12:10:13.293  INFO 23464 --- [restartedMain] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2020-06-21 12:10:13.294  INFO 23464 --- [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-06-21 12:10:13.294  INFO 23464 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-06-21 12:10:13.294  INFO 23464 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2020-06-21 12:10:13.294  INFO 23464 --- [restartedMain] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@2a24ba77
+2020-06-21 12:10:13.580  INFO 23464 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2020-06-21 12:10:13.581  INFO 23464 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-06-21 12:10:13.597  INFO 23464 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-06-21 12:10:13.617  INFO 23464 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-06-21 12:10:13.735  INFO 23464 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllByPageUsingPOST_1
+2020-06-21 12:10:13.885  INFO 23464 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllByPageUsingPOST_2
+2020-06-21 12:10:13.897  INFO 23464 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllByPageUsingPOST_3
+2020-06-21 12:10:13.900  INFO 23464 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: insertDeliveryOrderUsingPOST_1
+2020-06-21 12:10:13.910  INFO 23464 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: insertDeliveryOrderUsingPOST_2
+2020-06-21 12:10:13.930  INFO 23464 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-06-21 12:10:13.930  INFO 23464 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-06-21 12:10:13.931  INFO 23464 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-06-21 12:10:13.931  INFO 23464 --- [restartedMain] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2020-06-21 12:10:13.931  INFO 23464 --- [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-06-21 12:10:13.931  INFO 23464 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-06-21 12:10:14.003  INFO 23464 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-06-21 12:10:14.013  INFO 23464 --- [restartedMain] c.n.s.client.api.ClientApiApplication    : Started ClientApiApplication in 13.686 seconds (JVM running for 15.325)
+2020-06-21 12:10:17.132  INFO 23464 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-06-21 12:10:17.133  INFO 23464 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-06-21 12:10:17.140  INFO 23464 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-06-21 12:10:17.194  INFO 23464 --- [http-nio-80-exec-1] c.n.s.c.api.controller.LoginController   : 访问login接口
+2020-06-21 12:10:17.194  INFO 23464 --- [http-nio-80-exec-1] c.n.s.c.api.controller.LoginController   : loginDtoLoginDto(userAccount=1802343210, password=123456)
+2020-06-21 12:10:17.197  INFO 23464 --- [http-nio-80-exec-1] c.n.s.c.a.service.impl.LoginServiceImpl  : 1802343210*****123456
+2020-06-21 12:10:17.366  INFO 23464 --- [http-nio-80-exec-1] c.n.s.c.a.service.impl.LoginServiceImpl  : 查询id9999
+2020-06-21 12:10:17.464  INFO 23464 --- [http-nio-80-exec-1] c.n.s.c.a.service.impl.LoginServiceImpl  : 登录成功
+2020-06-21 12:10:17.605  INFO 23464 --- [http-nio-80-exec-1] c.n.s.c.a.service.impl.LoginServiceImpl  : UserAccount(pkUserAccountId=9999, userAccount=1802343210, userName=涛涛, nickname=涛涛, jobNumber=1802343210, password=123456, avatar=别删我数据, role=1, phoneNumber=18851855106, status=false, clazzId=1, cardNumber=1802343210, gmtCreate=2020-06-19 21:13:34.0, gmtModified=2020-06-19 16:16:07.0, isDeleted=false, gender=男, Address=别删我数据, birthday=2020-06-19 00:00:00.0)
+2020-06-21 12:10:17.693  INFO 23464 --- [http-nio-80-exec-1] c.n.s.c.a.service.impl.LoginServiceImpl  : 生成的tokeneyJhbGciOiJIUzI1NiJ9.eyJ1c2VyQWNjb3VudCI6IjE4MDIzNDMyMTAiLCJleHAiOjE1OTI3MTQ0MTd9.LQ8eC7r3FynaSNaY9BcWIkzxzz1hw_otuA2t1KDud1Q
+2020-06-21 12:11:12.892  INFO 23464 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 2, completed tasks = 0]
+2020-06-21 12:12:43.465  INFO 6004 --- [restartedMain] c.n.s.client.api.ClientApiApplication    : Starting ClientApiApplication on DESKTOP-MSQL8V0 with PID 6004 (D:\CompcuteApplication\projectTest\SpringStudy\practical-training\client_api\target\classes started by nitaotao in D:\CompcuteApplication\projectTest\SpringStudy\practical-training\client_api)
+2020-06-21 12:12:43.468  INFO 6004 --- [restartedMain] c.n.s.client.api.ClientApiApplication    : The following profiles are active: dev
+2020-06-21 12:12:43.504  INFO 6004 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in D:\CompcuteApplication\tools\mavenjar\com\sun\xml\bind\jaxb-impl\2.1\jaxb-impl-2.1.jar referenced one or more files that do not exist: file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jaxb-api.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/activation.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jsr173_1.0_api.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jaxb1-impl.jar
+2020-06-21 12:12:43.505  INFO 6004 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-06-21 12:12:43.505  INFO 6004 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-06-21 12:12:44.677  INFO 6004 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-06-21 12:12:44.678  INFO 6004 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-06-21 12:12:45.015  INFO 6004 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 331ms. Found 41 JPA repository interfaces.
+2020-06-21 12:12:45.664  INFO 6004 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2020-06-21 12:12:45.671  INFO 6004 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-06-21 12:12:45.672  INFO 6004 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-06-21 12:12:45.810  INFO 6004 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-06-21 12:12:45.811  INFO 6004 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2306 ms
+2020-06-21 12:12:46.050  INFO 6004 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-06-21 12:12:46.083  INFO 6004 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.15.Final
+2020-06-21 12:12:46.163  INFO 6004 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-06-21 12:12:46.239  INFO 6004 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-06-21 12:12:47.482  INFO 6004 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-06-21 12:12:47.491  INFO 6004 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-06-21 12:12:53.318  INFO 6004 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-06-21 12:12:53.324  INFO 6004 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-06-21 12:12:53.352  INFO 6004 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-06-21 12:12:53.905  WARN 6004 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.niit.soft.client.api.domain.model.Company.
+2020-06-21 12:12:55.620  WARN 6004 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.niit.soft.client.api.domain.model.schoolmate.DynamicPhoto.
+2020-06-21 12:12:55.662  WARN 6004 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.niit.soft.client.api.domain.model.schoolmate.ReplyComment.
+2020-06-21 12:12:55.747  WARN 6004 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.niit.soft.client.api.domain.model.schoolmate.Collections.
+2020-06-21 12:12:55.845  INFO 6004 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-06-21 12:12:55.849  INFO 6004 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-06-21 12:12:56.021  WARN 6004 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-06-21 12:12:56.170  INFO 6004 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-06-21 12:12:56.185  INFO 6004 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-06-21 12:12:56.208  INFO 6004 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'brokerChannelExecutor'
+2020-06-21 12:12:56.313  INFO 6004 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-06-21 12:12:56.590  INFO 6004 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2020-06-21 12:12:56.597  INFO 6004 --- [restartedMain] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-06-21 12:12:56.598  INFO 6004 --- [restartedMain] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2020-06-21 12:12:56.598  INFO 6004 --- [restartedMain] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2020-06-21 12:12:56.599  INFO 6004 --- [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-06-21 12:12:56.599  INFO 6004 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-06-21 12:12:56.599  INFO 6004 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2020-06-21 12:12:56.600  INFO 6004 --- [restartedMain] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@48848708
+2020-06-21 12:12:56.872  INFO 6004 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2020-06-21 12:12:56.873  INFO 6004 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-06-21 12:12:56.886  INFO 6004 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-06-21 12:12:56.907  INFO 6004 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-06-21 12:12:57.018  INFO 6004 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllByPageUsingPOST_1
+2020-06-21 12:12:57.145  INFO 6004 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllByPageUsingPOST_2
+2020-06-21 12:12:57.156  INFO 6004 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllByPageUsingPOST_3
+2020-06-21 12:12:57.160  INFO 6004 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: insertDeliveryOrderUsingPOST_1
+2020-06-21 12:12:57.169  INFO 6004 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: insertDeliveryOrderUsingPOST_2
+2020-06-21 12:12:57.189  INFO 6004 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-06-21 12:12:57.189  INFO 6004 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-06-21 12:12:57.190  INFO 6004 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-06-21 12:12:57.190  INFO 6004 --- [restartedMain] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2020-06-21 12:12:57.190  INFO 6004 --- [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-06-21 12:12:57.191  INFO 6004 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-06-21 12:12:57.281  INFO 6004 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-06-21 12:12:57.292  INFO 6004 --- [restartedMain] c.n.s.client.api.ClientApiApplication    : Started ClientApiApplication in 14.302 seconds (JVM running for 15.874)
+2020-06-21 12:13:56.208  INFO 6004 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 2, completed tasks = 0]

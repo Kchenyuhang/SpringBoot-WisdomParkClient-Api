@@ -38,4 +38,9 @@ class UserAccountRepositoryTest {
                 .nickname("TYX").build();
         userAccountRepository.updateUserAccount(updateUserAccountDto);
     }
+
+    @Test
+    public void getAll() {
+        System.out.println(userAccountRepository.findAll());
+    }
 }

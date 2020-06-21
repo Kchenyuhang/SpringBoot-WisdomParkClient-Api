@@ -12,7 +12,7 @@ def seg_word(sentence):
         seg_result.append(w)
     # 读取停用词文件
     stopwords = set()
-    fr = codecs.open('stopwords.txt', 'r', 'utf-8')
+    fr = codecs.open('data/stopwords.txt', 'r', 'gbk')
     for word in fr:
         stopwords.add(word.strip())
     fr.close()
@@ -20,31 +20,43 @@ def seg_word(sentence):
     return list(filter(lambda x: x not in stopwords, seg_result))
 
 
+# 对分词结果分类：情感词、否定词、程度副词
+# key为索引，value为权值
+def classify_words(word_list):
+    sen_file = open('BosonNLP_sentiment_score.txt', 'r+', encoding='gbk')
+    sen_list = sen_file.read().splitlines()
+    sen_dict = defaultdict()
+    for s in sen_list:
+        if len(s.split(' ')) == 2:
+            sen_dict[s.split(' ')[0]] = s.split(' ')[1]
+
+
 def classify_words(word_dict):
     """词语分类,找出情感词、否定词、程度副词"""
     # 读取情感字典文件
-    sen_file = open('BosonNLP_sentiment_score.txt', 'r+', encoding='utf-8')
+    sen_file = open('data/BosonNLP_sentiment_score.txt', 'r+', encoding='utf-8')
     # 获取字典文件内容
     sen_list = sen_file.readlines()
     # 创建情感字典
     sen_dict = defaultdict()
     # 读取字典文件每一行内容，将其转换为字典对象，key为情感词，value为对应的分值
     for s in sen_list:
-        # 每一行内容根据空格分割，索引0是情感词，索引01是情感分值
-        sen_dict[s.split(' ')[0]] = s.split(' ')[1]
+        if len(s.split(' ')) == 2:
+            sen_dict[s.split(' ')[0]] = s.split(' ')[1]
 
     # 读取否定词文件
-    not_word_file = open('notDic.txt', 'r+', encoding='utf-8')
+    not_word_file = open('data/notDic.txt', 'r+', encoding='gbk')
     # 由于否定词只有词，没有分值，使用list即可
     not_word_list = not_word_file.readlines()
 
     # 读取程度副词文件
-    degree_file = open('degree.txt', 'r+', encoding='utf-8')
+    degree_file = open('data/degree.txt', 'r+', encoding='gbk')
     degree_list = degree_file.readlines()
     degree_dic = defaultdict()
     # 程度副词与情感词处理方式一样，转为程度副词字典对象，key为程度副词，value为对应的程度值
     for d in degree_list:
-        degree_dic[d.split(',')[0]] = d.split(',')[1]
+        if len(d.split(' ')) == 2:
+            degree_dic[d.split(',')[0]] = d.split(',')[1]
 
     # 分类结果，词语的index作为key,词语的分值作为value，否定词分值设为-1
     sen_word = dict()
@@ -127,7 +139,7 @@ def socre_sentiment(sen_word, not_word, degree_word, seg_result):
 
 
 # 计算得分
-def setiment_score(sententce):
+def sentiment_score(sententce):
     # 1.对文档分词
     seg_list = seg_word(sententce)
     # 2.将分词结果列表转为dic，然后找出情感词、否定词、程度副词
@@ -138,4 +150,4 @@ def setiment_score(sententce):
 
 
 # 测试
-print(setiment_score("我今天很高兴也非常开心"))
+print(sentiment_score("我今天很高兴也非常开心"))

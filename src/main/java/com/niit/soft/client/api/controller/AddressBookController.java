@@ -24,7 +24,8 @@ import java.util.List;
 @Slf4j
 @ResponseBody
 @RequestMapping("/addressBook")
-@Api(value = "AddressBookController", tags = {"通讯录模块接口"})
+@Api(value =
+        "AddressBookController", tags = {"通讯录模块接口"})
 public class AddressBookController {
     @Resource
     private AddressBookService addressBookService;

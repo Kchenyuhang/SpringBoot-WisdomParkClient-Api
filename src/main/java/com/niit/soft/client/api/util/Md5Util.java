@@ -65,7 +65,7 @@ public class Md5Util {
     }
 
     public static void main(String[] args) {
-        String a = "1234";
+        String a = "123456";
         //大写  32位
         String md5a = getMd5(a, true, 32);
         System.out.println(md5a);

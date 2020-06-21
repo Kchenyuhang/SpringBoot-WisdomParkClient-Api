@@ -45,6 +45,15 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/sendCode", "anon");
         filterChainDefinitionMap.put("/verifyCode", "anon");
         filterChainDefinitionMap.put("/doc.html", "anon");
+        filterChainDefinitionMap.put("/show", "anon");
+        filterChainDefinitionMap.put("/qq/oauth", "anon");
+        filterChainDefinitionMap.put("/connect", "anon");
+        filterChainDefinitionMap.put("/index", "anon");
+        filterChainDefinitionMap.put("/home", "anon");
+        filterChainDefinitionMap.put("/wechat/openid", "anon");
+
+
+
         //添加自己的过滤器并取名为jwt
         Map<String, Filter> filterMap = new HashedMap();
         filterMap.put("jwt", new JwtFilter());

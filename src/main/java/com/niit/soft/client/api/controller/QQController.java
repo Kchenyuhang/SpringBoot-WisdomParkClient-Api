@@ -1,22 +1,16 @@
 package com.niit.soft.client.api.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.niit.soft.client.api.common.ResponseResult;
-import com.niit.soft.client.api.common.ResultCode;
-import com.niit.soft.client.api.exception.CustomException;
+import com.niit.soft.client.api.annotation.ControllerWebLog;
 import com.niit.soft.client.api.service.QQService;
-import com.niit.soft.client.api.util.QQHttpClient;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.net.URLEncoder;
-import java.util.UUID;
 
 /**
  * @author 倪涛涛
@@ -65,8 +59,11 @@ public class QQController {
      * @param session
      * @return
      */
+    @ControllerWebLog(name = "qq", isSaved = true)
+    @ApiOperation(value = "跳转到第三方", notes = "请求第三方登录")
     @GetMapping("/qq/oauth")
     public String qq(HttpSession session) {
+        log.info("-----/qq/oauth被访问----**1**");
         return "redirect:" + qqService.qqRedirect(session);
     }
 
@@ -77,9 +74,13 @@ public class QQController {
      * @param request
      * @return
      */
+    @ControllerWebLog(name = "connect", isSaved = true)
+    @ApiOperation(value = "QQ互联回调用的", notes = "QQ互联回调")
     @GetMapping("/connect")
-    public ResponseResult connect(HttpServletRequest request) throws Exception {
+    public String connect(HttpServletRequest request) throws Exception {
         log.info("------QQ的服务器又重定向回来-----");
-        return qqService.connect(request);
+        log.info("-----/connect被访问----**1**");
+        //如果没有绑定QQ，则返回openid
+        return "redirect:" + qqService.connect(request);
     }
 }
