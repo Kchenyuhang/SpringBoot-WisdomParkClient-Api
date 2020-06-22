@@ -29,7 +29,7 @@ spring:
       connection-test-query: SELECT 1
   jpa:
     database: mysql
-    show-sql: true
+    show-sql: false
     generate-ddl: true
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
@@ -49,16 +49,6 @@ spring:
         max-idle: 10
         min-idle: 0
     timeout: 1000
-  # rabbitmq 配置
-#  rabbitmq:
-#    host: 120.26.179.70
-#    port: 61613
-#    username: guest
-#    password: guest
-#    host: 127.0.0.1
-#    port: 61613
-#    username: guest
-#    password: guest
 
 # mybatis-Plus配置
 mybatis-plus:
@@ -75,15 +65,6 @@ mybatis-plus:
       field-strategy: not_empty
       #开启驼峰是命名
       table-underline: true
-
-wechat:
-  # yangyang
-  #  appid: wx83d0374272352af8
-  #  secret: d42cff0f412b215af58dec23e9634cc6
-  # chenrongqi
-  appid: wxedc274aca2fb67b1
-  secret: 0be1b1ac7a0a72e5f00dec9b09422093
-
 
 qq:
   # ntt

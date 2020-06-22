@@ -1,7 +1,7 @@
 package com.niit.soft.client.api.mapper.schoolmate;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.niit.soft.client.api.domain.dto.DynamicCollectionDto;
+import com.niit.soft.client.api.domain.dto.schoolmate.DynamicCollectionDto;
 import com.niit.soft.client.api.domain.model.schoolmate.Collections;
 import org.apache.ibatis.annotations.Select;
 

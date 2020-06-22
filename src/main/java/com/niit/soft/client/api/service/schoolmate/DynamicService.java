@@ -1,10 +1,7 @@
 package com.niit.soft.client.api.service.schoolmate;
 
 import com.niit.soft.client.api.common.ResponseResult;
-import com.niit.soft.client.api.domain.dto.schoolmate.DynamicDto;
-import com.niit.soft.client.api.domain.dto.schoolmate.DynamicPhotoDto;
-import com.niit.soft.client.api.domain.dto.schoolmate.SchoolmatePageDto;
-import com.niit.soft.client.api.domain.dto.schoolmate.ThumbDto;
+import com.niit.soft.client.api.domain.dto.schoolmate.*;
 import com.niit.soft.client.api.domain.model.schoolmate.Dynamic;
 import com.niit.soft.client.api.domain.model.schoolmate.DynamicPhoto;
 import com.niit.soft.client.api.domain.vo.schoolmate.CommentVo;
@@ -27,6 +24,15 @@ public interface DynamicService {
      * @return
      */
     DynamicVo findDynamicVoById(String id);
+
+    /**
+     * 根据用户id查找动态资讯
+     *
+     * @param id
+     * @return
+     */
+    List<Dynamic> findDynamicVoByUserId(SchoolmateUserPageDto schoolmateUserPageDto);
+
 
     /**
      * 根据动态id查询图片

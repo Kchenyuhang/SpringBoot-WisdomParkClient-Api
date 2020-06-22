@@ -1,8 +1,8 @@
 package com.niit.soft.client.api.service.schoolmate;
 
 import com.niit.soft.client.api.common.ResponseResult;
-import com.niit.soft.client.api.domain.dto.DynamicCollectionInDto;
 import com.niit.soft.client.api.domain.dto.PageDto;
+import com.niit.soft.client.api.domain.dto.schoolmate.DynamicCollectionInDto;
 
 /**
  * @author Yujie_Zhao
