@@ -1,10 +1,7 @@
 package com.niit.soft.client.api.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.niit.soft.client.api.domain.model.UserAccount;
 import com.niit.soft.client.api.domain.vo.AddressBookVo;
 import org.apache.ibatis.annotations.Select;
-import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -12,7 +9,7 @@ import java.util.List;
 /**
  * @author Tao
  */
-public interface UserAccountMapper extends BaseMapper<UserAccount> {
+public interface UserAccountMapper {
     /**
      * 模糊查询
      *

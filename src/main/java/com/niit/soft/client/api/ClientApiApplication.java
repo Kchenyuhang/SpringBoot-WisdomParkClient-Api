@@ -19,7 +19,6 @@ import org.springframework.web.client.RestTemplate;
 @EnableScheduling
 @SpringBootApplication
 @MapperScan("com.niit.soft.client.api.mapper")
-@MapperScan("com.niit.soft.client.api.errends.mapper")
 @EnableJpaAuditing
 public class ClientApiApplication {
     public static void main(String[] args) {

@@ -2,7 +2,6 @@ package com.niit.soft.client.api.controller.schoolmate;
 
 import com.niit.soft.client.api.annotation.ControllerWebLog;
 import com.niit.soft.client.api.common.ResponseResult;
-import com.niit.soft.client.api.domain.dto.schoolmate.DynamicCollectionInDto;
 import com.niit.soft.client.api.domain.dto.PageDto;
 import com.niit.soft.client.api.domain.dto.schoolmate.*;
 import com.niit.soft.client.api.domain.model.schoolmate.Dynamic;
@@ -11,6 +10,7 @@ import com.niit.soft.client.api.service.schoolmate.CollectionsService;
 import com.niit.soft.client.api.service.schoolmate.CommentService;
 import com.niit.soft.client.api.service.schoolmate.DynamicService;
 import com.niit.soft.client.api.service.schoolmate.ReplyCommentService;
+import com.niit.soft.client.api.util.SentimentClassify;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -89,6 +89,19 @@ public class DynamicController {
         }
         return ResponseResult.success(dynamicVos);
     }
+
+    @PostMapping(value = "/user")
+    @ControllerWebLog(name = "findDynamic", isSaved = true)
+    @ApiOperation(value = "根据用户id查找所有动态资讯", notes = "请求参数为传递分页参数和用户id")
+    ResponseResult findDynamicByUserId(@RequestBody SchoolmateUserPageDto schoolmateUserPageDto) {
+        List<Dynamic> dynamicByPage = dynamicService.findDynamicVoByUserId(schoolmateUserPageDto);
+        List<DynamicVo> dynamicVos = new ArrayList<>(10);
+        for (Dynamic dynamic : dynamicByPage) {
+            dynamicVos.add(dynamicService.findDynamicVoById(dynamic.getPkDynamicId()));
+        }
+        return ResponseResult.success(dynamicVos);
+    }
+
 
     @PostMapping("/new")
     @ControllerWebLog(name = "findDynamic", isSaved = true)
@@ -186,5 +199,13 @@ public class DynamicController {
     public ResponseResult updateCollectionsIsDelete(@RequestBody IdDto id) {
         return collectionsService.updateCollectionsIsDelete(id.getId());
     }
+
+    @ControllerWebLog(name = "sentimentClassify", isSaved = true)
+    @ApiOperation(value = "情感分析", notes = "参数为发送请求的文字")
+    @PostMapping(value = "/sentiment")
+    public ResponseResult sentimentClassify(@RequestBody StringDto stringDto) {
+        return ResponseResult.success(SentimentClassify.sentimentStatus(stringDto.getText()));
+    }
+
 
 }

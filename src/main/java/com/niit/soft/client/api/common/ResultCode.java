@@ -36,7 +36,6 @@ public enum ResultCode {
     SMS_ERROR(30001, "短信业务出现问题"),
     UPLOAD_ERROR(30002, "上传文件业务出现问题"),
     CARD_REPORT(30004, "一卡通已挂失"),
-    GOODS_OUT_FAILURE(30005,"下架操作失败"),
 
     /* 数据错误：40001-49999 */
     RESULT_CODE_DATA_NONE(50001, "数据未找到"),
@@ -67,14 +66,9 @@ public enum ResultCode {
 
 
     /*跑腿模块：80001-89999*/
-
-    ORDER_NOT_CANCLE(80001,"订单正在配送无法取消"),
-    ERRENDS_NOT_HAVA_ROOT(80002,"您还不是跑腿");
+    ORDER_NOT_CANCLE(80001, "订单正在配送无法取消");
 
     /*校友圈模块：90001-99999*/
-
-
-
 
 
     private Integer code;

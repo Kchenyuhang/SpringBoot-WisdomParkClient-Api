@@ -5,10 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.niit.soft.client.api.common.ResponseResult;
 import com.niit.soft.client.api.common.ResultCode;
-import com.niit.soft.client.api.domain.dto.schoolmate.DynamicDto;
-import com.niit.soft.client.api.domain.dto.schoolmate.DynamicPhotoDto;
-import com.niit.soft.client.api.domain.dto.schoolmate.SchoolmatePageDto;
-import com.niit.soft.client.api.domain.dto.schoolmate.ThumbDto;
+import com.niit.soft.client.api.domain.dto.schoolmate.*;
 import com.niit.soft.client.api.domain.model.UserAccount;
 import com.niit.soft.client.api.domain.model.schoolmate.*;
 import com.niit.soft.client.api.domain.vo.schoolmate.CommentVo;
@@ -81,9 +78,11 @@ public class DynamicServiceImpl implements DynamicService {
         // 根据id查询动态信息以及，评论，点赞
         DynamicVo dynamicVo = dynamicMapper.findDynamicVoById(id);
 
+        // 根据id查询动态图片信息
         dynamicVo.setDynamicPhotoList(dynamicPhotoMapper.selectList(new QueryWrapper<DynamicPhoto>().eq("dynamic_id", id)
                 .orderByDesc("gmt_create")));
 
+        // 查询动态用户信息
         String userId = dynamicVo.getUserId();
         if (userId != null) {
             UserAccount userAccountByInfo = userAccountRepository.findUserAccountByInfo(userId);
@@ -91,23 +90,34 @@ public class DynamicServiceImpl implements DynamicService {
         }
 
 
+        // 获取评论列表
         List<Comment> commentList = dynamicVo.getCommentList();
         List<CommentVo> commentVoList = new ArrayList<>();
         if (commentList.size() != 0) {
             for (Comment comment : commentList) {
                 String userId1 = comment.getUserId();
-                String avatar = userAccountRepository.findUserAccountByInfo(userId1).getAvatar();
+                // 根据用户id查询评论者的信息
+                UserAccount userAccountByInfo = userAccountRepository.findUserAccountByInfo(userId1);
+                // 设置评论者的用户头像、昵称
+                String avatar = userAccountByInfo.getAvatar();
+                String nickname = userAccountByInfo.getNickname();
                 CommentVo commentVoById = commentMapper.findCommentVoById(comment.getPkCommentId());
                 commentVoById.setAvatar(avatar);
+                commentVoById.setNickname(nickname);
                 commentVoList.add(commentVoById);
+
                 List<ReplyCommentVo> replyCommentVos = new ArrayList<>(10);
                 for (ReplyComment replyComment : commentVoById.getReplyComments()) {
+                    // 查询到评论回复的信息
                     ReplyComment pk_reply_comment_id = replyCommentService.getOne(
                             new QueryWrapper<ReplyComment>().eq("pk_reply_comment_id", replyComment.getPkReplyCommentId()));
                     String userId2 = replyComment.getUserId();
-                    String avatar1 = userAccountRepository.findUserAccountByInfo(userId2).getAvatar();
+                    UserAccount userAccountByInfo1 = userAccountRepository.findUserAccountByInfo(userId2);
+                    String avatar1 = userAccountByInfo1.getAvatar();
+                    String nickname1 = userAccountByInfo1.getNickname();
                     replyCommentVos.add(ReplyCommentVo.builder()
                             .avatar(avatar1)
+                            .nickname(nickname1)
                             .pkReplyCommentId(pk_reply_comment_id.getPkReplyCommentId())
                             .userId(userId2)
                             .isDeleted(pk_reply_comment_id.getIsDeleted())
@@ -197,6 +207,13 @@ public class DynamicServiceImpl implements DynamicService {
     public List<Dynamic> findDynamicByPage(SchoolmatePageDto schoolmatePageDto) {
         return dynamicMapper.selectPage(new Page(schoolmatePageDto.getCurrentPage(), schoolmatePageDto.getPageSize()),
                 new QueryWrapper<Dynamic>().orderByDesc("gmt_create")).getRecords();
+    }
+
+
+    @Override
+    public List<Dynamic> findDynamicVoByUserId(SchoolmateUserPageDto schoolmateUserPageDto) {
+        return dynamicMapper.selectPage(new Page(schoolmateUserPageDto.getCurrentPage(), schoolmateUserPageDto.getPageSize()),
+                new QueryWrapper<Dynamic>().orderByDesc("gmt_create").eq("user_id", schoolmateUserPageDto.getId())).getRecords();
     }
 
     @Override
