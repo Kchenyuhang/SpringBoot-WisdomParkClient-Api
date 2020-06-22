@@ -178,13 +178,13 @@ public class DeliveryOrederServiceImpl extends ServiceImpl<DeliveryOrderMapper, 
         Pageable pageable = PageRequest.of(finshOrderDto.getNum(), finshOrderDto.getSize());
         QueryWrapper<DeliveryOrder> queryWrapper = new QueryWrapper<>();
         queryWrapper.select("id", "amount", "commodity_id", "d_dimension", "d_longitude", "delivery_time", "destination",
-                "founder_id", "o_dimension", "o_longitude", "oder_create_time", "origin_address", "receiver_name", "receiver_phone_number"
+                "founder_id", "founder_name","founder_phonenumber","o_dimension", "o_longitude", "oder_create_time", "origin_address", "receiver_name", "receiver_phone_number"
                 , "remark").eq("status", 0);
         List<DeliveryOrder> deliveryOrders = deliveryOrderMapper.selectList(queryWrapper);
         for (DeliveryOrder deliveryOrder : deliveryOrders) {
             //查出发单人信息
             QueryWrapper<UserAccount> userAccountQueryWrapper = new QueryWrapper<>();
-            userAccountQueryWrapper.select("nickname", "job_number", "phone_number").eq("job_number", deliveryOrder.getFounderId());
+            userAccountQueryWrapper.select("user_name", "job_number", "phone_number").eq("job_number", deliveryOrder.getFounderId());
             UserAccount userAccount = userAccountMapper.selectOne(userAccountQueryWrapper);
             Commodity commodity = commodityMapper.selectById(deliveryOrder.getCommodityId());
             DeliveryOderInformationVo deliveryOderInformationVo = DeliveryOderInformationVo.builder()
@@ -192,8 +192,8 @@ public class DeliveryOrederServiceImpl extends ServiceImpl<DeliveryOrderMapper, 
                     .commodity(commodity).deliveryTime(deliveryOrder.getDeliveryTime())
                     .destination(deliveryOrder.getDestination())
                     .founderId(userAccount.getJobNumber())
-                    .founderName(userAccount.getUserName())
-                    .founderPhonenumber(userAccount.getPhoneNumber())
+                    .founderName(deliveryOrder.getFounderName())
+                    .founderPhonenumber(deliveryOrder.getFounderPhonenumber())
                     .id(deliveryOrder.getId())
                     .oderCreateTime(deliveryOrder.getOderCreateTime())
                     .originAddress(deliveryOrder.getOriginAddress())

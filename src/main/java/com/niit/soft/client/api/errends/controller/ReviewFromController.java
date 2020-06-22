@@ -1,7 +1,9 @@
 package com.niit.soft.client.api.errends.controller;
 
 import com.niit.soft.client.api.common.ResponseResult;
+import com.niit.soft.client.api.errends.domain.dto.FinshOrderDto;
 import com.niit.soft.client.api.errends.domain.dto.ReviewFormDto;
+import com.niit.soft.client.api.errends.domain.dto.TransactionDto;
 import com.niit.soft.client.api.errends.service.ReviewFormService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -32,5 +34,19 @@ public class ReviewFromController {
     @PostMapping("/application")
     public ResponseResult insertDeliveryOrder(@RequestBody ReviewFormDto reviewFormDto){
         return reviewFormService.insertReview(reviewFormDto);
+    }
+
+    @ApiOperation(value = "判断是否是跑腿 ",notes = "请求参数为transactionDto")
+    @PostMapping("/isErrends")
+    public ResponseResult isErrends(@RequestBody FinshOrderDto finshOrderDto){
+        return reviewFormService.selectErrends(finshOrderDto);
+    }
+
+
+
+    @ApiOperation(value = "判断是否是状态 ",notes = "请求参数为transactionDto")
+    @PostMapping("/status")
+    public ResponseResult ErrendsStatus(@RequestBody FinshOrderDto finshOrderDto){
+        return reviewFormService.selectErrends(finshOrderDto);
     }
 }
