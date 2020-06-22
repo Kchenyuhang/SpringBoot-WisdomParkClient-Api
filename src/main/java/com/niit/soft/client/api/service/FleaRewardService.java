@@ -65,7 +65,7 @@ public interface FleaRewardService {
     ResponseResult delete(Long rewardId);
 
     /**
-     * 根据id查询详情
+     * 根据Id查询详情
      * @param rewardId Long
      * @return ResponseResult
      */
