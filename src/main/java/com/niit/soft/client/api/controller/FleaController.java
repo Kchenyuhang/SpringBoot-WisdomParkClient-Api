@@ -20,7 +20,7 @@ import java.util.Map;
  * @author 倪涛涛
  * @version 1.0.0
  * @ClassName FleaController.java
- * @Description TODO
+ * @Description 跳蚤市场接口
  * @createTime 2020年06月09日 14:37:00
  */
 @Slf4j
@@ -64,7 +64,7 @@ public class FleaController {
     /**
      * 查找所有分类
      *
-     * @return
+     * @return ResponseResult
      */
     @ApiOperation(value = "查询所有分类", notes = "分为一级分类和二级分类")
     @PostMapping("type/all")
@@ -76,7 +76,7 @@ public class FleaController {
     /**
      * 查找所有悬赏
      *
-     * @return
+     * @return ResponseResult
      */
     @ApiOperation(value = "查询所有悬赏", notes = "返回所有的悬赏")
     @PostMapping("reward/all")
@@ -86,7 +86,11 @@ public class FleaController {
         return ResponseResult.success(fleaRewardService.findAll(pageDto));
     }
 
-
+    /**
+     * 查询悬赏最新的前两条数据
+     *
+     * @return ResponseResult
+     */
     @ControllerWebLog(name = "getTopTwoReward", isSaved = true)
     @ApiOperation(value = "查询悬赏最新的前两条数据", notes = "不需要参数")
     @PostMapping("reward/top")
@@ -95,6 +99,26 @@ public class FleaController {
         return fleaRewardService.getRewardTopThree();
     }
 
+    /**
+     * 根据id查询悬赏详情
+     *
+     * @param rewardDto RewardDto
+     * @return ResponseResult
+     */
+    @ControllerWebLog(name = "getRewardById", isSaved = true)
+    @ApiOperation(value = "根据id查询悬赏详情", notes = "RewardDto参数")
+    @PostMapping("reward/id")
+    public ResponseResult getRewardById(@RequestBody RewardDto rewardDto) {
+        log.info("进入根据id查询悬赏详情接口");
+        return fleaRewardService.findById(rewardDto.getRewardId());
+    }
+
+    /**
+     * 查询商品信息，根据时间排序
+     *
+     * @param pageDto PageDto
+     * @return ResponseResult
+     */
     @ControllerWebLog(name = "getGoodsByTime", isSaved = true)
     @ApiOperation(value = "查询商品信息，根据时间排序", notes = "pageDto分页参数，参数从0页开始")
     @PostMapping("goods/all")
@@ -103,6 +127,12 @@ public class FleaController {
         return fleaGoodsService.getGoodsByTime(pageDto);
     }
 
+    /**
+     * 根据类别ID查询商品信息
+     *
+     * @param typeDto TypeDto
+     * @return ResponseResult
+     */
     @ControllerWebLog(name = "getGoodsByType", isSaved = true)
     @ApiOperation(value = "根据类别ID查询商品信息", notes = "pageDto分页参数和typeId类别ID，参数从0页开始")
     @PostMapping("goods/type")
@@ -111,6 +141,12 @@ public class FleaController {
         return fleaTypeService.getGoodsByType(typeDto);
     }
 
+    /**
+     * 根据商品id查询指定商品的详细信息
+     *
+     * @param goodId GoodIdDto
+     * @return ResponseResult
+     */
     @ControllerWebLog(name = "findGoodById", isSaved = true)
     @ApiOperation(value = "根据商品id查询指定商品的详细信息", notes = "请求参数为商品id----goodId   ")
     @PostMapping(value = "goods/id")
@@ -224,6 +260,12 @@ public class FleaController {
         return fleaUserService.findGoodsByUserId(fleaUserIdDto);
     }
 
+    /**
+     * 根据用户ID查询用户信息
+     *
+     * @param userIdDto FleaUserIdDto
+     * @return ResponseResult
+     */
     @ControllerWebLog(name = "findById", isSaved = true)
     @ApiOperation(value = "根据用户ID查询用户信息", notes = "请求参数为userDto中的用户ID")
     @PostMapping("/user/userMain")
@@ -261,6 +303,12 @@ public class FleaController {
         return fleaCollectionService.judgeCollection(judgeCollectionDto);
     }
 
+    /**
+     * 新增收藏
+     *
+     * @param collectionDto CollectionDto
+     * @return ResponseResult
+     */
     @ControllerWebLog(name = "addCollection", isSaved = true)
     @ApiOperation(value = "新增收藏", notes = "请求参数为商品ID以及收藏用户ID")
     @PostMapping("/collection/increased")
@@ -269,6 +317,12 @@ public class FleaController {
         return fleaCollectionService.addCollection(collectionDto);
     }
 
+    /**
+     * 查询所有收藏
+     *
+     * @param userIdDto FleaUserIdDto
+     * @return ResponseResult
+     */
     @ControllerWebLog(name = "getAll", isSaved = true)
     @ApiOperation(value = "查询所有收藏", notes = "没有请求参数，直接post提交")
     @PostMapping("/collection/all")
@@ -277,6 +331,12 @@ public class FleaController {
         return fleaCollectionService.getCollection(userIdDto);
     }
 
+    /**
+     * 逻辑删除收藏
+     *
+     * @param collectionDto CancelCollectionDto
+     * @return ResponseResult
+     */
     @ControllerWebLog(name = "logicalDel", isSaved = true)
     @ApiOperation(value = "逻辑删除收藏", notes = "请求参数为商品ID与用户ID----collectionDto  ")
     @PostMapping("/collection/deleted")
@@ -285,7 +345,12 @@ public class FleaController {
         return fleaCollectionService.logicalDel(collectionDto);
     }
 
-
+    /**
+     * 添加悬赏
+     *
+     * @param fleaRewardDto FleaRewardDto
+     * @return ResponseResult
+     */
     @ControllerWebLog(name = "rewardIncreased", isSaved = true)
     @ApiOperation(value = "添加悬赏", notes = "帖子id，随便给，传了不用，凑数的,描述，图片地址，描述，标题，悬赏人id")
     @PostMapping("reward/increased")
@@ -294,6 +359,12 @@ public class FleaController {
         return fleaRewardService.save(fleaRewardDto);
     }
 
+    /**
+     * 修改悬赏
+     *
+     * @param fleaRewardDto FleaRewardDto
+     * @return ResponseResult
+     */
     @ControllerWebLog(name = "rewardUpdated", isSaved = true)
     @ApiOperation(value = "修改悬赏", notes = "帖子id.图片地址,标题，悬赏人id")
     @PostMapping("reward/updated")
@@ -302,6 +373,12 @@ public class FleaController {
         return fleaRewardService.update(fleaRewardDto);
     }
 
+    /**
+     * 删除悬赏
+     *
+     * @param rewardDto RewardDto
+     * @return ResponseResult
+     */
     @ControllerWebLog(name = "rewardDeleted", isSaved = true)
     @ApiOperation(value = "删除悬赏", notes = "描述，图片地址，描述，标题，悬赏人id")
     @PostMapping("reward/deleted")
@@ -310,6 +387,12 @@ public class FleaController {
         return fleaRewardService.delete(rewardDto.getRewardId());
     }
 
+    /**
+     * 添加订单
+     *
+     * @param fleaOrderDto FleaOrderDto
+     * @return ResponseResult
+     */
     @ControllerWebLog(name = "orderIncreased", isSaved = true)
     @ApiOperation(value = "添加订单", notes = "订单编号，商品id，商家id，用户id")
     @PostMapping("order/increased")
@@ -318,6 +401,12 @@ public class FleaController {
         return fleaOrderService.orderIncreased(fleaOrderDto);
     }
 
+    /**
+     * 逻辑删除商品
+     *
+     * @param fleaOrderDto FleaOrderDto
+     * @return ResponseResult
+     */
     @ControllerWebLog(name = "orderDel", isSaved = true)
     @ApiOperation(value = "逻辑删除商品", notes = "商品ID以及买家ID")
     @PostMapping("order/deleted")
@@ -326,6 +415,12 @@ public class FleaController {
         return fleaOrderService.logicalDel(fleaOrderDto);
     }
 
+    /**
+     * 添加评论
+     *
+     * @param fleaCommentDto FleaCommentDto
+     * @return ResponseResult
+     */
     @ControllerWebLog(name = "addComment", isSaved = true)
     @ApiOperation(value = "添加评论", notes = "商品ID以及买家ID")
     @PostMapping("/comment/increased")
@@ -334,6 +429,12 @@ public class FleaController {
         return fleaCommentService.addComment(fleaCommentDto);
     }
 
+    /**
+     * 根据悬赏id查询评论
+     *
+     * @param fleaRewardDto FleaRewardDto
+     * @return ResponseResult
+     */
     @ControllerWebLog(name = "getComment", isSaved = true)
     @ApiOperation(value = "根据悬赏id查询评论", notes = "悬赏ID")
     @PostMapping("/comment/getByRewardId")

@@ -14,16 +14,16 @@ public interface FleaOrderService {
     /**
      * 新增订单
      *
-     * @param fleaOrderDto
-     * @return
+     * @param fleaOrderDto FleaOrderDto
+     * @return ResponseResult
      */
     ResponseResult orderIncreased(FleaOrderDto fleaOrderDto);
 
     /**
      * 逻辑删除订单
      *
-     * @param fleaOrderDto
-     * @return
+     * @param fleaOrderDto FleaOrderDto
+     * @return ResponseResult
      */
     ResponseResult logicalDel(FleaOrderDto fleaOrderDto);
 }

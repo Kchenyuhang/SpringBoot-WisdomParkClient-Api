@@ -36,6 +36,7 @@ public enum ResultCode {
     SMS_ERROR(30001, "短信业务出现问题"),
     UPLOAD_ERROR(30002, "上传文件业务出现问题"),
     CARD_REPORT(30004, "一卡通已挂失"),
+    GOODS_OUT_FAILURE(30005,"下架操作失败"),
 
     /* 数据错误：40001-49999 */
     RESULT_CODE_DATA_NONE(50001, "数据未找到"),

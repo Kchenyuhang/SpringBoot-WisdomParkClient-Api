@@ -81,8 +81,11 @@ public class FleaGoodsServiceImpl implements FleaGoodsService {
 
     @Override
     public ResponseResult soldOutGood(SoldOutGoodDto soldOutGoodDto) {
-        fleaGoodsRepository.soldOutGood(soldOutGoodDto.getPkFleaGoodsId());
-        return ResponseResult.success("商品下架成功");
+        int n = fleaGoodsRepository.soldOutGood(soldOutGoodDto.getPkFleaGoodsId());
+        if (n == 1) {
+            return ResponseResult.success("商品下架成功");
+        }
+        return ResponseResult.failure(ResultCode.GOODS_OUT_FAILURE);
     }
 
     @Override
