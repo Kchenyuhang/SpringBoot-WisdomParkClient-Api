@@ -2,7 +2,7 @@ package com.niit.soft.client.api.controller.schoolmate;
 
 import com.niit.soft.client.api.annotation.ControllerWebLog;
 import com.niit.soft.client.api.common.ResponseResult;
-import com.niit.soft.client.api.domain.dto.DynamicCollectionInDto;
+import com.niit.soft.client.api.domain.dto.schoolmate.DynamicCollectionInDto;
 import com.niit.soft.client.api.domain.dto.PageDto;
 import com.niit.soft.client.api.domain.dto.schoolmate.*;
 import com.niit.soft.client.api.domain.model.schoolmate.Dynamic;

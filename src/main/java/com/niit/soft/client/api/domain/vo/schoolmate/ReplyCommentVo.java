@@ -27,6 +27,8 @@ public class ReplyCommentVo {
 
     private String avatar;
 
+    private String nickname;
+
     private String content;
 
     private Timestamp gmtCreate;
