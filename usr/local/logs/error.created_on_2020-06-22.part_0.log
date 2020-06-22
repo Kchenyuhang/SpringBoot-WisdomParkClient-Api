@@ -1,4 +1,4 @@
-2020-06-22 09:45:35.635 ERROR 10940 --- [restartedMain] o.s.boot.SpringApplication               SpringApplication.java:837: Application run failed
+2020-06-22 09:47:11.608 ERROR 14944 --- [restartedMain] o.s.boot.SpringApplication               SpringApplication.java:837: Application run failed
 
 org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'userAccountMapper' for bean class [com.niit.soft.client.api.errends.mapper.UserAccountMapper] conflicts with existing, non-compatible bean definition of same name and class [org.mybatis.spring.mapper.MapperFactoryBean]
 	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:349)
@@ -25,7 +25,7 @@ org.springframework.context.annotation.ConflictingBeanDefinitionException: Annot
 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
 
-2020-06-22 09:47:29.638 ERROR 16260 --- [restartedMain] o.s.boot.SpringApplication               SpringApplication.java:837: Application run failed
+2020-06-22 09:55:14.946 ERROR 28568 --- [restartedMain] o.s.boot.SpringApplication               SpringApplication.java:837: Application run failed
 
 org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'userAccountMapper' for bean class [com.niit.soft.client.api.errends.mapper.UserAccountMapper] conflicts with existing, non-compatible bean definition of same name and class [org.mybatis.spring.mapper.MapperFactoryBean]
 	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:349)
@@ -52,7 +52,7 @@ org.springframework.context.annotation.ConflictingBeanDefinitionException: Annot
 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
 
-2020-06-22 09:49:53.182 ERROR 17820 --- [restartedMain] o.s.boot.SpringApplication               SpringApplication.java:837: Application run failed
+2020-06-22 09:58:02.494 ERROR 4912 --- [restartedMain] o.s.boot.SpringApplication               SpringApplication.java:837: Application run failed
 
 org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'userAccountMapper' for bean class [com.niit.soft.client.api.errends.mapper.UserAccountMapper] conflicts with existing, non-compatible bean definition of same name and class [org.mybatis.spring.mapper.MapperFactoryBean]
 	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:349)
@@ -79,52 +79,7 @@ org.springframework.context.annotation.ConflictingBeanDefinitionException: Annot
 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
 
-2020-06-22 09:52:04.417 ERROR 10128 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   LoggingFailureAnalysisReporter.java:40: 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-The bean 'userAccountMapper' could not be injected as a 'com.niit.soft.client.api.mapper.UserAccountMapper' because it is a JDK dynamic proxy that implements:
-
-
-Action:
-
-Consider injecting the bean as one of its interfaces or forcing the use of CGLib-based proxies by setting proxyTargetClass=true on @EnableAsync and/or @EnableCaching.
-
-2020-06-22 09:54:23.651 ERROR 2924 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   LoggingFailureAnalysisReporter.java:40: 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-The bean 'userAccountMapper' could not be injected as a 'com.niit.soft.client.api.mapper.UserAccountMapper' because it is a JDK dynamic proxy that implements:
-
-
-Action:
-
-Consider injecting the bean as one of its interfaces or forcing the use of CGLib-based proxies by setting proxyTargetClass=true on @EnableAsync and/or @EnableCaching.
-
-2020-06-22 09:56:00.368 ERROR 8104 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   LoggingFailureAnalysisReporter.java:40: 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-The bean 'userAccountMapper' could not be injected as a 'com.niit.soft.client.api.mapper.UserAccountMapper' because it is a JDK dynamic proxy that implements:
-
-
-Action:
-
-Consider injecting the bean as one of its interfaces or forcing the use of CGLib-based proxies by setting proxyTargetClass=true on @EnableAsync and/or @EnableCaching.
-
-2020-06-22 09:59:59.581 ERROR 15236 --- [restartedMain] o.s.boot.SpringApplication               SpringApplication.java:837: Application run failed
+2020-06-22 09:58:55.500 ERROR 28676 --- [restartedMain] o.s.boot.SpringApplication               SpringApplication.java:837: Application run failed
 
 org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'userAccountMapper' for bean class [com.niit.soft.client.api.errends.mapper.UserAccountMapper] conflicts with existing, non-compatible bean definition of same name and class [org.mybatis.spring.mapper.MapperFactoryBean]
 	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:349)
@@ -151,5 +106,3 @@ org.springframework.context.annotation.ConflictingBeanDefinitionException: Annot
 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
 
-2020-06-22 10:20:54.598 ERROR 12896 --- [http-nio-80-exec-1] c.niit.soft.client.api.filter.JwtFilter  JwtFilter.java:58: JwtFilter过滤验证失败!
-2020-06-22 10:21:04.008 ERROR 12896 --- [http-nio-80-exec-3] c.niit.soft.client.api.filter.JwtFilter  JwtFilter.java:58: JwtFilter过滤验证失败!

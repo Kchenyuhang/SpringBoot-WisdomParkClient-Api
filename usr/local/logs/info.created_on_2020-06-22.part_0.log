@@ -324,168 +324,62 @@ Error starting ApplicationContext. To display the conditions report re-run your 
   Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
   Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
 
-2020-06-22 10:20:47.711  INFO 12896 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
-2020-06-22 10:20:47.711  INFO 12896 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
-2020-06-22 10:20:47.711  INFO 12896 --- [restartedMain] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@398b84dc
-2020-06-22 10:20:47.812  INFO 12896 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
-2020-06-22 10:20:47.813  INFO 12896 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2020-06-22 10:20:47.832  INFO 12896 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2020-06-22 10:20:47.856  INFO 12896 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2020-06-22 10:20:48.052  INFO 12896 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllByPageUsingPOST_1
-2020-06-22 10:20:48.164  INFO 12896 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllByPageUsingPOST_2
-2020-06-22 10:20:48.201  INFO 12896 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: insertDeliveryOrderUsingPOST_1
-2020-06-22 10:20:48.210  INFO 12896 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: insertDeliveryOrderUsingPOST_2
-2020-06-22 10:20:48.232  INFO 12896 --- [restartedMain] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
-2020-06-22 10:20:48.232  INFO 12896 --- [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
-2020-06-22 10:20:48.232  INFO 12896 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-06-22 10:20:48.328  INFO 12896 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-06-22 10:20:48.338  INFO 12896 --- [restartedMain] c.n.s.client.api.ClientApiApplication    : Started ClientApiApplication in 15.797 seconds (JVM running for 18.794)
-2020-06-22 10:20:54.516  INFO 12896 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-06-22 10:20:54.516  INFO 12896 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-06-22 10:20:54.531  INFO 12896 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
-2020-06-22 10:20:54.579  INFO 12896 --- [http-nio-80-exec-1] c.n.soft.client.api.service.impl.Realm   : 当前tokennull--------------
-2020-06-22 10:20:54.597  WARN 12896 --- [http-nio-80-exec-1] o.a.shiro.authc.AbstractAuthenticator    : Authentication failed for token submission [com.niit.soft.client.api.domain.vo.JwtToken@6956417d].  Possible unexpected error? (Typical or expected login exceptions should extend from AuthenticationException).
-
-java.lang.NullPointerException: null
-	at com.auth0.jwt.TokenUtils.splitToken(TokenUtils.java:15)
-	at com.auth0.jwt.JWTDecoder.parseToken(JWTDecoder.java:33)
-	at com.auth0.jwt.JWTDecoder.<init>(JWTDecoder.java:29)
-	at com.auth0.jwt.JWT.decode(JWT.java:21)
-	at com.niit.soft.client.api.util.JwtUtil.getUserAccount(JwtUtil.java:59)
-	at com.niit.soft.client.api.service.impl.Realm.doGetAuthenticationInfo(Realm.java:62)
-	at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:571)
-	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180)
-	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doAuthenticate(ModularRealmAuthenticator.java:267)
-	at org.apache.shiro.authc.AbstractAuthenticator.authenticate(AbstractAuthenticator.java:198)
-	at org.apache.shiro.mgt.AuthenticatingSecurityManager.authenticate(AuthenticatingSecurityManager.java:106)
-	at org.apache.shiro.mgt.DefaultSecurityManager.login(DefaultSecurityManager.java:274)
-	at org.apache.shiro.subject.support.DelegatingSubject.login(DelegatingSubject.java:260)
-	at com.niit.soft.client.api.filter.JwtFilter.executeLogin(JwtFilter.java:40)
-	at com.niit.soft.client.api.filter.JwtFilter.isAccessAllowed(JwtFilter.java:56)
-	at org.apache.shiro.web.filter.AccessControlFilter.onPreHandle(AccessControlFilter.java:162)
-	at org.apache.shiro.web.filter.PathMatchingFilter.isFilterChainContinued(PathMatchingFilter.java:203)
-	at org.apache.shiro.web.filter.PathMatchingFilter.preHandle(PathMatchingFilter.java:178)
-	at com.niit.soft.client.api.filter.JwtFilter.preHandle(JwtFilter.java:83)
-	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:131)
-	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
-	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
-	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
-	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
-	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
-	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
-	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387)
-	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
-	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
-	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
-	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-
-2020-06-22 10:21:04.007  INFO 12896 --- [http-nio-80-exec-3] c.n.soft.client.api.service.impl.Realm   : 当前tokennull--------------
-2020-06-22 10:21:04.007  WARN 12896 --- [http-nio-80-exec-3] o.a.shiro.authc.AbstractAuthenticator    : Authentication failed for token submission [com.niit.soft.client.api.domain.vo.JwtToken@6c555cba].  Possible unexpected error? (Typical or expected login exceptions should extend from AuthenticationException).
-
-java.lang.NullPointerException: null
-	at com.auth0.jwt.TokenUtils.splitToken(TokenUtils.java:15)
-	at com.auth0.jwt.JWTDecoder.parseToken(JWTDecoder.java:33)
-	at com.auth0.jwt.JWTDecoder.<init>(JWTDecoder.java:29)
-	at com.auth0.jwt.JWT.decode(JWT.java:21)
-	at com.niit.soft.client.api.util.JwtUtil.getUserAccount(JwtUtil.java:59)
-	at com.niit.soft.client.api.service.impl.Realm.doGetAuthenticationInfo(Realm.java:62)
-	at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:571)
-	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180)
-	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doAuthenticate(ModularRealmAuthenticator.java:267)
-	at org.apache.shiro.authc.AbstractAuthenticator.authenticate(AbstractAuthenticator.java:198)
-	at org.apache.shiro.mgt.AuthenticatingSecurityManager.authenticate(AuthenticatingSecurityManager.java:106)
-	at org.apache.shiro.mgt.DefaultSecurityManager.login(DefaultSecurityManager.java:274)
-	at org.apache.shiro.subject.support.DelegatingSubject.login(DelegatingSubject.java:260)
-	at com.niit.soft.client.api.filter.JwtFilter.executeLogin(JwtFilter.java:40)
-	at com.niit.soft.client.api.filter.JwtFilter.isAccessAllowed(JwtFilter.java:56)
-	at org.apache.shiro.web.filter.AccessControlFilter.onPreHandle(AccessControlFilter.java:162)
-	at org.apache.shiro.web.filter.PathMatchingFilter.isFilterChainContinued(PathMatchingFilter.java:203)
-	at org.apache.shiro.web.filter.PathMatchingFilter.preHandle(PathMatchingFilter.java:178)
-	at com.niit.soft.client.api.filter.JwtFilter.preHandle(JwtFilter.java:83)
-	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:131)
-	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
-	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
-	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
-	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
-	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
-	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
-	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387)
-	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
-	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
-	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
-	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-
+2020-06-22 08:47:09.709  INFO 28272 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-06-22 08:47:09.709  INFO 28272 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2020-06-22 08:47:09.709  INFO 28272 --- [restartedMain] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@1ad2e987
+2020-06-22 08:47:09.926  INFO 28272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2020-06-22 08:47:09.927  INFO 28272 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-06-22 08:47:09.940  INFO 28272 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-06-22 08:47:09.961  INFO 28272 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-06-22 08:47:10.073  INFO 28272 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllByPageUsingPOST_1
+2020-06-22 08:47:10.202  INFO 28272 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllByPageUsingPOST_2
+2020-06-22 08:47:10.213  INFO 28272 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllByPageUsingPOST_3
+2020-06-22 08:47:10.216  INFO 28272 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: insertDeliveryOrderUsingPOST_1
+2020-06-22 08:47:10.225  INFO 28272 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: insertDeliveryOrderUsingPOST_2
+2020-06-22 08:47:10.245  INFO 28272 --- [restartedMain] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2020-06-22 08:47:10.245  INFO 28272 --- [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-06-22 08:47:10.246  INFO 28272 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-06-22 08:47:10.315  INFO 28272 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-06-22 08:47:10.325  INFO 28272 --- [restartedMain] c.n.s.client.api.ClientApiApplication    : Started ClientApiApplication in 23.511 seconds (JVM running for 25.212)
+2020-06-22 08:48:00.505  INFO 28272 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-06-22 08:48:00.505  INFO 28272 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-06-22 08:48:00.510  INFO 28272 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-06-22 08:48:00.597  INFO 28272 --- [http-nio-80-exec-1] c.n.s.c.api.controller.LoginController   : 访问login接口
+2020-06-22 08:48:00.597  INFO 28272 --- [http-nio-80-exec-1] c.n.s.c.api.controller.LoginController   : loginDtoLoginDto(userAccount=1802343210, password=123456)
+2020-06-22 08:48:00.600  INFO 28272 --- [http-nio-80-exec-1] c.n.s.c.a.service.impl.LoginServiceImpl  : 1802343210*****123456
+2020-06-22 08:48:01.092  INFO 28272 --- [http-nio-80-exec-1] c.n.s.c.a.service.impl.LoginServiceImpl  : 查询id5
+2020-06-22 08:48:01.234  INFO 28272 --- [http-nio-80-exec-1] c.n.s.c.a.service.impl.LoginServiceImpl  : 登录成功
+2020-06-22 08:48:01.327  INFO 28272 --- [http-nio-80-exec-1] c.n.s.c.a.service.impl.LoginServiceImpl  : UserAccount(pkUserAccountId=5, userAccount=1802343210, userName=涛涛, nickname=涛涛, jobNumber=1802343210, password=123456, avatar=别删我数据, role=1, phoneNumber=18851855106, status=false, clazzId=1, cardNumber=1802343210, gmtCreate=2020-06-19 21:13:34.0, gmtModified=2020-06-19 16:16:07.0, isDeleted=false, gender=男, Address=别删我数据, birthday=2020-06-19 00:00:00.0)
+2020-06-22 08:48:01.578  INFO 28272 --- [http-nio-80-exec-1] c.n.s.c.a.service.impl.LoginServiceImpl  : 生成的tokeneyJhbGciOiJIUzI1NiJ9.eyJ1c2VyQWNjb3VudCI6IjE4MDIzNDMyMTAiLCJleHAiOjE1OTI3ODg2ODF9.ANUc2TAX3-4pkM47EmBia0NrcDoHOHqTsJCLBGLB5oQ
+2020-06-22 09:47:09.863  INFO 14944 --- [restartedMain] c.n.s.client.api.ClientApiApplication    : Starting ClientApiApplication on DESKTOP-MSQL8V0 with PID 14944 (D:\CompcuteApplication\projectTest\SpringStudy\practical-training\client_api\target\classes started by nitaotao in D:\CompcuteApplication\projectTest\SpringStudy\practical-training\client_api)
+2020-06-22 09:47:09.865  INFO 14944 --- [restartedMain] c.n.s.client.api.ClientApiApplication    : The following profiles are active: dev
+2020-06-22 09:47:09.902  INFO 14944 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in D:\CompcuteApplication\tools\mavenjar\com\sun\xml\bind\jaxb-impl\2.1\jaxb-impl-2.1.jar referenced one or more files that do not exist: file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jaxb-api.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/activation.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jsr173_1.0_api.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jaxb1-impl.jar
+2020-06-22 09:47:09.902  INFO 14944 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-06-22 09:47:09.902  INFO 14944 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-06-22 09:47:11.127  INFO 14944 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-06-22 09:47:11.127  INFO 14944 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-06-22 09:47:11.476  INFO 14944 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 344ms. Found 41 JPA repository interfaces.
+2020-06-22 09:55:13.161  INFO 28568 --- [restartedMain] c.n.s.client.api.ClientApiApplication    : Starting ClientApiApplication on DESKTOP-MSQL8V0 with PID 28568 (D:\CompcuteApplication\projectTest\SpringStudy\practical-training\client_api\target\classes started by nitaotao in D:\CompcuteApplication\projectTest\SpringStudy\practical-training\client_api)
+2020-06-22 09:55:13.164  INFO 28568 --- [restartedMain] c.n.s.client.api.ClientApiApplication    : The following profiles are active: dev
+2020-06-22 09:55:13.203  INFO 28568 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in D:\CompcuteApplication\tools\mavenjar\com\sun\xml\bind\jaxb-impl\2.1\jaxb-impl-2.1.jar referenced one or more files that do not exist: file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jaxb-api.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/activation.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jsr173_1.0_api.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jaxb1-impl.jar
+2020-06-22 09:55:13.203  INFO 28568 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-06-22 09:55:13.203  INFO 28568 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-06-22 09:55:14.439  INFO 28568 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-06-22 09:55:14.439  INFO 28568 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-06-22 09:55:14.806  INFO 28568 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 362ms. Found 41 JPA repository interfaces.
+2020-06-22 09:58:00.624  INFO 4912 --- [restartedMain] c.n.s.client.api.ClientApiApplication    : Starting ClientApiApplication on DESKTOP-MSQL8V0 with PID 4912 (D:\CompcuteApplication\projectTest\SpringStudy\practical-training\client_api\target\classes started by nitaotao in D:\CompcuteApplication\projectTest\SpringStudy\practical-training\client_api)
+2020-06-22 09:58:00.626  INFO 4912 --- [restartedMain] c.n.s.client.api.ClientApiApplication    : The following profiles are active: dev
+2020-06-22 09:58:00.665  INFO 4912 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in D:\CompcuteApplication\tools\mavenjar\com\sun\xml\bind\jaxb-impl\2.1\jaxb-impl-2.1.jar referenced one or more files that do not exist: file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jaxb-api.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/activation.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jsr173_1.0_api.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jaxb1-impl.jar
+2020-06-22 09:58:00.665  INFO 4912 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-06-22 09:58:00.665  INFO 4912 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-06-22 09:58:01.953  INFO 4912 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-06-22 09:58:01.954  INFO 4912 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-06-22 09:58:02.338  INFO 4912 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 377ms. Found 41 JPA repository interfaces.
+2020-06-22 09:58:53.720  INFO 28676 --- [restartedMain] c.n.s.client.api.ClientApiApplication    : Starting ClientApiApplication on DESKTOP-MSQL8V0 with PID 28676 (D:\CompcuteApplication\projectTest\SpringStudy\practical-training\client_api\target\classes started by nitaotao in D:\CompcuteApplication\projectTest\SpringStudy\practical-training\client_api)
+2020-06-22 09:58:53.722  INFO 28676 --- [restartedMain] c.n.s.client.api.ClientApiApplication    : The following profiles are active: dev
+2020-06-22 09:58:53.760  INFO 28676 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in D:\CompcuteApplication\tools\mavenjar\com\sun\xml\bind\jaxb-impl\2.1\jaxb-impl-2.1.jar referenced one or more files that do not exist: file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jaxb-api.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/activation.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jsr173_1.0_api.jar,file:/D:/CompcuteApplication/tools/mavenjar/com/sun/xml/bind/jaxb-impl/2.1/jaxb1-impl.jar
+2020-06-22 09:58:53.760  INFO 28676 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-06-22 09:58:53.760  INFO 28676 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-06-22 09:58:55.001  INFO 28676 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-06-22 09:58:55.002  INFO 28676 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-06-22 09:58:55.361  INFO 28676 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 354ms. Found 41 JPA repository interfaces.
