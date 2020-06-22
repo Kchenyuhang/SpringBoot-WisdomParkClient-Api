@@ -51,6 +51,9 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/index", "anon");
         filterChainDefinitionMap.put("/home", "anon");
         filterChainDefinitionMap.put("/wechat/openid", "anon");
+        filterChainDefinitionMap.put("/alipay/toPay", "anon");
+        filterChainDefinitionMap.put("/alipay/notify_url", "anon");
+        filterChainDefinitionMap.put("/alipay/return_url", "anon");
 
 
 

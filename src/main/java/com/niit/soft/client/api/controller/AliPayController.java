@@ -25,16 +25,16 @@ public class AliPayController {
     /**
      * 支付接口
      *
-     * @param alipayDto
      * @return
      * @throws AlipayApiException
      */
     @ApiOperation("支付接口")
-    @PostMapping(value = "alipay/toPay")
+    @GetMapping(value = "alipay/toPay")
     @ControllerWebLog(name = "AliPay", isSaved = true)
-    public String AliPay(@RequestBody AlipayDto alipayDto) throws AlipayApiException {
-        return aliPayService.AliPay(alipayDto);
+    public String AliPay(@RequestParam Double amount, @RequestParam String jobNumber, @RequestParam String rechargeType, @RequestParam Integer regexId) throws AlipayApiException {
+        return aliPayService.AliPay(amount, jobNumber, rechargeType, regexId);
     }
+
 
     /**
      * 异步通知
