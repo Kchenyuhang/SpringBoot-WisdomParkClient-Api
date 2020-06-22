@@ -1,6 +1,6 @@
 package com.niit.soft.client.api.mapper.schoolmate;
 
-import com.niit.soft.client.api.domain.dto.DynamicCollectionDto;
+import com.niit.soft.client.api.domain.dto.schoolmate.DynamicCollectionDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

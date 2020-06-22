@@ -23,6 +23,7 @@ public class CommentVo {
     private String dynamicId;
     private String userId;
     private String avatar;
+    private String nickname;
     private String content;
     private Timestamp gmtCreate;
     private Boolean isDeleted;

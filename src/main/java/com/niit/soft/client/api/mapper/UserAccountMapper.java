@@ -2,6 +2,7 @@ package com.niit.soft.client.api.mapper;
 
 import com.niit.soft.client.api.domain.vo.AddressBookVo;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;
 import java.util.List;
