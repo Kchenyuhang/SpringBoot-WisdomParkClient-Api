@@ -29,8 +29,6 @@ public class FleaOrder {
      * id
      */
     @Id
-//    @GeneratedValue(generator = "myId")
-//    @GenericGenerator(name = "myId",strategy = "com.niit.soft.client.api.util.MyIdGenerator")
     private String pkFleaOrderId;
 
     /**

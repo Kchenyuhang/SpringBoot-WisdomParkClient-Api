@@ -15,13 +15,17 @@ import org.springframework.data.domain.Page;
 public interface FleaGoodsService {
     /**
      * 模糊查询所有商品
+     *
+     * @param fleaSearchDto FleaSearchDto
+     * @return Page<FleaGoods>
      */
     Page<FleaGoods> findFleaGoodsByContent(FleaSearchDto fleaSearchDto);
 
     /**
      * 根据时间分页查询商品
      *
-     * @return
+     * @param pageDto PageDto
+     * @return ResponseResult
      */
     ResponseResult getGoodsByTime(PageDto pageDto);
 

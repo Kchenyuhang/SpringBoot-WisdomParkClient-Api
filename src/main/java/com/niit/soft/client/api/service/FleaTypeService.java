@@ -19,7 +19,7 @@ public interface FleaTypeService {
     /**
      * 查询所有的类型
      *
-     * @return
+     * @return Map<String, Object>
      */
     Map<String, Object> findAllType();
 
@@ -28,7 +28,7 @@ public interface FleaTypeService {
      * 根据分类id查询商品
      *
      * @param typeDto TypeDto
-     * @return
+     * @return ResponseResult
      */
     ResponseResult getGoodsByType(TypeDto typeDto);
 }

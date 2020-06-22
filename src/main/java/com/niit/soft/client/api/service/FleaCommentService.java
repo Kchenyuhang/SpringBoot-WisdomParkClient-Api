@@ -15,16 +15,16 @@ public interface FleaCommentService {
     /**
      * 新增评论
      *
-     * @param commentDto
-     * @return
+     * @param commentDto FleaCommentDto
+     * @return ResponseResult
      */
     ResponseResult addComment(FleaCommentDto commentDto);
 
     /**
      * 根据悬赏id查询评论信息
      *
-     * @param fleaRewardDto
-     * @return
+     * @param fleaRewardDto FleaRewardDto
+     * @return ResponseResult
      */
     ResponseResult getCommentByRewardId(FleaRewardDto fleaRewardDto);
 }
