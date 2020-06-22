@@ -28,12 +28,18 @@ public interface FleaGoodsRepository extends JpaRepository<FleaGoods, Long> {
     /**
      * 根据搜索内容进行模糊查询
      *
-     * @param goodsName
-     * @param goodsDescription
-     * @return
+     * @param goodsName        String
+     * @param goodsDescription String
+     * @return List<FleaGoods>
      */
     List<FleaGoods> findFleaGoodsByGoodsNameLikeOrGoodsDescriptionLike(String goodsName, String goodsDescription);
 
+    /**
+     * 根据时间查询商品
+     *
+     * @param pageable Pageable
+     * @return List<FleaGoodsVo>
+     */
     @Query(value = "select new com.niit.soft.client.api.domain.vo.FleaGoodsVo(g.pkFleaGoodsId,g.goodsName,g.goodsDescription,g.goodsImgUrl,g.goodsPrice,g.goodsMark," +
             "g.goodsCreateTime,t.pkFleaTypeId,t.typeName,u.pkFleaUserId,u.nickname,u.username,u.avatar,g.isDeleted) " +
             "from FleaGoods g " +

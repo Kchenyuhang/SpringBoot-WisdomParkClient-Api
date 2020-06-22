@@ -21,6 +21,12 @@ import java.util.List;
  * @createTime 2020年06月09日 11:26:00
  */
 public interface FleaCollectionRepository extends JpaRepository<FleaCollection, Long> {
+    /**
+     * 根据用户id查询该用户的所有收藏
+     *
+     * @param userDto FleaUserIdDto
+     * @return List<CollectionVo>
+     */
     @Query(value = "select new com.niit.soft.client.api.domain.vo.CollectionVo(g.pkFleaGoodsId,u.pkFleaUserId,g.goodsName,g.goodsDescription,g.goodsPrice,g.goodsImgUrl,g.goodsMark,u.username,u.phoneNumber,c.createTime)" +
             "from FleaCollection c " +
             "left join c.fleaGoods g " +
@@ -34,7 +40,7 @@ public interface FleaCollectionRepository extends JpaRepository<FleaCollection, 
      * @return int
      */
     @Modifying
-    @Transactional
+    @Transactional(rollbackFor = RuntimeException.class)
     @Query(value = "delete from FleaCollection  where fleaGoods.pkFleaGoodsId = :#{#collectionDto.getGoodsId()} and fleaUser.pkFleaUserId = :#{#collectionDto.getUserId()}")
     int logicalDel(CancelCollectionDto collectionDto);
 
