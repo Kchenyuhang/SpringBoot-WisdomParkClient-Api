@@ -151,3 +151,5 @@ org.springframework.context.annotation.ConflictingBeanDefinitionException: Annot
 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
 
+2020-06-22 10:20:54.598 ERROR 12896 --- [http-nio-80-exec-1] c.niit.soft.client.api.filter.JwtFilter  JwtFilter.java:58: JwtFilter过滤验证失败!
+2020-06-22 10:21:04.008 ERROR 12896 --- [http-nio-80-exec-3] c.niit.soft.client.api.filter.JwtFilter  JwtFilter.java:58: JwtFilter过滤验证失败!
