@@ -92,4 +92,9 @@ public class FleaRewardServiceImpl implements FleaRewardService {
         }
         return ResponseResult.success();
     }
+
+    @Override
+    public ResponseResult findById(Long rewardId) {
+        return ResponseResult.success(fleaRewardRepository.getRewardByPkRewardId(rewardId));
+    }
 }

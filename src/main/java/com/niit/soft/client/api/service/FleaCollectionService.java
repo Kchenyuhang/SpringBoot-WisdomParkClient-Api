@@ -18,23 +18,24 @@ public interface FleaCollectionService {
     /**
      * 插入收藏
      *
-     * @param collectionDto
-     * @return
+     * @param collectionDto CollectionDto
+     * @return ResponseResult
      */
     ResponseResult addCollection(CollectionDto collectionDto);
 
     /**
      * 获取所有收藏
      *
-     * @return
+     * @param userIdDto FleaUserIdDto
+     * @return ResponseResult
      */
     ResponseResult getCollection(FleaUserIdDto userIdDto);
 
     /**
      * 根据商品ID以及用户ID删除商品
      *
-     * @param collectionDto
-     * @return
+     * @param collectionDto CancelCollectionDto
+     * @return ResponseResult
      */
     ResponseResult logicalDel(CancelCollectionDto collectionDto);
 

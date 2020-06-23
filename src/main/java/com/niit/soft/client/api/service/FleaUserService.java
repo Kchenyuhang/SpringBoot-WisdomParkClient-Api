@@ -49,8 +49,8 @@ public interface FleaUserService {
     /**
      * 根据用户ID获取用户信息
      *
-     * @param userIdDto
-     * @return
+     * @param userIdDto FleaUserIdDto
+     * @return ResponseResult
      */
     ResponseResult findById(FleaUserIdDto userIdDto);
 }

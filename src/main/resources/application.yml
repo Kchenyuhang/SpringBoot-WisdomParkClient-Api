@@ -50,6 +50,7 @@ spring:
         min-idle: 0
     timeout: 1000
 
+
 # mybatis-Plus配置
 mybatis-plus:
   configuration:
