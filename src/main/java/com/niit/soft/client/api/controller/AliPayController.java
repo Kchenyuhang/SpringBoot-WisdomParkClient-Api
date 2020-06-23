@@ -2,11 +2,12 @@ package com.niit.soft.client.api.controller;
 
 import com.alipay.api.AlipayApiException;
 import com.niit.soft.client.api.annotation.ControllerWebLog;
-import com.niit.soft.client.api.domain.dto.AlipayDto;
 import com.niit.soft.client.api.service.AliPayService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
@@ -25,15 +26,18 @@ public class AliPayController {
     /**
      * 支付接口
      *
-     * @param alipayDto
+     * @param
      * @return
      * @throws AlipayApiException
      */
     @ApiOperation("支付接口")
     @PostMapping(value = "alipay/toPay")
     @ControllerWebLog(name = "AliPay", isSaved = true)
-    public String AliPay(@RequestBody AlipayDto alipayDto) throws AlipayApiException {
-        return aliPayService.AliPay(alipayDto);
+    public String AliPay(@RequestParam("amount") Double amount,
+                        @RequestParam("jobNumber") String jobNumber,
+                         @RequestParam("rechargeType") String rechargeType,
+                        @RequestParam("regexId") Integer regexId) throws AlipayApiException {
+        return aliPayService.AliPay(amount,jobNumber,rechargeType,regexId);
     }
 
     /**
