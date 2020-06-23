@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.niit.soft.client.api.common.ResponseResult;
 import com.niit.soft.client.api.common.ResultCode;
+import com.niit.soft.client.api.config.RedisCacheKeyGeneratorConfig;
 import com.niit.soft.client.api.domain.dto.schoolmate.*;
 import com.niit.soft.client.api.domain.model.UserAccount;
 import com.niit.soft.client.api.domain.model.schoolmate.*;
@@ -23,6 +24,7 @@ import com.niit.soft.client.api.service.schoolmate.ReplyCommentService;
 import com.niit.soft.client.api.util.RedisUtil;
 import com.niit.soft.client.api.util.SnowFlake;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -149,6 +151,7 @@ public class DynamicServiceImpl implements DynamicService {
         return dynamicVo;
     }
 
+    @Cacheable(value = RedisCacheKeyGeneratorConfig.COMMON, keyGenerator = RedisCacheKeyGeneratorConfig.DEFAULT_KEY_GENERATOR)
     @Override
     public List<DynamicPhoto> findDynamicPhotoById(String id) {
         return dynamicPhotoMapper.selectList(new QueryWrapper<DynamicPhoto>().eq("dynamic_id", Long.valueOf(id)));
@@ -203,6 +206,7 @@ public class DynamicServiceImpl implements DynamicService {
     }
 
 
+    @Cacheable(value = RedisCacheKeyGeneratorConfig.COMMON, keyGenerator = RedisCacheKeyGeneratorConfig.DEFAULT_KEY_GENERATOR)
     @Override
     public List<Dynamic> findDynamicByPage(SchoolmatePageDto schoolmatePageDto) {
         return dynamicMapper.selectPage(new Page(schoolmatePageDto.getCurrentPage(), schoolmatePageDto.getPageSize()),
@@ -210,6 +214,7 @@ public class DynamicServiceImpl implements DynamicService {
     }
 
 
+    @Cacheable(value = RedisCacheKeyGeneratorConfig.COMMON, keyGenerator = RedisCacheKeyGeneratorConfig.DEFAULT_KEY_GENERATOR)
     @Override
     public List<Dynamic> findDynamicVoByUserId(SchoolmateUserPageDto schoolmateUserPageDto) {
         return dynamicMapper.selectPage(new Page(schoolmateUserPageDto.getCurrentPage(), schoolmateUserPageDto.getPageSize()),
