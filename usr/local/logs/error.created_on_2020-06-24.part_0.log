@@ -1,0 +1,9 @@
+2020-06-24 09:18:05.383 ERROR 15900 --- [http-nio-80-exec-1] c.niit.soft.client.api.filter.JwtFilter  JwtFilter.java:58: JwtFilter过滤验证失败!
+2020-06-24 09:18:07.602 ERROR 15900 --- [http-nio-80-exec-4] c.niit.soft.client.api.filter.JwtFilter  JwtFilter.java:58: JwtFilter过滤验证失败!
+2020-06-24 09:22:40.554 ERROR 15900 --- [http-nio-80-exec-10] c.niit.soft.client.api.filter.JwtFilter  JwtFilter.java:58: JwtFilter过滤验证失败!
+2020-06-24 09:22:47.506 ERROR 15900 --- [http-nio-80-exec-2] c.niit.soft.client.api.filter.JwtFilter  JwtFilter.java:58: JwtFilter过滤验证失败!
+2020-06-24 09:22:56.324 ERROR 15900 --- [http-nio-80-exec-4] c.niit.soft.client.api.filter.JwtFilter  JwtFilter.java:58: JwtFilter过滤验证失败!
+2020-06-24 09:25:01.105 ERROR 15900 --- [http-nio-80-exec-7] c.niit.soft.client.api.filter.JwtFilter  JwtFilter.java:58: JwtFilter过滤验证失败!
+2020-06-24 09:25:14.043 ERROR 15900 --- [http-nio-80-exec-8] c.niit.soft.client.api.filter.JwtFilter  JwtFilter.java:58: JwtFilter过滤验证失败!
+2020-06-24 09:26:51.116 ERROR 15900 --- [http-nio-80-exec-1] c.niit.soft.client.api.filter.JwtFilter  JwtFilter.java:58: JwtFilter过滤验证失败!
+2020-06-24 09:27:15.069 ERROR 15900 --- [http-nio-80-exec-2] c.niit.soft.client.api.filter.JwtFilter  JwtFilter.java:58: JwtFilter过滤验证失败!
