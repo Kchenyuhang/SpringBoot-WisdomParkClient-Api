@@ -93,11 +93,15 @@ public class DeliveryOrder {
     /**
      * 订单创建时间
      */
+
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     @Column(name = "oder_create_time", nullable = false)
     private Timestamp oderCreateTime;
     /**
      * 送出时间（立即送出 或者指定时间）
      */
+
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     @Column(name = "delivery_time", nullable = false)
     private Timestamp deliveryTime;
     /**
