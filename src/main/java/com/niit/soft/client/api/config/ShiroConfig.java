@@ -1,4 +1,3 @@
-
 package com.niit.soft.client.api.config;
 
 import com.niit.soft.client.api.filter.JwtFilter;
@@ -46,11 +45,17 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/verifyCode", "anon");
 
         //swagger文档拦截器配置
+        //swagger接口权限 开放
         filterChainDefinitionMap.put("/doc.html", "anon");
         filterChainDefinitionMap.put("/webjars/**", "anon");
         filterChainDefinitionMap.put("/v2/**", "anon");
         filterChainDefinitionMap.put("/swagger-resources/**", "anon");
 
+        //job
+        filterChainDefinitionMap.put("/company/**", "anon");
+        filterChainDefinitionMap.put("/job/**", "anon");
+        filterChainDefinitionMap.put("/jobType/**", "anon");
+        filterChainDefinitionMap.put("/partJob/**", "anon");
 
         filterChainDefinitionMap.put("/show", "anon");
         filterChainDefinitionMap.put("/qq/oauth", "anon");
@@ -62,6 +67,7 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/alipay/notify_url", "anon");
         filterChainDefinitionMap.put("/alipay/return_url", "anon");
 
+        filterChainDefinitionMap.put("/dynamic/**", "anon");
 
         //添加自己的过滤器并取名为jwt
         Map<String, Filter> filterMap = new HashedMap();

@@ -1,5 +1,6 @@
 package com.niit.soft.client.api.domain.vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.niit.soft.client.api.domain.model.FleaType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -47,6 +48,7 @@ public class FleaGoodsVo {
     /**
      * 商品发布时间
      */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date goodsCreateTime;
     /**
      * 商品类型id
