@@ -33,9 +33,9 @@ public class CompanyServiceImpl extends ServiceImpl<CompanyMapper, Company> impl
         QueryWrapper<Company> wrapper = new QueryWrapper<>();
 
         if ("workers".equals(jobPageDto.getField())){
-            wrapper.select("pk_company_id","name","tag","logo","workers","type","address").orderByDesc("workers");
+            wrapper.select("pk_company_id","name","tag","logo","workers","type","address").eq("is_deleted", 0).orderByDesc("workers");
         }else {
-            wrapper.select("pk_company_id","name","tag","logo","workers","type","address").like("name",jobPageDto.getField().toString()).orderByDesc("workers");
+            wrapper.select("pk_company_id","name","tag","logo","workers","type","address").eq("is_deleted", 0).like("name",jobPageDto.getField().toString()).orderByDesc("workers");
         }
         IPage<Company> page = new Page<>(jobPageDto.getCurrentPage(), jobPageDto.getPageSize());
         return companyMapper.selectPage(page, wrapper).getRecords();

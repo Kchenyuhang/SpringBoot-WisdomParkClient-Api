@@ -63,6 +63,6 @@
                            ON c.pk_company_id = j.company_id
                  LEFT JOIN job_type t
                            ON j.job_type_id = t.pk_job_type_id
-        WHERE c.pk_company_id = #{id}
+        WHERE c.is_deleted = 0 AND j.is_deleted = 0 AND c.pk_company_id = #{id}
     </select>
 </mapper>
