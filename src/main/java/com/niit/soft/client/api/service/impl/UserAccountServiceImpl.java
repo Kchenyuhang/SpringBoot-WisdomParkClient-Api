@@ -10,6 +10,7 @@ import com.niit.soft.client.api.mapper.UserAccountMapper;
 import com.niit.soft.client.api.repository.UserAccountRepository;
 import com.niit.soft.client.api.domain.model.UserAccount;
 import com.niit.soft.client.api.service.UserAccountService;
+import com.niit.soft.client.api.util.Md5Util;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -41,6 +42,7 @@ public class UserAccountServiceImpl implements UserAccountService {
 
     @Override
     public int updatePasswordByUserAccount(String userAccount, String password) {
+//        return userAccountRepository.updatePasswordByUserAccount(userAccount, Md5Util.getMd5(password, true, 32));
         return userAccountRepository.updatePasswordByUserAccount(userAccount, password);
     }
 

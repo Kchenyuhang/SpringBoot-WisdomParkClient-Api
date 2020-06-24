@@ -31,4 +31,10 @@ public interface FleaTypeService {
      * @return ResponseResult
      */
     ResponseResult getGoodsByType(TypeDto typeDto);
+    /**
+     * 查询4个的类型
+     *
+     * @return Map<String, Object>
+     */
+    Map<String,Object>findTopType();
 }

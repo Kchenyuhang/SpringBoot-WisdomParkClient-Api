@@ -44,7 +44,14 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/user/password", "anon");
         filterChainDefinitionMap.put("/sendCode", "anon");
         filterChainDefinitionMap.put("/verifyCode", "anon");
+
+        //swagger文档拦截器配置
         filterChainDefinitionMap.put("/doc.html", "anon");
+        filterChainDefinitionMap.put("/webjars/**", "anon");
+        filterChainDefinitionMap.put("/v2/**", "anon");
+        filterChainDefinitionMap.put("/swagger-resources/**", "anon");
+
+
         filterChainDefinitionMap.put("/show", "anon");
         filterChainDefinitionMap.put("/qq/oauth", "anon");
         filterChainDefinitionMap.put("/connect", "anon");
@@ -54,7 +61,6 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/alipay/toPay", "anon");
         filterChainDefinitionMap.put("/alipay/notify_url", "anon");
         filterChainDefinitionMap.put("/alipay/return_url", "anon");
-
 
 
         //添加自己的过滤器并取名为jwt

@@ -10,16 +10,14 @@ import com.niit.soft.client.api.service.FleaTypeService;
 import com.niit.soft.client.api.util.TreeBuilder;
 import com.niit.soft.client.api.util.TreeNode;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.collections.MapIterator;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * @author 倪涛涛
@@ -62,5 +60,34 @@ public class FleaTypeServiceImpl implements FleaTypeService {
             return ResponseResult.failure(ResultCode.RESULT_CODE_DATA_NONE);
         }
         return ResponseResult.success(fleaTypeRepository.getGoodsByTypeId(pageable, typeDto));
+    }
+
+    @Override
+    public Map<String, Object> findTopType() {
+        List<TreeNode> allType = new ArrayList<>();
+        //查找所有的type
+        List<FleaType> types = fleaTypeRepository.findAll();
+        for (FleaType fleaType : types) {
+            //如果没有父节点
+            if (fleaType.getParentId() == 0) {
+                TreeNode treeNode = new TreeNode(fleaType.getPkFleaTypeId(), 0L, fleaType.getTypeName(), fleaType.getTypeCoverUrl(), fleaType.getTypeUrl(), new ArrayList<>());
+                allType.add(treeNode);
+            } else {
+                TreeNode treeNode = new TreeNode(fleaType.getPkFleaTypeId(), fleaType.getParentId(), fleaType.getTypeName(), fleaType.getTypeCoverUrl(), fleaType.getTypeUrl(), new ArrayList<>());
+                allType.add(treeNode);
+            }
+        }
+        List<TreeNode> allTypeTree = TreeBuilder.buildTreeByLoop(allType);
+
+        List<TreeNode> listShow = new ArrayList<>();
+        TreeNode treeNode = null;
+        for (int i = 0; i < 4; i++) {
+            treeNode= allTypeTree.get(i);
+            listShow.add(treeNode.getSubTypes().get(0));
+        }
+        Map<String, Object> map = new TreeMap<>();
+        map.put("type", listShow);
+        System.out.println(map);
+        return map;
     }
 }
