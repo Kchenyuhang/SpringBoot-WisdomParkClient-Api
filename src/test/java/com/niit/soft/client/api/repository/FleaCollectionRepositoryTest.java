@@ -16,6 +16,8 @@ class FleaCollectionRepositoryTest {
         FleaUserIdDto userDto = FleaUserIdDto.
                 builder()
                 .pkFleaUserId(3l)
+                .currentPage(0)
+                .pageSize(10)
                 .build();
         System.out.println(collectionRepository.getCollection(userDto));
     }
@@ -34,5 +36,9 @@ class FleaCollectionRepositoryTest {
         judgeCollectionDto.setGoodsId(38L);
         judgeCollectionDto.setUserId(8L);
         System.out.println(collectionRepository.judgeCollection(judgeCollectionDto).size());
+    }
+
+    @Test
+    void testGetCollection() {
     }
 }
