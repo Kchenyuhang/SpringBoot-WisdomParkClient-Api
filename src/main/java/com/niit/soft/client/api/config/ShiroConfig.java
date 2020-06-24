@@ -48,6 +48,10 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/webjars/**", "anon");
         filterChainDefinitionMap.put("/v2/**", "anon");
         filterChainDefinitionMap.put("/swagger-resources/**", "anon");
+        filterChainDefinitionMap.put("/company/**", "anon");
+        filterChainDefinitionMap.put("/job/**", "anon");
+        filterChainDefinitionMap.put("/jobType/**", "anon");
+        filterChainDefinitionMap.put("/partJob/**", "anon");
 
         filterChainDefinitionMap.put("/show", "anon");
         filterChainDefinitionMap.put("/qq/oauth", "anon");

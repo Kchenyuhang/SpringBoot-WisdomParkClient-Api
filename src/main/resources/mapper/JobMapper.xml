@@ -64,7 +64,7 @@
         FROM job j
                  LEFT JOIN company c ON j.company_id = c.pk_company_id
                  LEFT JOIN job_type t ON j.job_type_id = t.pk_job_type_id
-        WHERE j.pk_job_id = #{id}
+        WHERE j.is_deleted = 0 AND j.pk_job_id = #{id}
     </select>
 
     <select id="jobList" resultMap="JobVo">
@@ -87,6 +87,7 @@
                            ON j.company_id = c.pk_company_id
                  LEFT JOIN job_type t
                            ON j.job_type_id = t.pk_job_type_id
+        WHERE j.is_deleted = 0
         ORDER BY ${field} DESC
         LIMIT #{currentPage}, #{pageSize}
     </select>
@@ -110,7 +111,7 @@
                            ON j.company_id = c.pk_company_id
                  LEFT JOIN job_type t
                            ON j.job_type_id = t.pk_job_type_id
-        WHERE job_type_id = #{field}
+        WHERE j.is_deleted = 0 AND j.job_type_id = #{field}
         ORDER BY max DESC
         LIMIT #{currentPage}, #{pageSize}
     </select>
@@ -134,7 +135,7 @@
                            ON j.company_id = c.pk_company_id
                  LEFT JOIN job_type t
                            ON j.job_type_id = t.pk_job_type_id
-        WHERE j.name LIKE CONCAT('%', #{field}, '%')
+        WHERE j.is_deleted = 0 AND j.name LIKE CONCAT('%', #{field}, '%')
         ORDER BY max DESC
         LIMIT #{currentPage}, #{pageSize}
     </select>
