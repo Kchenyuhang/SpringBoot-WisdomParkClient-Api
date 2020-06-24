@@ -5,7 +5,7 @@ import com.niit.soft.client.api.annotation.ControllerWebLog;
 import com.niit.soft.client.api.service.AliPayService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,7 +31,7 @@ public class AliPayController {
      * @throws AlipayApiException
      */
     @ApiOperation("支付接口")
-    @PostMapping(value = "alipay/toPay")
+    @GetMapping(value = "alipay/toPay")
     @ControllerWebLog(name = "AliPay", isSaved = true)
     public String AliPay(@RequestParam("amount") Double amount,
                         @RequestParam("jobNumber") String jobNumber,
@@ -46,7 +46,7 @@ public class AliPayController {
      * @return
      */
     @ApiOperation("支付异步通知接口")
-    @PostMapping("alipay/notify_url")
+    @GetMapping("alipay/notify_url")
     @ControllerWebLog(name = "notifyAliPay", isSaved = true)
     public String notifyAliPay() {
         return " a li pay notify ";
@@ -58,7 +58,7 @@ public class AliPayController {
      * @return
      */
     @ApiOperation("支付完成以后的回调接口")
-    @PostMapping("alipay/return_url")
+    @GetMapping("alipay/return_url")
     @ControllerWebLog(name = "returnAliPay", isSaved = true)
     public String returnAliPay() {
         return " a li pay return ";
