@@ -24,6 +24,7 @@ public interface FleaCommentRepository extends JpaRepository<FleaComment, Long> 
     /**
      * 查询所有
      *
+     * @param fleaRewardDto FleaRewardDto
      * @return List<FleaComment>
      */
     @Query(value = "select new com.niit.soft.client.api.domain.vo.FleaCommentVo(c.pkFleaCommentId,r.nickname,b.nickname,c.comment,f.title,c.createTime,b.avatar)" +

@@ -1,4 +1,3 @@
-
 package com.niit.soft.client.api.config;
 
 import com.niit.soft.client.api.filter.JwtFilter;
@@ -23,7 +22,7 @@ import java.util.Map;
  * @Date 2020/5/24 9:55
  * @Version 1.0
  **/
-//@Configuration
+@Configuration
 public class ShiroConfig {
 
     /**
@@ -44,14 +43,23 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/user/password", "anon");
         filterChainDefinitionMap.put("/sendCode", "anon");
         filterChainDefinitionMap.put("/verifyCode", "anon");
+        //swagger接口权限 开放
         filterChainDefinitionMap.put("/doc.html", "anon");
+        filterChainDefinitionMap.put("/webjars/**", "anon");
+        filterChainDefinitionMap.put("/v2/**", "anon");
+        filterChainDefinitionMap.put("/swagger-resources/**", "anon");
+
         filterChainDefinitionMap.put("/show", "anon");
         filterChainDefinitionMap.put("/qq/oauth", "anon");
         filterChainDefinitionMap.put("/connect", "anon");
         filterChainDefinitionMap.put("/index", "anon");
         filterChainDefinitionMap.put("/home", "anon");
         filterChainDefinitionMap.put("/wechat/openid", "anon");
+        filterChainDefinitionMap.put("/alipay/toPay", "anon");
+        filterChainDefinitionMap.put("/alipay/notify_url", "anon");
+        filterChainDefinitionMap.put("/alipay/return_url", "anon");
 
+        filterChainDefinitionMap.put("/dynamic/**", "anon");
 
 
         //添加自己的过滤器并取名为jwt

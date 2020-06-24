@@ -1,7 +1,6 @@
 package com.niit.soft.client.api.service;
 
 import com.alipay.api.AlipayApiException;
-import com.niit.soft.client.api.domain.dto.AlipayDto;
 
 /**
  * @ClassName AliPayService
@@ -11,6 +10,9 @@ import com.niit.soft.client.api.domain.dto.AlipayDto;
  **/
 public interface AliPayService {
 
-    String AliPay(AlipayDto alipayDto) throws AlipayApiException;
+    String AliPay( Double amount,
+             String jobNumber,
+             String rechargeType,
+             Integer regexId) throws AlipayApiException;
 
 }

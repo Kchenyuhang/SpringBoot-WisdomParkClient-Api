@@ -18,8 +18,14 @@ import org.springframework.transaction.annotation.Transactional;
  */
 public interface FleaOrderRepository extends JpaRepository<FleaOrder, String> {
 
+    /**
+     * 逻辑删除
+     *
+     * @param fleaOrderDto FleaOrderDto
+     * @return int
+     */
     @Modifying
-    @Transactional
+    @Transactional(rollbackFor = RuntimeException.class)
     @Query("update FleaOrder set isDeleted = 1 where fleaGoods.pkFleaGoodsId =:#{#fleaOrderDto.getFleaGoodsPkFleaGoodsId()} and fleaUserBuyer.pkFleaUserId =:#{#fleaOrderDto.getFleaUserBuyerPkFleaUserId()}")
     int logicalDel(@Param("fleaOrderDto") FleaOrderDto fleaOrderDto);
 }

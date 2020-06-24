@@ -2,9 +2,9 @@ package com.niit.soft.client.api.service.impl.schoolmate;
 
 import com.niit.soft.client.api.common.ResponseResult;
 import com.niit.soft.client.api.common.ResultCode;
-import com.niit.soft.client.api.domain.dto.DynamicCollectionDto;
-import com.niit.soft.client.api.domain.dto.DynamicCollectionInDto;
 import com.niit.soft.client.api.domain.dto.PageDto;
+import com.niit.soft.client.api.domain.dto.schoolmate.DynamicCollectionDto;
+import com.niit.soft.client.api.domain.dto.schoolmate.DynamicCollectionInDto;
 import com.niit.soft.client.api.domain.model.schoolmate.Collections;
 import com.niit.soft.client.api.mapper.schoolmate.CollectionsMapper;
 import com.niit.soft.client.api.repository.schoolmate.CollectionsRepository;
