@@ -1,3 +1,4 @@
+
 package com.niit.soft.client.api.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -5,7 +6,6 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.niit.soft.client.api.domain.dto.JobPageDto;
-import com.niit.soft.client.api.domain.dto.PageDto;
 import com.niit.soft.client.api.domain.model.PartJob;
 import com.niit.soft.client.api.mapper.PartJobMapper;
 import com.niit.soft.client.api.service.PartJobService;
@@ -24,6 +24,7 @@ import java.util.List;
  * @Version 1.0
  **/
 @Service
+//@CacheConfig(cacheNames = {""})
 public class PartJobServiceImpl extends ServiceImpl<PartJobMapper, PartJob> implements PartJobService {
 
     @Resource
@@ -31,24 +32,26 @@ public class PartJobServiceImpl extends ServiceImpl<PartJobMapper, PartJob> impl
 
 
     @Override
+//    @Cacheable(cacheNames = { "partTimeJobList" }, key = "#jobPageDto+1")
     public List<PartJob> findByPage(JobPageDto jobPageDto) {
         QueryWrapper<PartJob> wrapper = new QueryWrapper<>();
         IPage<PartJob> page = new Page<>(jobPageDto.getCurrentPage(), jobPageDto.getPageSize());
-        wrapper.select("pk_part_job_id", "name", "boss_name", "boss_phone", "boss_avatar", "workplace", "working_date", "working_time", "pay", "job_type", "number", "have", "need", "gmt_create").eq("is_deleted", 0);
-        if ("pay".equals(jobPageDto.getField())) {
+        wrapper.select("pk_part_job_id","name","boss_name","boss_phone","boss_avatar","workplace","working_date","working_time","pay","job_type","number","have","need","gmt_create").eq("is_deleted", 0);
+        if ("pay".equals(jobPageDto.getField())){
             wrapper.orderByDesc(jobPageDto.getField().toString());
-        } else if ("gmt_create".equals(jobPageDto.getField())) {
+        }else if ("gmt_create".equals(jobPageDto.getField())){
             wrapper.orderByDesc(jobPageDto.getField().toString());
-        } else {
+        }else {
             wrapper.eq("job_type", jobPageDto.getField()).orderByDesc("pay");
         }
         return partJobMapper.selectPage(page, wrapper).getRecords();
     }
 
     @Override
+//    @Cacheable(cacheNames = { "partTimeJobDetail" }, key = "#id")
     public PartJob findById(Long id) {
         QueryWrapper<PartJob> wrapper = new QueryWrapper<>();
-        wrapper.select("pk_part_job_id", "name", "description", "boss_id", "boss_name", "boss_phone", "boss_avatar", "workplace", "working_date", "working_time", "pay", "pay_type", "job_type", "number", "have", "need", "gmt_create").eq("is_deleted", 0).eq("pk_part_job_id", id);
+        wrapper.select("pk_part_job_id","name","description","boss_id","boss_name","boss_phone","boss_avatar","workplace","working_date","working_time","pay","pay_type","job_type","number","have","need","gmt_create").eq("is_deleted", 0).eq("pk_part_job_id",id);
         return partJobMapper.selectOne(wrapper);
 
     }
@@ -62,12 +65,14 @@ public class PartJobServiceImpl extends ServiceImpl<PartJobMapper, PartJob> impl
     }
 
     @Override
+//    @Cacheable(cacheNames = { "partTimeJobKeyword" }, key = "#jobPageDto")
     public List<PartJob> findByKeyword(JobPageDto jobPageDto) {
         QueryWrapper<PartJob> wrapper = new QueryWrapper<>();
         IPage<PartJob> page = new Page<>(jobPageDto.getCurrentPage(), jobPageDto.getPageSize());
-        wrapper.select("pk_part_job_id", "name", "boss_name", "boss_phone", "boss_avatar", "workplace", "working_date", "working_time", "pay", "job_type", "number", "have", "need", "gmt_create").eq("is_deleted", 0).like("name", jobPageDto.getField()).orderByDesc("pay");
-        return partJobMapper.selectPage(page, wrapper).getRecords();
+        wrapper.select("pk_part_job_id","name","boss_name","boss_phone","boss_avatar","workplace","working_date","working_time","pay","job_type","number","have","need","gmt_create").eq("is_deleted", 0).like("name", jobPageDto.getField()).orderByDesc("pay");
+        return partJobMapper.selectPage(page,wrapper).getRecords();
     }
 
 
 }
+

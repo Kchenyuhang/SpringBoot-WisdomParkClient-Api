@@ -74,6 +74,20 @@ public class FleaController {
     }
 
     /**
+     * 查找四个
+     *
+     * @return ResponseResult
+     */
+    @ApiOperation(value = "查询四个分类", notes = "二级分类")
+    @PostMapping("type/top4")
+    @ControllerWebLog(name = "findtop4Type", isSaved = true)
+    ResponseResult findtop4Type() {
+        return ResponseResult.success(fleaTypeService.findTopType());
+    }
+
+
+
+    /**
      * 查找所有悬赏
      *
      * @return ResponseResult

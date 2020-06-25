@@ -1,3 +1,4 @@
+
 package com.niit.soft.client.api.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -5,7 +6,6 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.niit.soft.client.api.domain.dto.JobPageDto;
-import com.niit.soft.client.api.domain.dto.PageDto;
 import com.niit.soft.client.api.domain.model.Company;
 import com.niit.soft.client.api.domain.vo.CompanyVo;
 import com.niit.soft.client.api.mapper.CompanyMapper;
@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+
 
 /**
  * @author su
@@ -32,10 +33,10 @@ public class CompanyServiceImpl extends ServiceImpl<CompanyMapper, Company> impl
     public List<Company> findByPage(JobPageDto jobPageDto) {
         QueryWrapper<Company> wrapper = new QueryWrapper<>();
 
-        if ("workers".equals(jobPageDto.getField())) {
-            wrapper.select("pk_company_id", "name", "tag", "logo", "workers", "type", "address").orderByDesc("workers");
-        } else {
-            wrapper.select("pk_company_id", "name", "tag", "logo", "workers", "type", "address").like("name", jobPageDto.getField().toString()).orderByDesc("workers");
+        if ("workers".equals(jobPageDto.getField())){
+            wrapper.select("pk_company_id","name","tag","logo","workers","type","address").eq("is_deleted", 0).orderByDesc("workers");
+        }else {
+            wrapper.select("pk_company_id","name","tag","logo","workers","type","address").eq("is_deleted", 0).like("name",jobPageDto.getField().toString()).orderByDesc("workers");
         }
         IPage<Company> page = new Page<>(jobPageDto.getCurrentPage(), jobPageDto.getPageSize());
         return companyMapper.selectPage(page, wrapper).getRecords();
@@ -47,3 +48,4 @@ public class CompanyServiceImpl extends ServiceImpl<CompanyMapper, Company> impl
     }
 
 }
+

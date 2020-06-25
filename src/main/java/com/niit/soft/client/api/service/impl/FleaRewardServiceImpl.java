@@ -72,7 +72,8 @@ public class FleaRewardServiceImpl implements FleaRewardService {
                 .fleaUser(fleaUserRepository.getOne(fleaRewardDto.getFleaUserId()))
                 .createTime(Timestamp.valueOf(LocalDateTime.now()))
                 .isDeleted(false).build();
-        return ResponseResult.success(fleaRewardRepository.save(fleaReward));
+        fleaRewardRepository.save(fleaReward);
+        return ResponseResult.success();
     }
 
     @Override

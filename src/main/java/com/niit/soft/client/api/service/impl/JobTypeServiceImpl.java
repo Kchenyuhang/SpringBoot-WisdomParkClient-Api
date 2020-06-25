@@ -1,3 +1,4 @@
+
 package com.niit.soft.client.api.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -13,6 +14,8 @@ import javax.annotation.Resource;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
+
+
 
 /**
  * @author su
@@ -46,7 +49,8 @@ public class JobTypeServiceImpl extends ServiceImpl<JobTypeMapper, JobType> impl
     @Override
     public List<JobType> findType() {
         QueryWrapper<JobType> wrapper = new QueryWrapper<>();
-        wrapper.select("pk_job_type_id", "name");
+        wrapper.select("pk_job_type_id","name").eq("is_deleted", 0);
         return jobTypeMapper.selectList(wrapper);
     }
 }
+
