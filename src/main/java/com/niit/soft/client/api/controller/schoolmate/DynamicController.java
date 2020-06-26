@@ -6,10 +6,8 @@ import com.niit.soft.client.api.domain.dto.PageDto;
 import com.niit.soft.client.api.domain.dto.schoolmate.*;
 import com.niit.soft.client.api.domain.model.schoolmate.Dynamic;
 import com.niit.soft.client.api.domain.vo.schoolmate.DynamicVo;
-import com.niit.soft.client.api.service.schoolmate.CollectionsService;
-import com.niit.soft.client.api.service.schoolmate.CommentService;
-import com.niit.soft.client.api.service.schoolmate.DynamicService;
-import com.niit.soft.client.api.service.schoolmate.ReplyCommentService;
+import com.niit.soft.client.api.service.schoolmate.*;
+import com.niit.soft.client.api.util.RedisUtil;
 import com.niit.soft.client.api.util.SentimentClassify;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -47,6 +45,12 @@ public class DynamicController {
 
     @Resource
     private CollectionsService collectionsService;
+
+    @Resource
+    private FriendService friendService;
+
+    @Resource
+    private RedisUtil redisUtil;
 
     @PostMapping("/")
     @ControllerWebLog(name = "findDynamicVoById", isSaved = true)
@@ -207,5 +211,19 @@ public class DynamicController {
         return ResponseResult.success(SentimentClassify.sentimentStatus(stringDto.getText()));
     }
 
+    @ControllerWebLog(name = "recommendFriends", isSaved = true)
+    @ApiOperation(value = "推荐好友", notes = "参数为好友id和动态标签")
+    @PostMapping(value = "/friend")
+    public ResponseResult recommendFriends(@RequestBody FriendDto friendDto) {
+        return ResponseResult.success(friendService.recommendFriends(friendDto.getUserId(), friendDto.getTag()));
+    }
+
+    @ControllerWebLog(name = "embedding", isSaved = true)
+    @ApiOperation(value = "埋包", notes = "参数为好友id和动态标签")
+    @PostMapping(value = "/embedding")
+    public ResponseResult embedding(@RequestBody FriendDto friendDto) {
+        friendService.embedding(friendDto.getUserId(), friendDto.getTag());
+        return ResponseResult.success();
+    }
 
 }
