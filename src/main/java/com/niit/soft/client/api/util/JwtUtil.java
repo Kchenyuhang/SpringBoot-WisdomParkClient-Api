@@ -70,7 +70,7 @@ public class JwtUtil {
      */
     public static String sign(String userAccount, String password) throws UnsupportedEncodingException {
         Date date = new Date(System.currentTimeMillis() + EXPIRE_TIME);
-        Algorithm algorithm = Algorithm.HMAC256(password);
+        Algorithm algorithm = Algorithm.HMAC256(Md5Util.getMd5(password, true, 32));
         //附带userAccount信息
         return JWT.create().withClaim("userAccount", userAccount)
                 .withExpiresAt(date)
