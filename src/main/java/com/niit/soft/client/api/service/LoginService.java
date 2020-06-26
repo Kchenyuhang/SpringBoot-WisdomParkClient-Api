@@ -21,7 +21,7 @@ public interface LoginService {
      * @param
      * @return 返回用户信息
      */
-    Long findIdByLoginDto(String userAccount, String password);
+    String findIdByLoginDto(String userAccount, String password);
 
 
     ResponseResult login(LoginDto loginDto) throws UnsupportedEncodingException;
