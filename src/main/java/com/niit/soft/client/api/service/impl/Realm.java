@@ -75,6 +75,7 @@ public class Realm extends AuthorizingRealm {
             log.error("用户名或密码错误(token无效)");
             throw new AuthenticationException("用户名或密码错误(token无效)");
         }
+
         return new SimpleAuthenticationInfo(token, token, "realm");
     }
 }

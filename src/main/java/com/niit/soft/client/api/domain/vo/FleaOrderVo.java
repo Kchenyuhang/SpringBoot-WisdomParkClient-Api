@@ -1,5 +1,6 @@
 package com.niit.soft.client.api.domain.vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,6 +23,7 @@ public class FleaOrderVo {
     private Double goodsPrice;
     private String goodsSeller;
     private String goodsBuyer;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date orderCreateTime;
     private String goodsDescription;
     private String goodsMark;
