@@ -76,4 +76,21 @@ public class JwtUtil {
                 .withExpiresAt(date)
                 .sign(algorithm);
     }
+
+    /**
+     * 生成token签名EXPIRE_TIME 分钟后过期
+     *用于验证码生成token
+     * @param userAccount 用户名
+     * @param password    用户密码
+     * @return 加密的token
+     * @throws UnsupportedEncodingException
+     */
+    public static String sign2(String userAccount, String password) throws UnsupportedEncodingException {
+        Date date = new Date(System.currentTimeMillis() + EXPIRE_TIME);
+        Algorithm algorithm = Algorithm.HMAC256(password);
+        //附带userAccount信息
+        return JWT.create().withClaim("userAccount", userAccount)
+                .withExpiresAt(date)
+                .sign(algorithm);
+    }
 }

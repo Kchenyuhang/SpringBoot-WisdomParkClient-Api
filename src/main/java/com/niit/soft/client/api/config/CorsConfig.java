@@ -31,11 +31,11 @@ public class CorsConfig {
         List<String> allowedRequestMethods = Arrays.asList(requestMethods);
         config.setAllowedMethods(allowedRequestMethods);
         //允许的客户端请求头列表
-        String[] requestHeaders = {"x-requested-with", "Content-Type", "Access-Token", "Authorization", "id","Token"};
+        String[] requestHeaders = {"x-requested-with", "Content-Type", "Access-Token", "id","Token"};
         List<String> allowedHeaders = Arrays.asList(requestHeaders);
         config.setAllowedHeaders(allowedHeaders);
         //允许的响应头列表
-        String[] responseHeaders = {"Access-Control-Expose-Headers", "Access-Token", "Access-Control-Allow-Origin"};
+        String[] responseHeaders = {"Access-Control-Expose-Headers", "Access-Token", "Token"};
         List<String> allowedExposedHeaders = Arrays.asList(responseHeaders);
         config.setExposedHeaders(allowedExposedHeaders);
         source.registerCorsConfiguration("/**", config);

@@ -53,7 +53,7 @@ public class LoginServiceImpl implements LoginService {
             log.info(userAccountService.findUserAccountById(String.valueOf(id)).toString());
             //创建返回的数据
             Map map = new HashedMap();
-            map.put("UserAccount", userAccountService.findUserAccountById(String.valueOf(id)));
+            map.put("UserAccount", userAccountService.findUserAccountById(id));
             map.put("token", JwtUtil.sign(loginDto.getUserAccount(), loginDto.getPassword()));
             log.info("生成的token{}", map.get("token"));
             return ResponseResult.success(map);
@@ -70,7 +70,7 @@ public class LoginServiceImpl implements LoginService {
             log.info(userAccount.toString());
             Map map = new HashedMap();
             map.put("UserAccount", userAccount);
-            map.put("token", JwtUtil.sign(userAccount.getUserAccount(), userAccount.getPassword()));
+            map.put("token", JwtUtil.sign2(userAccount.getUserAccount(), userAccount.getPassword()));
             log.info("生成的token{}", map.get("token"));
             return ResponseResult.success(map);
         }

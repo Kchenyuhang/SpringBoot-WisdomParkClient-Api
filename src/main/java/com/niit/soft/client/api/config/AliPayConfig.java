@@ -48,9 +48,9 @@ public class AliPayConfig {
      * 移动h5
      */
     // 服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，其实就是你的一个支付完成后返回的页面URL
-    public static String notify_url2 = "********************************************";
+    public static String notify_url2 = "http://192.168.43.180:8088/#/metrocard";
     // 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，其实就是你的一个支付完成后返回的页面URL
-    public static String return_url2 = "********************************************";
+    public static String return_url2 = "http://192.168.43.180:8088/#/metrocard";
 
 
     //    // 签名方式
