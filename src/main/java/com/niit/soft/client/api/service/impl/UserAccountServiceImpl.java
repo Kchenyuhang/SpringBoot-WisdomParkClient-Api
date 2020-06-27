@@ -42,8 +42,7 @@ public class UserAccountServiceImpl implements UserAccountService {
 
     @Override
     public int updatePasswordByUserAccount(String userAccount, String password) {
-//        return userAccountRepository.updatePasswordByUserAccount(userAccount, Md5Util.getMd5(password, true, 32));
-        return userAccountRepository.updatePasswordByUserAccount(userAccount, password);
+        return userAccountRepository.updatePasswordByUserAccount(userAccount, Md5Util.getMd5(password, true, 32));
     }
 
     @Override

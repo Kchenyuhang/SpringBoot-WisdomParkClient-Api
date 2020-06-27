@@ -33,8 +33,8 @@ public interface UserAccountRepository extends JpaRepository<UserAccount, String
      * @param userAccount, password
      * @return
      */
-    @Query(value = "select pk_user_account_id from user_account as u where u.job_number=?1 and u.password=?2 or u.user_account=?1 and u.password=?2 or u.phone_number=?1 and u.password=?2", nativeQuery = true)
-    Long findIdByLoginDto(String userAccount, String password);
+    @Query(value = "select pk_user_account_id from user_account as u where u.job_number=?1 and u.password=?2 and status=0 or u.user_account=?1 and status=0 and u.password=?2 and status=0 or u.phone_number=?1 and u.password=?2 and status=0", nativeQuery = true)
+    String findIdByLoginDto(String userAccount, String password);
 
     /**
      * 根据手机号码查询用户数据
