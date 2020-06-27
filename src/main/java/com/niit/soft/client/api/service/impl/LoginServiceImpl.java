@@ -39,15 +39,13 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public Long findIdByLoginDto(String userAccount, String password) {
         log.info(userAccount + "*****" + password);
-        log.info("查询id{}", userAccountRepository.findIdByLoginDto(userAccount, password));
-        return userAccountRepository.findIdByLoginDto(userAccount, password);
-//        return userAccountRepository.findIdByLoginDto(userAccount, Md5Util.getMd5(password, true, 32));
+        log.info("查询id{}", userAccountRepository.findIdByLoginDto(userAccount, Md5Util.getMd5(password, true, 32)));
+        return userAccountRepository.findIdByLoginDto(userAccount, Md5Util.getMd5(password, true, 32));
     }
 
     @Override
     public ResponseResult login(LoginDto loginDto) throws UnsupportedEncodingException {
         //如果查到数据，返回用户数据
-//        Long id = this.findIdByLoginDto(loginDto.getUserAccount(), Md5Util.getMd5(loginDto.getPassword(), true, 32));
         Long id = this.findIdByLoginDto(loginDto.getUserAccount(), loginDto.getPassword());
 
         if (id != 0) {

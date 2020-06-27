@@ -254,7 +254,35 @@ public class DynamicServiceImpl implements DynamicService {
 
     @Override
     public CommentVo findCommentVoById(String id) {
-        return commentMapper.findCommentVoById(id);
+        CommentVo commentVoById = commentMapper.findCommentVoById(id);
+        // 查询动态用户信息
+        String userId = commentVoById.getUserId();
+        if (userId != null) {
+            UserAccount userAccountByInfo = userAccountRepository.findUserAccountByInfo(userId);
+            commentVoById.setAvatar(userAccountByInfo.getAvatar());
+            commentVoById.setNickname(userAccountByInfo.getNickname());
+        }
+        List<ReplyCommentVo> replyCommentVos = new ArrayList<>(10);
+        for (ReplyComment replyComment : commentVoById.getReplyComments()) {
+            ReplyComment pk_reply_comment_id = replyCommentService.getOne(
+                    new QueryWrapper<ReplyComment>().eq("pk_reply_comment_id", replyComment.getPkReplyCommentId()));
+            String userId2 = replyComment.getUserId();
+            UserAccount userAccountByInfo1 = userAccountRepository.findUserAccountByInfo(userId2);
+            String avatar1 = userAccountByInfo1.getAvatar();
+            String nickname1 = userAccountByInfo1.getNickname();
+            replyCommentVos.add(ReplyCommentVo.builder()
+                    .avatar(avatar1)
+                    .nickname(nickname1)
+                    .pkReplyCommentId(pk_reply_comment_id.getPkReplyCommentId())
+                    .userId(userId2)
+                    .isDeleted(pk_reply_comment_id.getIsDeleted())
+                    .commentId(pk_reply_comment_id.getCommentId())
+                    .content(pk_reply_comment_id.getContent())
+                    .gmtCreate(pk_reply_comment_id.getGmtCreate())
+                    .gmtModified(pk_reply_comment_id.getGmtModified()).build());
+        }
+        commentVoById.setReplyCommentVos(replyCommentVos);
+        return commentVoById;
     }
 
     @Override
