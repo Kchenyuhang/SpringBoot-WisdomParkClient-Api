@@ -37,7 +37,7 @@ public class LoginServiceImpl implements LoginService {
     private SendSmsService sendSmsService;
 
     @Override
-    public Long findIdByLoginDto(String userAccount, String password) {
+    public String findIdByLoginDto(String userAccount, String password) {
         log.info(userAccount + "*****" + password);
         log.info("查询id{}", userAccountRepository.findIdByLoginDto(userAccount, Md5Util.getMd5(password, true, 32)));
         return userAccountRepository.findIdByLoginDto(userAccount, Md5Util.getMd5(password, true, 32));
@@ -46,9 +46,9 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public ResponseResult login(LoginDto loginDto) throws UnsupportedEncodingException {
         //如果查到数据，返回用户数据
-        Long id = this.findIdByLoginDto(loginDto.getUserAccount(), loginDto.getPassword());
+        String id = this.findIdByLoginDto(loginDto.getUserAccount(), loginDto.getPassword());
 
-        if (id != 0) {
+        if (id != null) {
             log.info("登录成功");
             log.info(userAccountService.findUserAccountById(String.valueOf(id)).toString());
             //创建返回的数据
