@@ -101,12 +101,13 @@ public class QQServiceImpl implements QQService {
             LoginAccount loginAccount = loginAccountRepository.getLoginAccountByQqOpenIdEquals(openid);
             UserAccount userAccount = userAccountRepository.findUserAccountByInfo(loginAccount.getJobNumber());
             log.info(">>>>>>>>>>>>>>>>>>>>" + userAccount.toString());
-            String redirectUrl = "http://101.37.31.188:8888/#/layout?jobNumber=" + userAccount.getJobNumber() + "&password=" + userAccount.getPassword();
+            String redirectUrl = "http://localhost:8088/#/layout?jobNumber=" + userAccount.getJobNumber() + "&password="+userAccount.getPassword();
             log.info(redirectUrl);
             return redirectUrl;
         }
-        String redirectUrl = "http://101.37.31.188:8888/#/base?openid=" + openid;
+        String redirectUrl = "http://localhost:8088/#/base?openid=" + openid;
         log.info(redirectUrl);
         return redirectUrl;
     }
 }
+

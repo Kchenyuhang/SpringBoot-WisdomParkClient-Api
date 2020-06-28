@@ -25,6 +25,7 @@ public interface LoginService {
 
 
     ResponseResult login(LoginDto loginDto) throws UnsupportedEncodingException;
+    ResponseResult qqLogin(LoginDto loginDto) throws UnsupportedEncodingException;
 
     /**
      * 手机验证码登录

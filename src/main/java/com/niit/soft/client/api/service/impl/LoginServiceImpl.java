@@ -62,6 +62,24 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override
+    public ResponseResult qqLogin(LoginDto loginDto) throws UnsupportedEncodingException {
+        //如果查到数据，返回用户数据
+        String id = this.findIdByLoginDto(loginDto.getUserAccount(), loginDto.getPassword());
+
+        if (id != null) {
+            log.info("登录成功");
+            log.info(userAccountService.findUserAccountById(id).toString());
+            //创建返回的数据
+            Map map = new HashedMap();
+            map.put("UserAccount", userAccountService.findUserAccountById(id));
+            map.put("token", JwtUtil.sign2(loginDto.getUserAccount(), loginDto.getPassword()));
+            log.info("生成的token{}", map.get("token"));
+            return ResponseResult.success(map);
+        }
+        return ResponseResult.failure(ResultCode.USER_ACCOUNT_PASSWORD_ERROR);
+    }
+
+    @Override
     public ResponseResult loginByPhone(VerifyPhoneDto verifyPhone) throws UnsupportedEncodingException {
         //如果查到数据，返回用户数据
         if (sendSmsService.verify(verifyPhone)) {
