@@ -57,6 +57,24 @@ public class LoginController {
         return loginDtoService.login(loginDto);
     }
 
+    /**
+     * 可以通过账号或学号或手机号 加 密码登录
+     *
+     * @param loginDto
+     * @return
+     * @throws UnsupportedEncodingException
+     */
+    @ApiOperation(value = "登录", notes = "可以通过账号或学号或手机号加密码登录")
+    @PostMapping("qqLogin")
+    @ControllerWebLog(name = "qqLogin", isSaved = true)
+    public ResponseResult qqLogin(@RequestBody LoginDto loginDto) throws UnsupportedEncodingException {
+        log.info("访问qqLogin接口");
+        log.info("loginDto{}", loginDto);
+        return loginDtoService.qqLogin(loginDto);
+    }
+
+
+
     @ControllerWebLog(name = "loginByPhone", isSaved = true)
     @ApiOperation(value = "手机验证码登录", notes = "请求参数为手机号 和  手机验证码 phoneNumber   verifyCode   ")
     @PostMapping("code/login")

@@ -24,6 +24,7 @@ import com.niit.soft.client.api.service.schoolmate.ReplyCommentService;
 import com.niit.soft.client.api.util.RedisUtil;
 import com.niit.soft.client.api.util.SnowFlake;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -221,6 +222,7 @@ public class DynamicServiceImpl implements DynamicService {
                 new QueryWrapper<Dynamic>().orderByDesc("gmt_create").eq("user_id", schoolmateUserPageDto.getId())).getRecords();
     }
 
+    @CachePut(value = RedisCacheKeyGeneratorConfig.COMMON, keyGenerator = RedisCacheKeyGeneratorConfig.DEFAULT_KEY_GENERATOR)
     @Override
     public Dynamic addOne(DynamicDto dynamicDto) {
         return dynamicRepository.save(Dynamic.builder()
@@ -234,6 +236,7 @@ public class DynamicServiceImpl implements DynamicService {
                 .isDeleted(false).build());
     }
 
+    @CachePut(value = RedisCacheKeyGeneratorConfig.COMMON, keyGenerator = RedisCacheKeyGeneratorConfig.DEFAULT_KEY_GENERATOR)
     @Override
     public ResponseResult addPhoto(List<DynamicPhotoDto> dynamicPhotoDtos) {
         ArrayList<DynamicPhoto> dynamicPhotos = new ArrayList<>();
@@ -285,6 +288,7 @@ public class DynamicServiceImpl implements DynamicService {
         return commentVoById;
     }
 
+    @CachePut(value = RedisCacheKeyGeneratorConfig.COMMON, keyGenerator = RedisCacheKeyGeneratorConfig.DEFAULT_KEY_GENERATOR)
     @Override
     public int deleteDynamicById(Dynamic dynamic) {
         UpdateWrapper<Dynamic> wrapper = new UpdateWrapper<>();

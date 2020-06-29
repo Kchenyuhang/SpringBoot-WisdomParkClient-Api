@@ -53,8 +53,26 @@ public class LoginServiceImpl implements LoginService {
             log.info(userAccountService.findUserAccountById(String.valueOf(id)).toString());
             //创建返回的数据
             Map map = new HashedMap();
-            map.put("UserAccount", userAccountService.findUserAccountById(String.valueOf(id)));
+            map.put("UserAccount", userAccountService.findUserAccountById(id));
             map.put("token", JwtUtil.sign(loginDto.getUserAccount(), loginDto.getPassword()));
+            log.info("生成的token{}", map.get("token"));
+            return ResponseResult.success(map);
+        }
+        return ResponseResult.failure(ResultCode.USER_ACCOUNT_PASSWORD_ERROR);
+    }
+
+    @Override
+    public ResponseResult qqLogin(LoginDto loginDto) throws UnsupportedEncodingException {
+        //如果查到数据，返回用户数据
+        String id = this.findIdByLoginDto(loginDto.getUserAccount(), loginDto.getPassword());
+
+        if (id != null) {
+            log.info("登录成功");
+            log.info(userAccountService.findUserAccountById(id).toString());
+            //创建返回的数据
+            Map map = new HashedMap();
+            map.put("UserAccount", userAccountService.findUserAccountById(id));
+            map.put("token", JwtUtil.sign2(loginDto.getUserAccount(), loginDto.getPassword()));
             log.info("生成的token{}", map.get("token"));
             return ResponseResult.success(map);
         }
@@ -70,7 +88,7 @@ public class LoginServiceImpl implements LoginService {
             log.info(userAccount.toString());
             Map map = new HashedMap();
             map.put("UserAccount", userAccount);
-            map.put("token", JwtUtil.sign(userAccount.getUserAccount(), userAccount.getPassword()));
+            map.put("token", JwtUtil.sign2(userAccount.getUserAccount(), userAccount.getPassword()));
             log.info("生成的token{}", map.get("token"));
             return ResponseResult.success(map);
         }
